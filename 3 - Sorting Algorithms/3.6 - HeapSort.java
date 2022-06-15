@@ -1,45 +1,84 @@
 //File Code: 3.6 - Searching Algorithms - Heap Sort
 
-//Code: Bubble sort in Java
+//Code: Heap sort in Java
 import java.util.Arrays;
 
-class BubbleSort {
-    void bubbleSort(int arr[]) {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++)
-            for (int j = 0; j < n - i - 1; j++)
-                if (arr[j] > arr[j + 1]) {
-                    // swap arr[j+1] and arr[j]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-    }
+class HeapSort {
+	public void sort(int arr[])
+	{
+		int n = arr.length;
 
-    public static void main(String args[]) {
-        BubbleSort ob = new BubbleSort();
-        int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
-        ob.bubbleSort(arr);
-        System.out.println("Sorted array");
-        System.out.println(Arrays.toString(arr));
-    }
+		// Build heap (rearrange array)
+		for (int i = n / 2 - 1; i >= 0; i--)
+			heapify(arr, n, i);
+
+		// One by one extract an element from heap
+		for (int i = n - 1; i > 0; i--) {
+			// Move current root to end
+			int temp = arr[0];
+			arr[0] = arr[i];
+			arr[i] = temp;
+
+			// call max heapify on the reduced heap
+			heapify(arr, i, 0);
+		}
+	}
+
+	// To heapify a subtree rooted with node i which is
+	// an index in arr[]. n is size of heap
+	void heapify(int arr[], int n, int i)
+	{
+		int largest = i; // Initialize largest as root
+		int l = 2 * i + 1; // left = 2*i + 1
+		int r = 2 * i + 2; // right = 2*i + 2
+
+		// If left child is larger than root
+		if (l < n && arr[l] > arr[largest])
+			largest = l;
+
+		// If right child is larger than largest so far
+		if (r < n && arr[r] > arr[largest])
+			largest = r;
+
+		// If largest is not root
+		if (largest != i) {
+			int swap = arr[i];
+			arr[i] = arr[largest];
+			arr[largest] = swap;
+
+			// Recursively heapify the affected sub-tree
+			heapify(arr, n, largest);
+		}
+	}
+	public static void main(String args[])
+	{
+		int arr[] = { 12, 11, 13, 5, 6, 7 };
+
+		HeapSort ob = new HeapSort();
+		ob.sort(arr);
+
+		System.out.println("Sorted array is");
+		System.out.println(Arrays.toString(arr));
+	}
 }
 
-// Time Complexity: {Best Case: O(n), Worst Case: O(n^2), Average Case: O(n^2)}
+
+// Time Complexity: {Best Case: O(nlog(n)), Worst Case: O(nlog(n)), Average Case: O(nlog(n))}
 // Space Complexity: O(1)
 
 // Explanation:
 /*
-Bubble sort is a sorting algorithm that compares two adjacent elements and swaps them until 
-they are not in the intended order. Just like the movement of air bubbles in the water that 
-rise up to the surface, each element of the array move to the end in each iteration. 
-Therefore, it is called a bubble sort.
+Heap sort is a comparison-based sorting technique based on Binary Heap data structure. It is 
+similar to selection sort where we first find the minimum element and place the minimum element
+at the beginning. We repeat the same process for the remaining elements.
  */
 
 // Algorithm:
 /*
- * Step 1 − Starting from the first index, compare the first and the second elements.
- * Step 2 − If the first element is greater than the second element, they are swapped.
- * Step 3 − Now, compare the second and the third elements. Swap them if they are not in order.
- * Step 4 − The above process goes on until the last element.
+Step 1 - Construct a Binary Tree with given list of Elements.
+Step 2 - Transform the Binary Tree into Min Heap.
+Step 3 - Delete the root element from Min Heap using Heapify method.
+Step 4 - Put the deleted element into the Sorted list.
+Step 5 - Repeat the same until Min Heap becomes empty.
+Step 6 - Display the sorted list.
  */
