@@ -1,7 +1,7 @@
 //File Code: 2.1 - Searching Algorithms - Linear Search
 
 //Code:
-public class LinearSearch {
+class LinearSearch {
     public static int linearSearch(int arr[], int x) {
         int n = arr.length;
         for (int i = 0; i < n; i++) {
