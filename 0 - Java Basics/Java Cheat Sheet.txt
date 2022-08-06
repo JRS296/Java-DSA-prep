@@ -3,9 +3,29 @@ Initialize Array:
 int[] name = new int[_size_];
 int[][] name = new int[_size_][_size_];
 
+Print Array as String:
+System.out.println(Arrays.toString(_array_name_)); //use Arrays.deepToString() for 2D arrays
+
 Collections:
 
 Collections.sort(_Collection_name_);
+
+Array to ArrayList: List<String> al = new ArrayList<String>(Arrays.asList(geeks));
+(or)
+Collections.addAll(_ArrayList_name_ , _array_name_)
+(or)
+for (String geek : geeks)
+    al.add(geek);
+
+ArrayList to Arrys: 
+int [] arr = new int[al.size()];
+arr = al.toArray(arr);
+(or)
+for (int i = 0; i < al.size(); i++)
+            arr[i] = al.get(i);
+
+Initialize ArrayList with 0's: List<Integer> list = new ArrayList<Integer>(Collections.nCopies(60, 0));
+Initialize Array with 0's: Integer[] arr = Collections.nCopies(3, 42).toArray(new Integer[0]);
 
 1) Lists
 1.1) ArrayLists: List<_type_> name = new ArrayList<_type_>(_size_); 
