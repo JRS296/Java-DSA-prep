@@ -2,6 +2,8 @@ Initialize Array:
 
 int[] name = new int[_size_];
 int[][] name = new int[_size_][_size_];
+int row = name.length;
+int col = name[0].length; Size of row and col in an array.
 
 Print Array as String:
 System.out.println(Arrays.toString(_array_name_)); //use Arrays.deepToString() for 2D arrays
@@ -26,6 +28,9 @@ for (int i = 0; i < al.size(); i++)
 
 Initialize ArrayList with 0's: List<Integer> list = new ArrayList<Integer>(Collections.nCopies(60, 0));
 Initialize Array with 0's: Integer[] arr = Collections.nCopies(3, 42).toArray(new Integer[0]);
+
+Initialize 2D ArrayList as List:
+List<List<Integer>> ret = new ArrayList<List<Integer>>(); NOT List<List<Integer>> ret = new ArrayList<ArrayList<Integer>>();
 
 1) Lists
 1.1) ArrayLists: List<_type_> name = new ArrayList<_type_>(_size_); 
