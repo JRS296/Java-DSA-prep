@@ -1,0 +1,2 @@
+1) String To Integer: int i=Integer.parseInt("200");  
+                      Integer i=Integer.valueOf(s);  //Coverts into Integer object, NOT int
