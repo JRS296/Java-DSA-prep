@@ -30,4 +30,23 @@ class JavaCheatSheet {
 
     char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Simple Way to Create Char Array
     char[] number = "0123456789".toCharArray(); 
+
+    public static String reverse(String str) 
+    { //Two pointer technique
+        if(str == null || str.isEmpty()){ return str; } 
+        char[] characters = str.toCharArray(); 
+        int i = 0; int j = characters.length - 1; 
+        while (i < j) { swap(characters, i, j); i++; j--; } 
+        return new String(characters); 
+    }
+
+    private static void swap(char[] str, int i, int j) { char temp = str[i]; str[i] = str[j]; str[j] = temp; }
+
+    public int length(String s)    {
+        int ans = 0;
+        for(char x : s.toCharArray())
+        {ans++;}
+        return ans;
+    }
 }
+
