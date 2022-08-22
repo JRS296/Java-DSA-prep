@@ -15,3 +15,9 @@ class StringBuilder_exp {
 //like StringBuilder. The below code runs in O(n) complexity.
 
 //Normal methods to concatenate is O(n^2), so beware
+
+/*
+ * Other String BUilder Functions:
+ * append()
+ * delete()
+ */

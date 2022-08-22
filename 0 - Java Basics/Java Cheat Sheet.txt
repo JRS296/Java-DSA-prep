@@ -10,7 +10,10 @@ System.out.println(Arrays.toString(_array_name_)); //use Arrays.deepToString() f
 
 Collections:
 
-Collections.sort(_Collection_name_);
+Collections.sort(_Collection_name_); - Does it in O(nlogn) time
+Likewise, Arrays.sort() - in O(nlogn) time
+
+Collections.max (or) Collections.min - returns max/min of Collection (Arrays.min/max does not exist, convert to collection)
 
 Array to ArrayList: List<String> al = new ArrayList<String>(Arrays.asList(geeks));
 (or)
