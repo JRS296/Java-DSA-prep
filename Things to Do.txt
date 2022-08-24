@@ -1,0 +1,7 @@
+Things to Do:
+
+1) Find Optimal way to create subarrays 
+2) Finish Txt file for Collections + Study
+3) Finish Txt File for Arrays
+4) Suffix Trees, Quick Select Sort, KMP Algo 
+5) Quick Sort, Merge Sort and Binary Search - Thoroughly
