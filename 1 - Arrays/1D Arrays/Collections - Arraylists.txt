@@ -1,0 +1,55 @@
+Collections:
+
+Collections.sort(_Collection_name_); - Does it in O(nlogn) time
+Likewise, Arrays.sort() - in O(nlogn) time
+
+Collections.max (or) Collections.min - returns max/min of Collection (Arrays.min/max does not exist, convert to collection)
+
+Array to ArrayList: List<String> al = new ArrayList<String>(Arrays.asList(geeks));
+(or)
+Collections.addAll(_ArrayList_name_ , _array_name_)
+(or)
+for (String geek : geeks)
+    al.add(geek);
+
+ArrayList to Arrys: 
+int [] arr = new int[al.size()];
+arr = al.toArray(arr);
+(or)
+for (int i = 0; i < al.size(); i++)
+            arr[i] = al.get(i);
+
+Initialize ArrayList with 0's: List<Integer> list = new ArrayList<Integer>(Collections.nCopies(60, 0));
+
+1) Lists
+1.1) ArrayLists: List<_type_> name = new ArrayList<_type_>(_size_); 
+_size_ - if present
+_type_ - Can be normal data types or even objects
+
+1.2) LinkedLists: List<_type_> name = new LinkedList<_type_>(_size_); 
+_size_ - if present
+_type_ - Can be normal data types or even objects
+
+Functions:
+Add(_x_) - Add element to end of List (O(n) - if Capacity is unknown, else O(1) for ArrayList, Always O(1) for LinkedList)
+Remove(_i_) - Remove Item at Index i (O(n - index), removing last is O(1) for ArrayList, O(n) for LinkedList)
+Get(_i_) - Get element at index i (O(n) for LinkedList, O(1) for Arraylist)
+Set(_i_, _x_) - Change Elemenet at Index i (O(n) for LinkedList, O(1) for ArrayList)
+_array_name_.indexOf(_element_) - returns index of element
+
+1.3) Vector - Same as ArrayList, but has Synchronization, therefore slower.
+Eg: Vector<_type_> name = new Vector<_type_>(_size_);
+
+1.4) Stack - Same as ArrayList/Vector, but has Synchronization, therefore slower. Has extra functions, and follows LIFO.
+Eg: Stack<_type_> stk = new Stack<_type_>(_size_);  
+
+<Synchronization> - Synchronization in java is the capability to control the access of multiple threads to any shared resource. 
+In the Multithreading concept, multiple threads try to access the shared resources at a time to produce inconsistent results. 
+The synchronization is necessary for reliable communication between threads.
+
+Functions:
+empty() - The method checks the stack is empty or not.
+push(E item) - The method pushes (insert) an element onto the top of the stack.
+pop() - The method removes an element from the top of the stack and returns the same element as the value of that function.
+peek() - The method looks at the top element of the stack without removing it.
+search(Object o) - The method searches the specified object and returns the position of the object.

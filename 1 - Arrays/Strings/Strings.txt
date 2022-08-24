@@ -1,4 +1,10 @@
 1) String To Integer: int i=Integer.parseInt("200");  
                       Integer i=Integer.valueOf(s);  //Coverts into Integer object, NOT int
 
-2) for (char ch: "xyz".toCharArray()) {} NOT for( char ch : "xyz"){}
+2) Integer to String: String.valueOf(i);
+                      Integer.toString(i);
+
+3) for (char ch: "xyz".toCharArray()) {} NOT for( char ch : "xyz"){}
+
+4) char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Simple Way to Create Char Array
+   char[] number = "0123456789".toCharArray(); 
