@@ -1,0 +1,41 @@
+In most cases, we will use the head node (the first node) to represent the whole list.
+
+Unlike the array, we are not able to access a random element in a singly-linked list in 
+constant time. If we want to get the ith element, we have to traverse from the head node 
+one by one. It takes us O(N) time on average to visit an element by index, where N is the 
+length of the linked list.
+
+*Importatnt*
+ - head points to the first node of the linked list
+ - next pointer of the last node is NULL, so if the next current node is NULL,
+ we have reached the end of the linked list.
+
+ - Steps for ADD Operation (Beginning) Time Complexity: O(1)
+ 1) Allocate memory for new node & Store data
+ 2) Change next of new node as head
+ 3) Change head to point to recently created node
+
+ - Steps for ADD Operation (END) Time Complexity: O(n) (or) O(1)
+ 1) Allocate memory for new node & Store data
+ 2) Traverse to last node (or) change next of new node to end pointer.
+ 3) Change next of last node to recently created node
+
+ - Steps for ADD Operation (Middle) Time Complexity: O(n)
+ 1) Allocate memory for new node & Store data
+ 2) Link the "next" field of cur to prev's next node next.
+ 3) Link the "next" field in prev to cur
+
+ *Unlike an array, we don’t need to move all elements past the inserted element.
+ Therefore, you can insert a new node into a linked list in O(1) time complexity
+ (only from start), which is very efficient.
+
+ - Steps for DELETE Operation (Beginning) Time Complexity: O(1)
+ 1) Assign next node after head as head.
+
+ - Steps for DELETE Operation (END) Time Complexity: O(n) (or) O(1)
+ 1) Assign prev node before end as end.
+
+ - Steps for DELETE Operation (Middle) Time Complexity: O(1)
+ 1) Find cur's previous node prev and its next node next.
+ 2) Link prev to cur's next node next.
+

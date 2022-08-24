@@ -5,3 +5,4 @@ Things to Do:
 3) Finish Txt File for Arrays
 4) Suffix Trees, Quick Select Sort, KMP Algo 
 5) Quick Sort, Merge Sort and Binary Search - Thoroughly
+6) implement Linked List
