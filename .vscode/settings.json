@@ -2,6 +2,7 @@
     "java.project.sourcePaths": [
         "2 - Searching Algorithms",
         "3 - Sorting Algorithms",
-        "1 - Arrays"
+        "1 - Arrays",
+        "6 - Linked Lists"
     ]
 }
