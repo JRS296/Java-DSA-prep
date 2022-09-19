@@ -39,3 +39,11 @@ length of the linked list.
  1) Find cur's previous node prev and its next node next.
  2) Link prev to cur's next node next.
 
+ Important:
+ 1) Always examine if the node is null before you call the next field: Getting 
+ the next node of a null node will cause the null-pointer error. For example,
+  before we run fast = fast.next.next, we need to examine both fast and fast.next
+   is not null.
+
+2) Carefully define the end conditions of your loop.
+
