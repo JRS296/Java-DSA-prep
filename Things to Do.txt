@@ -6,3 +6,4 @@ Things to Do:
 4) Suffix Trees, Quick Select Sort, KMP Algo 
 5) Quick Sort, Merge Sort and Binary Search - Thoroughly
 6) implement Linked List
+7) Prepare Notes for Linked Lists

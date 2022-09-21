@@ -1,3 +1,8 @@
+//GFG Links:
+/*
+1) Linked Lists: https://www.geeksforgeeks.org/what-is-linked-list/?ref=lbp
+ */
+
 class MyLinkedList {
     
     class Node{
@@ -158,3 +163,4 @@ Memory Usage: 51.1 MB
 
 Copied - Please Learn
  */
+

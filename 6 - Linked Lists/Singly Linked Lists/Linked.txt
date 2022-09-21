@@ -44,6 +44,10 @@ length of the linked list.
  the next node of a null node will cause the null-pointer error. For example,
   before we run fast = fast.next.next, we need to examine both fast and fast.next
    is not null.
-
 2) Carefully define the end conditions of your loop.
+3) In many cases, you need to track the previous node of the current node.
+
+You are not able to trace back the previous node in a singly linked list. So you 
+have to store not only the current node but also the previous node. This is 
+different in a doubly linked list which we will cover in the later chapter.
 
