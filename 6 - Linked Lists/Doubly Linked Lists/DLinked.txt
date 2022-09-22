@@ -1,0 +1,24 @@
+
+Some DLinked List Pointers:
+1) We are not able to access a random position in constant time.
+2) We have to traverse from the head to get the i-th node we want.
+3) The time complexity in the worse case will be O(N), where N is 
+the length of the linked list.
+
+- Steps for ADD Operation (Beginning) Time Complexity: O()
+ 1) 
+
+ - Steps for ADD Operation (END) Time Complexity: O() (or) O()
+ 1) 
+
+ - Steps for ADD Operation (Middle) Time Complexity: O()
+ 1) 
+
+ - Steps for DELETE Operation (Beginning) Time Complexity: O(1)
+ 1) 
+
+ - Steps for DELETE Operation (END) Time Complexity: O(1) (or) O()
+ 1) 
+
+ - Steps for DELETE Operation (Middle) Time Complexity: O(1)
+ 1) 

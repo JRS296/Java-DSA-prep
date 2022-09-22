@@ -1,0 +1,22 @@
+Let's briefly review the performance of the singly linked list and doubly linked list.
+
+They are similar in many operations:
+
+1) Both of them are not able to access the data at a random position in constant time.
+2) Both of them can add a new node after given node or at the beginning of the list 
+in O(1) time.
+3) Both of them can delete the first node in O(1) time.
+4) But it is a little different to delete a given node (including the last node).
+
+5) In a singly linked list, it is not able to get the previous node of a given node so 
+we have to spend O(N) time to find out the previous node before deleting the given node.
+6) In a doubly-linked list, it will be much easier because we can get the previous node
+ with the "prev" reference field. So we can delete a given node in O(1) time.
+
+Image Link: https://assets.leetcode.com/uploads/2020/10/02/comparison_of_time_complexity.png
+
+Conclusions:
+1) If you need to add or delete a node frequently, a linked list could be a good choice.
+2) If you need to access an element by index often, an array might be a better choice 
+than a linked list.
+
