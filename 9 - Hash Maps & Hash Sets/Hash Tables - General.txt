@@ -1,0 +1,40 @@
+Difference between Hash Map, Hash Set and Hash Table
+(Link: https://www.w3schools.blog/hashset-hashmap-hashtable-java)
+
+1) Hash Map
+ - HashMap class in java, implements the map interface by using a HashTable.
+It inherits AbstractMap class and implements the Map interface. It represents
+a group of objects and every object will be in key-value pair form. It 
+maintains no order for its elements. Duplicate key is not allowed. It can
+have only one null as key and multiple null as values.
+Eg: HashMap<Integer,String> angularDevepolers = new HashMap<Integer,String>();
+    angularDevepolers.put(1, "Navdeep");
+
+
+2) Hash Set
+ - HashSet inherits AbstractSet class and implements Set interface. Set 
+objects are always unique and no duplicate objects are allowed. One null
+key value is allowed. The hashing mechanism is used to insert the objects
+into a HashSet.
+Eg: HashSet angularDevepolers = new HashSet();
+    angularDevepolers.add("Navdeep");
+
+3) Hash Table
+ - Hashtable inherits Dictionary class and implements Map interface. 
+Hashtable contains elements/objects/items in key-value pair and does not
+allow any duplicate key. It is Thread-Safe because of its synchronized 
+nature. The null is not allowed for both key and value. The hashcode() 
+method is used to find the position of the elements.
+Eg: Hashtable<Integer,String> angularDevepolers = new Hashtable<Integer,String>();
+    angularDevepolers.put(1, "Navdeep");
+
+
+
+
+
+Common Questions regarding Hash Tables
+1) What is the principle of a hash table?
+2) How to design a hash table?
+3) How to use hash set to solve duplicates related problems?
+4) How to use hash map to aggregate information by key?
+5) How to design a proper key when using a hash table?
