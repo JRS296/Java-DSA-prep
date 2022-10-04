@@ -7,3 +7,8 @@ Things to Do:
 5) Quick Sort, Merge Sort and Binary Search - Thoroughly
 6) implement Linked List
 7) Prepare Notes for Linked Lists
+8) Copy List with Random Pointer
+
+Link: https://www.quora.com/Do-you-have-to-implement-the-entire-data-structure-when-asked-to-write-specific-methods-in-an-interview
+Link: https://www.bigocheatsheet.com/
+

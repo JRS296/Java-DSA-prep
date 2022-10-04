@@ -25,15 +25,21 @@ Hashtable contains elements/objects/items in key-value pair and does not
 allow any duplicate key. It is Thread-Safe because of its synchronized 
 nature. The null is not allowed for both key and value. The hashcode() 
 method is used to find the position of the elements.
+ - typically, a hash set is used to check if a value has ever appeared or not.
 Eg: Hashtable<Integer,String> angularDevepolers = new Hashtable<Integer,String>();
     angularDevepolers.put(1, "Navdeep");
 
-
+Time Complexity:
+1) Insertion: O(1)
+2) Searching: O(1), worst case, the maximum bucket size will be N, therefore O(n)
+Using Height Balanced BST: Worst Case Insertion & Search: O(log n)
 
 
 
 Common Questions regarding Hash Tables
 1) What is the principle of a hash table?
+ - The key idea of Hash Table is to use a hash function to map keys to 
+buckets, using a given hash function.
 2) How to design a hash table?
 3) How to use hash set to solve duplicates related problems?
 4) How to use hash map to aggregate information by key?
