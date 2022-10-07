@@ -46,3 +46,61 @@ buckets, using a given hash function.
 3) How to use hash set to solve duplicates related problems?
 4) How to use hash map to aggregate information by key?
 5) How to design a proper key when using a hash table?
+
+HashSet Functions + Methods + Tricks:
+Initialization: HashSet ex = new HashSet<>();
+(or) HashSet<Integer> ex = new HashSet<Integer>();
+
+1) Add elements: ex.add(2);
+2) Remove elements: ex.remove(2);
+3) Iterating Hashset:
+    3.1) Using Iterator Interface:
+            Iterator itr = ex.iterator();
+            while (itr.hasNext()) 
+                System.out.print(itr.next() + ", "); 
+    
+    3.2) Using For Loop:
+            for(int x: ex)
+                System.out.print(x + ", "); 
+
+4) Remove all elements: ex.clear();
+5) Contains: ex.contains(2); //returns boolean (ex.containsAll())
+6) Check for Emptiness: ex.isEmpty();
+7) Size: ex.size();
+
+Hash Map Functions + Methods + Tricks:
+Initialization: HashMap<String, String> ex = new HashMap<>(); 
+
+1) Put(key,value): ex.put("1","hello");
+2) Get(key): ex.get("1"); //hello
+3) Check for Emptiness: ex.isEmpty()
+4) Size: ex.size();
+5) Set keySet(): returns set of keys - HashSet x = ex.keySet();
+6) Values: returns Collection of values - ex.values();
+7) Remove: ex.remove(key);
+8) ex.putAll(ex2); Puts mapping into original mapping
+9) containsKey(key); / containsValue(value); - for checking contains
+10) isEmpty() - to check for Emptiness
+11) Iterating Hashset:
+    11.1) Using keySet and values:
+            // using keySet() for iteration over keys 
+        for (String name : gfg.keySet())  
+            System.out.println("key: " + name); 
+          
+        // using values() for iteration over values 
+        for (String url : gfg.values())  
+            System.out.println("value: " + url); 
+    
+    11.2) Using For Loop:
+            for(Map.Entry m : ex.entrySet())
+                System.out.println(m.getKey()+" "+m.getValue());
+
+    11.3) Using Iterator:
+            Iterator<Map.Entry<String, String>> itr = gfg.entrySet().iterator(); 
+        while(itr.hasNext()) 
+        { 
+             Map.Entry<String, String> entry = itr.next(); 
+             System.out.println("Key = " + entry.getKey() +  
+                                 ", Value = " + entry.getValue()); 
+        } 
+12) ex.replace(key,oldVAlue, NewValue): 
