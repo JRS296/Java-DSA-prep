@@ -92,7 +92,7 @@ Initialization: HashMap<String, String> ex = new HashMap<>();
             System.out.println("value: " + url); 
     
     11.2) Using For Loop:
-            for(Map.Entry m : ex.entrySet())
+            for(Map.Entry<> m : ex.entrySet())
                 System.out.println(m.getKey()+" "+m.getValue());
 
     11.3) Using Iterator:
@@ -104,3 +104,5 @@ Initialization: HashMap<String, String> ex = new HashMap<>();
                                  ", Value = " + entry.getValue()); 
         } 
 12) ex.replace(key,oldVAlue, NewValue): 
+
+java.util.ConcurrentModificationException
