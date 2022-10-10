@@ -11,5 +11,3 @@ Things to Do:
 
 Link: https://www.quora.com/Do-you-have-to-implement-the-entire-data-structure-when-asked-to-write-specific-methods-in-an-interview
 Link: https://www.bigocheatsheet.com/
-
-9) Understand ConcurrentModificationException, append to hashtable txt file

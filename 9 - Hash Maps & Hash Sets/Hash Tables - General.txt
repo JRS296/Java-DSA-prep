@@ -105,4 +105,21 @@ Initialization: HashMap<String, String> ex = new HashMap<>();
         } 
 12) ex.replace(key,oldVAlue, NewValue): 
 
-java.util.ConcurrentModificationException
+java.util.ConcurrentModificationException - Caused by Collections in general,
+where both iterations and subsequent changes are made, causing threads working
+on given collection to clash.
+for(Map.Entry<Integer,String> m : h2.entrySet())
+{
+    if(m.getKey()!=least)
+        h2.remove(m.getKey());
+    } Casuses java.util.ConcurrentModificationException
+}
+
+Instead, Use this:
+Iterator<Map.Entry<String, Integer>> itr = h2.entrySet().iterator();
+        while (itr.hasNext()) {
+            Map.Entry<String, Integer> entry = itr.next();
+            if (least != entry.getValue()) {
+                itr.remove();
+            }
+        }
