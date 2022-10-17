@@ -123,3 +123,16 @@ Iterator<Map.Entry<String, Integer>> itr = h2.entrySet().iterator();
                 itr.remove();
             }
         }
+
+Method to Add ArrayList into HashMap:
+HashMap<Integer, ArrayList<Integer>> hmap = new HashMap<Integer, ArrayList<Integer>>();
+for (int i = 0; i < nums.length; i++) {
+            ArrayList<Integer> y = new ArrayList<Integer>();
+            hmap.put(nums[i], y);
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            ArrayList<Integer> y = hmap.get(nums[i]);
+            y.add(i);
+            hmap.put(nums[i], y);
+        }
