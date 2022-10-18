@@ -135,3 +135,7 @@ for (int i = 0; i < nums.length; i++) {
             y.add(i);
             hmap.put(nums[i], y);
         }
+
+14) HashSet False Add Condition: 
+HashSet<Character> x = new HashSet<Character>();
+!x.add("xyz"); => Returns True if not able to add to HashSet due to pre-existing element
