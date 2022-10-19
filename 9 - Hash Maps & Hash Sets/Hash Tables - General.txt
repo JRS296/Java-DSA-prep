@@ -139,3 +139,15 @@ for (int i = 0; i < nums.length; i++) {
 14) HashSet False Add Condition: 
 HashSet<Character> x = new HashSet<Character>();
 !x.add("xyz"); => Returns True if not able to add to HashSet due to pre-existing element
+
+15) HashTable Key Generation:
+    15.1) When the order of each element in the string/array doesn't matter, you can use the
+     sorted string/array as the key.
+    15.2) If you only care about the offset of each value, usually the offset from the first
+     value, you can use the offset as the key.
+    15.3) In a tree, you might want to directly use the TreeNode as key sometimes. But in 
+     most cases, the serialization of the subtree might be a better idea.
+    15.4) In a matrix, you might want to use the row index or the column index as key.
+    15.5) In a Sudoku, you can combine the row index and the column index to identify which 
+     block this element belongs to. i.e. (i,j) => (i/3)*(3+j/3) => gives range from 0-8
+    15.6) Along Diagonal Lines: Diagonal = i+j, Anti-Diagonal = i-j
