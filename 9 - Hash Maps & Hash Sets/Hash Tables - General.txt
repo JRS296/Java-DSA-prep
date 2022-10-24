@@ -153,3 +153,5 @@ HashSet<Character> x = new HashSet<Character>();
     15.6) Along Diagonal Lines: Diagonal = i+j, Anti-Diagonal = i-j
 
 16) Compare Map against Window: (j-i+1)
+
+17) Map.getOrDefault(key, default_val) - If key not pressent, returns specified default value.
