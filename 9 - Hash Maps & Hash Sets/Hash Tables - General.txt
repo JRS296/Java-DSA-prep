@@ -151,3 +151,5 @@ HashSet<Character> x = new HashSet<Character>();
     15.5) In a Sudoku, you can combine the row index and the column index to identify which 
      block this element belongs to. i.e. (i,j) => (i/3)*(3+j/3) => gives range from 0-8
     15.6) Along Diagonal Lines: Diagonal = i+j, Anti-Diagonal = i-j
+
+16) Compare Map against Window: (j-i+1)

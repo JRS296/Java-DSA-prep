@@ -1,0 +1,32 @@
+1) How to Solve SLIDING WINDOW problems:
+Link: https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1135/discuss/2133524/JavaC++-A-reall-Detailed-Explanation
+
+Before moving to the problem I want to give you a template which you can use in any sliding window {Variable size} problem
+
+while(j < size()){
+
+    // Calculation's happen's here
+-----------------------------------------------
+    if(condition < k){
+        j++;
+    }
+-----------------------------------------------
+
+-----------------------------------------------
+    else if(condition == k){
+        // ans <-- calculation
+        j++;
+    }
+----------------------------------------------
+
+----------------------------------------------
+    else if(condition > k){
+        while(condition > k){
+            // remove calculation for i
+            i++;
+        }
+        j++;
+    }
+----------------------------------------------
+}
+return ans;
