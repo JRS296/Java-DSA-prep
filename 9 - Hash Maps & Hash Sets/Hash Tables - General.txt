@@ -75,8 +75,12 @@ Initialization: HashMap<String, String> ex = new HashMap<>();
 2) Get(key): ex.get("1"); //hello
 3) Check for Emptiness: ex.isEmpty()
 4) Size: ex.size();
-5) Set keySet(): returns set of keys - HashSet x = ex.keySet();
-6) Values: returns Collection of values - ex.values();
+5) Set keySet(): returns set of keys:
+    Set<String> keySet = map.keySet();
+    ArrayList<String> listOfKeys = new ArrayList<String>(keySet);
+6) Values: returns Collection of values:  
+    Collection<Integer> values = hmap.values();
+    ArrayList<Integer> listOfValues = new ArrayList<>(values);
 7) Remove: ex.remove(key);
 8) ex.putAll(ex2); Puts mapping into original mapping
 9) containsKey(key); / containsValue(value); - for checking contains

@@ -33,6 +33,9 @@ _type_ - Can be normal data types or even objects
 Functions:
 Add(_x_) - Add element to end of List (O(n) - if Capacity is unknown, else O(1) for ArrayList, Always O(1) for LinkedList)
 Remove(_i_) - Remove Item at Index i (O(n - index), removing last is O(1) for ArrayList, O(n) for LinkedList)
+IMPORTANT NOTE:
+    Remove by index: x.remove(n);
+    Remove by Value: x.remove(Integer.valueOf(n));
 Get(_i_) - Get element at index i (O(n) for LinkedList, O(1) for Arraylist)
 Set(_i_, _x_) - Change Elemenet at Index i (O(n) for LinkedList, O(1) for ArrayList)
 _array_name_.indexOf(_element_) - returns index of element
