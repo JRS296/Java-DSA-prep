@@ -53,6 +53,7 @@ Initialization: HashSet ex = new HashSet<>();
 
 1) Add elements: ex.add(2);
 2) Remove elements: ex.remove(2);
+3) Get in HashSet - need to use iterator or (int x:hset)
 3) Iterating Hashset:
     3.1) Using Iterator Interface:
             Iterator itr = ex.iterator();
