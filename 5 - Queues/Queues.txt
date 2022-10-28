@@ -53,3 +53,5 @@ Types of Queues:
 
 3) PriorityBlockingQueue: It is to be noted that both the implementations, the PriorityQueue and 
  LinkedList are not thread-safe. PriorityBlockingQueue is one alternative implementation if thread-safe implementation is needed.
+
+Application: BFS

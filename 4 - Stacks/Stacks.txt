@@ -1,0 +1,17 @@
+Stacks:
+ - LIFO - Last in First out
+ - PUSH, POP & PEEK
+ - Common Use: DFS
+
+In Java:
+Stack<type> stk = new Stack<>();  
+
+Methods:
+empty()	- The method checks the stack is empty or not.
+push(E) - The method pushes (insert) an element onto the top of the stack.
+pop - The method removes an element from the top of the stack and returns the same element as the value of that function.
+peek - The method looks at the top element of the stack without removing it.
+search(Object o) - The method searches the specified object and returns the position of the object.
+
+IMPORTANT: As stack is inherited from Java.util.Vector, it can implment Vector Methods
+Eg: addAll(), clear(), size(), contains(), containsAll(), equals(), isEmpty(), toString(), toArray(), etc.

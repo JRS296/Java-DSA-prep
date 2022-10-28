@@ -1,0 +1,13 @@
+BINARY SEARCH:
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+
+ - process of searching for a specific value in an ordered collection.
+ - Time Complexity: O(log(n)) {Best Case: O(1), Worst Case: O(log(n)), Average Case: O(log(n))}, Space Complexity: O(1)
+
+Binary Search is generally composed of 3 main sections:
+ - Pre-processing - Sort if collection is unsorted.
+ - Binary Search - Using a loop or recursion to divide search space in half after each comparison.
+ - Post-processing - Determine viable candidates in the remaining space.
+
+3 MAIN TEMPLATES to BINARY SEARCH PROBLEMS:
+1) Case 1: 
