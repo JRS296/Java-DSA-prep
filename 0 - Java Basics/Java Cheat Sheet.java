@@ -91,4 +91,7 @@ class JavaCheatSheet {
         }  
         return arr;
     }
+
+    //Also check: https://www.geeksforgeeks.org/print-all-substring-of-a-number-without-any-conversion/
+    // https://www.geeksforgeeks.org/subarraysubstring-vs-subsequence-and-programs-to-generate-them/
 }
