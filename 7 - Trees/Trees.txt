@@ -1,0 +1,40 @@
+Trees
+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+ - A tree is a frequently-used data structure to simulate a 
+hierarchical tree structure.
+ - Each node of the tree will have a root value and a list of 
+references to other nodes which are called child nodes. From 
+graph view, a tree can also be defined as a directed acyclic 
+graph which has N nodes and N-1 edges.
+ - A Binary Tree is one of the most typical tree structure. 
+Each node has at most two children, left child and the right child.
+
+Traversals:
+----------------------------------
+1) Pre-order Traversal - Pre-order traversal is to visit the root 
+first. Then traverse the left subtree. Finally, traverse the right subtree.
+REMEMBER: ROOT, LEFT, RIGHT
+
+2) In-order Traversal - In-order traversal is to traverse the left subtree first.
+ Then visit the root. Finally, traverse the right subtree. 
+ REMEMBER: LEFT, ROOT, RIGHT
+
+3) Post-order Traversal - Post-order traversal is to traverse the left subtree
+ first. Then traverse the right subtree. Finally, visit the root.
+REMEMBER: LEFT, RIGHT, ROOT
+
+Link: https://www.youtube.com/watch?v=xo41NfT8218
+
+BFS Level Order Traversals:
+✔️ Solution - I (BFS Traversal Using Queue)
+ - The most obvious solution that comes to mind is to use BFS traversal using queue to perform a level order traversal.
+ - We will start by pushing the root node into the queue and start a loop till the queue becomes empty.
+ - Now, for each node of the tree at any arbitrary level, we will first visit that node from the queue and pop it off. Then we push its left and then right children (since we are required to traverse from left to right) into the queue. This process will repeat for each level of binary tree.
+ - In a normal binary tree BFS traversal, the above simple process would suffice but here, we are required to distinguish between each level and group all nodes of a level into different vectors. For this, we will use another inner loop. We will take the size of queue n and iterate the above process n times. The only addition here would be - with each pop from the queue, we will also push that node into curLevel array denoting all nodes on current level.
+ - In the above process, after n iterations, we have basically visited all the nodes on the current level and pushed all the nodes (from left-to-right) of the next level into the queue, thus preparing us to traverse the next row as well. This above process will repeat till the queue becomes empty
+
+DFS Level ORder Traversals:
+✔️ Solution - II (DFS Traversal)
+ - We can also use a DFS traversal to solve this problem. Here, we would need to maintain a depth variable that tells us the current depth we are at. This allows us to push the current node into the ans vector at its correct depth (ans[depth]).
+ - At each depth, if this is the first time we are visting this deep, then push an empty vector into ans. This would allow us to index the current depth and push the node into ans at its correct depth. Then continue with the DFS traversal as usual.
+
