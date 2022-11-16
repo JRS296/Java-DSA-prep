@@ -38,3 +38,52 @@ DFS Level ORder Traversals:
  - We can also use a DFS traversal to solve this problem. Here, we would need to maintain a depth variable that tells us the current depth we are at. This allows us to push the current node into the ans vector at its correct depth (ans[depth]).
  - At each depth, if this is the first time we are visting this deep, then push an empty vector into ans. This would allow us to index the current depth and push the node into ans at its correct depth. Then continue with the DFS traversal as usual.
 
+How to Solve Tree Problems Recursively:
+Links: 1) https://www.youtube.com/watch?v=s2Yyk3qdy3o 
+       2) https://www.youtube.com/watch?v=ngCos392W4w
+
+TOP DOWN Solution 
+ - "Top-down" means that in each recursive call, we will visit the
+  node first to come up with some values, and pass these values to
+   its children when calling the function recursively. So the 
+   "top-down" solution can be considered as a kind of preorder 
+   traversal.
+Eg: 
+private int answer; // don't forget to initialize answer before call maximum_depth
+private void maximum_depth(TreeNode root, int depth) {
+    if (root == null) {
+        return;
+    }
+    if (root.left == null && root.right == null) {
+        answer = Math.max(answer, depth);
+    }
+    maximum_depth(root.left, depth + 1);
+    maximum_depth(root.right, depth + 1);
+}
+
+BOTTOM UP Solution
+ - "Bottom-up" is another recursive solution. In each recursive call, we will 
+ firstly call the function recursively for all the children nodes and then come
+  up with the answer according to the returned values and the value of the current
+   node itself. This process can be regarded as a kind of postorder traversal.
+
+Eg: 
+public int maximum_depth(TreeNode root) {
+    if (root == null) {
+        return 0;                                   // return 0 for null node
+    }
+    int left_depth = maximum_depth(root.left);
+    int right_depth = maximum_depth(root.right);
+    return Math.max(left_depth, right_depth) + 1;   // return depth of the subtree rooted at root
+}
+
+IMPORTANT:
+ - When you meet a tree problem, ask yourself two questions: Can you determine 
+ some parameters to help the node know its answer? Can you use these parameters
+ and the value of the node itself to determine what should be the parameters passed
+ to its children? If the answers are both yes, try to solve this problem using a 
+ "top-down" recursive solution.
+ - Or, you can think of the problem in this way: for a node in a tree, if you know
+ the answer of its children, can you calculate the answer of that node? If the answer
+ is yes, solving the problem recursively using a bottom up approach might be a good idea.
+ 
