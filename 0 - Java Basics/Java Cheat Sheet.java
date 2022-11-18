@@ -60,16 +60,27 @@ class JavaCheatSheet {
 
     generatePermutation(str, 0, len, x);  
     //Function to get all permutations of a string
-    public static void generatePermutation(String str, int start, int end, ArrayList<String> ans) {
+    public static void generatePermutation(String str, int start, int end, List<String> ans) {
         if (start == end - 1)
-            ans.add(str);// Prints the permutations
+        {
+            ans.add(str);
+        }
+            
         else {
             for (int i = start; i < end; i++) {
-                str = swapString(str, start, i); // Swapping the string by fixing a character
-                generatePermutation(str, start + 1, end); // Recursively calling function generatePermutation() for rest of the characters
-                str = swapString(str, start, i); // Backtracking and swapping the characters again.
+                str = swapString(str, start, i); 
+                generatePermutation(str, start + 1, end, ans); 
+                str = swapString(str, start, i);
             }
         }
+    }
+    
+    private static String swapString(String stri, int i, int j) {
+        char[] str = stri.toCharArray();
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+        return String.valueOf(str);
     }
 
     // Function to get all combinatinations of a string
