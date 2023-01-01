@@ -60,6 +60,7 @@ class JavaCheatSheet {
 
     generatePermutation(str, 0, len, x);  
     //Function to get all permutations of a string
+    //Eg: 123 -> 123, 231, 321...
     public static void generatePermutation(String str, int start, int end, List<String> ans) {
         if (start == end - 1)
         {
@@ -84,6 +85,7 @@ class JavaCheatSheet {
     }
 
     // Function to get all combinatinations of a string
+    //Eg: 12345 - 1, 12, 123, 1234, 12345...
     public static String[] AllPossibleSubsets(String st)
     {
         String str = st;  
