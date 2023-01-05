@@ -1,6 +1,7 @@
 Initialize Array:
 
 int[] name = new int[_size_];
+Arrays.sort(arr) - sorts array using quick sort
 
 Print Array as String:
 System.out.println(Arrays.toString(_array_name_)); 

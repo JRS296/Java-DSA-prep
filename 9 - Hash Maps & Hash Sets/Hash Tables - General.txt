@@ -160,3 +160,8 @@ HashSet<Character> x = new HashSet<Character>();
 16) Compare Map against Window: (j-i+1)
 
 17) Map.getOrDefault(key, default_val) - If key not pressent, returns specified default value.
+// Iterate through the tasks array and store the count of each task
+        // in the HashMap
+        for (int t : tasks) {
+            getCount.put(t, getCount.getOrDefault(t, 0) + 1);
+        }
