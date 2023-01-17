@@ -1,0 +1,12 @@
+Graph Representations
+A graph can be represented in different forms such as adjacency matrix and adjacency list. Each one has their pros and cons in a different setup.
+
+1)  Adjacency Matrix
+- An adjacency matrix is a square matrix with dimensions equivalent to the number of vertices in the graph.
+- The elements of the matrix typically have values 0 or 1. A value of 1 indicates adjacency between the vertices in the row and column and a value of 0 otherwise.
+- This representation is fairly easier to implement and efficient to query as well. However, it's less efficient with respect to space occupied.
+
+2) Adjacency List
+- An adjacency list is nothing but an array of lists. The size of the array is equivalent to the number of vertices in the graph.
+- The list at a specific index of the array represents the adjacent vertices of the vertex represented by that array index.
+- This representation is comparatively difficult to create and less efficient to query. However, it offers better space efficiency.
