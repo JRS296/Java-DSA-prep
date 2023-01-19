@@ -107,4 +107,47 @@ class JavaCheatSheet {
 
     //Also check: https://www.geeksforgeeks.org/print-all-substring-of-a-number-without-any-conversion/
     // https://www.geeksforgeeks.org/subarraysubstring-vs-subsequence-and-programs-to-generate-them/
+
+    static void printSubArrays(int[] arr, int start, int end) //Time: O(2^n)
+    {
+        // Stop if we have reached the end of the array
+        if (end == arr.length)
+            return;
+        // Increment the end point and start from 0
+        else if (start > end)
+            printSubArrays(arr, 0, end + 1);
+        // Print the subarray and increment the starting
+        // point
+        else {
+            System.out.print("[");
+            for (int i = start; i < end; i++)
+                System.out.print(arr[i] + ", ");
+            System.out.println(arr[end] + "]");
+            printSubArrays(arr, start + 1, end);
+        }
+        return;
+    }
+
+    printSubArrays(nums, 0, 0);
+
+    public void printSubArrays(int[] arr, int start, int end, int k2) //Time: O(n^3)
+    {
+        int n = arr.length;
+        for (int i=0; i <n; i++)
+        {
+            // Pick ending point
+            for (int j=i; j<n; j++)
+            {
+                int sum = 0;
+                for (int k=i; k<=j; k++)
+                {
+                    sum+=arr[k];
+                }
+                if(sum%k2==0)
+                {
+                    count++;
+                }
+            }
+        }
+    }
 }
