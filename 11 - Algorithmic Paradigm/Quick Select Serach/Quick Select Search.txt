@@ -1,0 +1,5 @@
+Important Questions:
+1) kth Largest number
+2) kth smallest number
+
+See 'Quick Select Sort under Searching Algorithms'
