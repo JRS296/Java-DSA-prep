@@ -1,0 +1,59 @@
+function hubspotChatWidget() {
+    function loadHubspotScripts() {
+        const s = document.createElement('script');
+        s.src = "//js-na1.hs-scripts.com/2586902.js";
+        s.id = "hs-script-loader";
+        s.type = "text/javascript";
+        s.async = true;
+        s.defer = true;
+        document.getElementsByTagName("head")[0].appendChild(s);
+    }
+    
+    function setHubspotConversationSettings() {
+        window.hsConversationsSettings = {
+            loadImmediately: false,
+            inlineEmbedSelector: '#hs-launch-button',
+            enableWidgetCookieBanner: true,
+            disableAttachment: false,
+        };
+    }
+    
+    function onConversationsAPIReady() {
+        const status = window.HubSpotConversations.widget.status();
+        if (status.loaded) {
+            if (window.isWidgetOpen) {
+                window.isWidgetOpen = false;
+                window.HubSpotConversations.widget.remove();
+            } else {
+                window.isWidgetOpen = true;
+                window.HubSpotConversations.widget.load({ widgetOpen: true });
+            }
+        } else {
+            window.isWidgetOpen = true;
+            window.HubSpotConversations.widget.load({ widgetOpen: true });
+        }
+    }
+    
+    function activateHubspotWidget() {
+        if (window.HubSpotConversations) {
+            onConversationsAPIReady();
+        } else {
+            $('.ripple-loader').css('display', 'block');
+            $('.support-section').css('display', 'none');
+            loadHubspotScripts();
+            window.hsConversationsOnReady = [onConversationsAPIReady, () => {
+                $('.ripple-loader').css('display', '');
+                $('.support-section').css('display', '');
+            }];
+        }
+    }
+    
+    $(document).ready(function() {
+        setHubspotConversationSettings();
+        $(".customer-support-icon").on("click", function(e) {
+            e.stopPropagation();
+            activateHubspotWidget();
+          });
+    });
+}
+hubspotChatWidget();

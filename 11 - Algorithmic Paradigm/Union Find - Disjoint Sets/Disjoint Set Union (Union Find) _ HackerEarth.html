@@ -1,0 +1,2433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0073)https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><iframe src="javascript:false" title="" role="presentation" style="width: 0px; height: 0px; border: 0px; display: none;" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/saved_resource.html"></iframe><script src="./Disjoint Set Union (Union Find) _ HackerEarth_files/cb=gapi.loaded_1" async=""></script><script src="./Disjoint Set Union (Union Find) _ HackerEarth_files/cb=gapi.loaded_0" async=""></script><script src="./Disjoint Set Union (Union Find) _ HackerEarth_files/all.js.download" async="" crossorigin="anonymous"></script><script type="text/javascript" async="" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/plusone.js.download" gapi_processed="true"></script><script id="twitter-wjs" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/widgets.js.download"></script><script id="facebook-jssdk" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/all.js(1).download"></script><script type="text/javascript" async="" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/mixpanel-2-latest.min.js.download"></script><script type="text/javascript" async="" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/recaptcha__en.js.download" crossorigin="anonymous" integrity="sha384-BV3s7GUfZmQoCIeDGjziAdN7XaXIsvdr5vFHzcjc0OWrVIEdrNeQuwqNeGmL4mWq"></script><script async="" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/gtm.js.download"></script><script async="" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/analytics.js.download"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="theme-color" content="#323754">
+        
+        <meta name="description" content=" 
+The efficiency of an algorithm sometimes depends on using an efficient data structure. A good choice of data structure can reduce the execution time of an algorithm and Union-Find is …
+ HackerEarth is a global hub of 5M+ developers. We help companies accurately assess, interview, and hire top developers for a myriad of roles.">
+        <link rel="canonical" href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/">
+        <meta name="msvalidate.01" content="1BF418E510B5A17A2D71685C571BF4EB">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        
+        <meta name="referrer" content="strict-origin-when-cross-origin">
+        
+
+        
+        <script>
+          (function() {
+              if (window.BOOMR && window.BOOMR.version) {
+                  return;
+              }
+              var dom, doc, where, iframe = document.createElement("iframe"),
+                  win = window;
+
+              function boomerangSaveLoadTime(e) {
+                  win.BOOMR_onload = (e && e.timeStamp) || new Date().getTime();
+              }
+              if (win.addEventListener) {
+                  win.addEventListener("load", boomerangSaveLoadTime, false);
+              } else if (win.attachEvent) {
+                  win.attachEvent("onload", boomerangSaveLoadTime);
+              }
+
+              iframe.src = "javascript:false";
+              iframe.title = "";
+              iframe.role = "presentation";
+              (iframe.frameElement || iframe).style.cssText = "width:0;height:0;border:0;display: none;";
+              where = document.getElementsByTagName("script")[0];
+              where.parentNode.insertBefore(iframe, where);
+
+              try {
+                  doc = iframe.contentWindow.document;
+              } catch (e) {
+                  dom = document.domain;
+                  iframe.src = "javascript:var d=document.open();d.domain='" + dom + "';void(0);";
+                  doc = iframe.contentWindow.document;
+              }
+              doc.open()._l = function() {
+                  var js = this.createElement("script");
+                  if (dom) this.domain = dom;
+                  js.id = "boomr-if-as";
+                  js.src = "https://s.go-mpulse.net/boomerang/" +
+                      "QKZWA-3BVYP-7W6XK-6HKWZ-EFFZ4";
+                  BOOMR_lstart = new Date().getTime();
+                  this.body.appendChild(js);
+              };
+              doc.write('<body onload="document._l();">');
+              doc.close();
+          })();
+        </script>
+        
+
+
+        
+<meta name="google-site-verification" content="ozqyeStBcz4eehbY9Ohb_IUQcA4y8BKzzDCT-H1QPPc">
+
+
+        
+        
+        <!-- google analytics start -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-34729975-1', 'auto');
+            ga('require', 'displayfeatures');
+            
+            ga('send', 'pageview');
+        </script>
+        <!-- google analytics end -->
+        
+        
+
+        
+        
+        <!-- Google Tag Manager -->
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PBHB3B9');
+        </script>
+        <!-- End Google Tag Manager -->
+        
+        
+
+        <title>   Disjoint Set Union (Union Find)  | HackerEarth  </title>
+
+        
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<!-- Facebook tags -->
+<meta property="fb:app_id" content="190817380995032">
+<meta property="og:title" content="Disjoint Set Union (Union Find) - Prateek Garg">
+<meta property="og:image" content="https://he-s3.s3.amazonaws.com/media/avatars/prat33k/resized/200/137f61e700x500xfeatured01.jpg.pagespeed.ic.b8f3fw1bcm.jpg">
+<meta property="og:description" content="The efficiency of an algorithm sometimes depends on using an efficient data structure. A good choice of data structure can reduce the execution time of an algorithm and Union-Find is a data structure that falls in that category. Let’s say, …">
+<meta property="og:url" content="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/">
+<meta property="og:site_name" content="HackerEarth">
+<meta property="og:type" content="website">
+<!-- end Facbook tags -->
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@HackerEarth">
+<meta name="twitter:url" content="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/">
+<meta name="twitter:title" content="Disjoint Set Union (Union Find)">
+<!-- end Twitter tags -->
+
+        
+        <link rel="shortcut icon" href="https://static-fastly.hackerearth.com/static/hackerearth/images/logo/HE_identity.png" type="image/x-icon">
+        
+
+        
+
+        
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/base_common_combined.89db5e58f913.css">
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/marketing_footer.d4e680a6c44d.css">
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/tipTip.4cc4f68d44b4.css">
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/offline-theme-slide.12bc3d4c96b4.css">
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/font-awesome.min.269550530cc1.css">
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/opensans.06e0aa7529dc.css">
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/hack.8b30169f8a8b.css">
+            <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/unicons.9eda5fc182c1.css">
+        
+
+        
+
+
+        
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/polls.1f20c9ae3faf.css">
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/pagedown.adcb2f5764da.css">
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/notes.9acd7e13a125.css">
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/nice_threadedcomments.4751afdb34e5.css">
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/prettify.26e70f1bc891.css">
+
+
+        <!-- Make the static variable available for all js files -->
+        <script>
+            var STATIC_URL = "https://static-fastly.hackerearth.com/static/";
+            var RECAPTCHA_V3_SITE_KEY = "6LeyqcIZAAAAAOcy_5WJORJsuu9zmbZZxIRp4-em";
+            var ssEnabled = false;
+        </script>
+
+        <!-- Store CSRF_COOKIE -->
+        <script>
+            var CSRF_COOKIE_USED = "True";
+            var CSRF_COOKIE = "YbM4puBmZTne99fq7F2OLDpqzLghUvWF5kEN6FoEOCrszto40ogbWO0asYU4hX5n";
+        </script>
+
+        
+        
+        <script src="./Disjoint Set Union (Union Find) _ HackerEarth_files/api.js.download"></script>
+        
+
+        
+
+    
+<script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"SJ-278d8a05-8811-4647-80bd-970e4f38bf71","rua.cook":"true","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false","rua.isuxp":"false","rua.texp":"norulematch"}]);</script>
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="QKZWA-3BVYP-7W6XK-6HKWZ-EFFZ4",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"QKZWA-3BVYP-7W6XK-6HKWZ-EFFZ4";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n="false"=="true"?1:0,t="cookiepresent",a="wzhqj7nydswvsy7mq7gq-f-de497a71b-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"34","ak.cp":"755788","ak.ai":parseInt("678462",10),"ak.ol":"0","ak.cr":32,"ak.ipv":4,"ak.proto":"h2","ak.rid":"afdd3d5","ak.r":35817,"ak.a2":n,"ak.m":"dsca","ak.n":"essl","ak.bpcip":"182.79.4.0","ak.cport":61389,"ak.gh":"184.28.173.85","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"","ak.t":"1676445645","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==nXsdhkxL6BGV2zK3CUIkeXLnxevmvoZ5Jv5IfWw0Qnp188UQ95XYwBp9U4vxtE84tF2bYkTF43WTTK1o3+pCliIuqzCJHzaHYBXWfzjoRCHSOLfHqIvufFEQcnX0bHiqHS19QemgDfHPny/JzAEcS6/S9+kTeBlqIkm2mQhLxhzIEVKUdMLBsHlzXW4Yvm11VboBwy5HFjcpHikDMZup1fy5n3a91z6NLlQ7ulyfTr3gynfPPtKXVBe2WUbcXy7/Rlvdvjm/oB6J89llud+5PNBqNvGFAJ3Kfbyc0mhNN5IUQQUVuEiYqAiaHvFeFLYXWfAhZECFWQJrBolSvYF/peH8BTqnQTvab3PZ3Xc3aM3saekBMV3B0U4RpzEz7qkG9aXYQRckQh+75H3aoOo8xWl4H8IOx7jxYkz7yyfD8IU=","ak.pv":"27","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><link href="https://s.go-mpulse.net/boomerang/QKZWA-3BVYP-7W6XK-6HKWZ-EFFZ4" rel="preload" as="script"><iframe src="./Disjoint Set Union (Union Find) _ HackerEarth_files/saved_resource(1).html" title="" role="presentation" loading="eager" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><script charset="utf-8" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/button.e7f9415a2e000feaab02c86dd5802747.js.download"></script><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+.fb_mpn_mobile_landing_page_slide_out{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_out_from_left{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out_from_left;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_up{animation-duration:500ms;animation-name:fb_mpn_landing_page_slide_up;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_in{animation-duration:300ms;animation-name:fb_mpn_bounce_in;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out{animation-duration:300ms;animation-name:fb_mpn_bounce_out;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out_v2{animation-duration:300ms;animation-name:fb_mpn_fade_out;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_from_left{animation-duration:300ms;animation-name:fb_bounce_in_from_left;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_from_left{animation-duration:300ms;animation-name:fb_bounce_out_from_left;transition-timing-function:ease-in}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}@keyframes fb_mpn_landing_page_slide_out{0%{margin:0 12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;margin:0 24px;width:60px}}@keyframes fb_mpn_landing_page_slide_out_from_left{0%{left:12px;width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;left:12px;width:60px}}@keyframes fb_mpn_landing_page_slide_up{0%{bottom:0;opacity:0}100%{bottom:24px;opacity:1}}@keyframes fb_mpn_bounce_in{0%{opacity:.5;top:100%}100%{opacity:1;top:0}}@keyframes fb_mpn_fade_out{0%{bottom:30px;opacity:1}100%{bottom:0;opacity:0}}@keyframes fb_mpn_bounce_out{0%{opacity:1;top:0}100%{opacity:.5;top:100%}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_from_left{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}50%{transform:scale(1.03, 1.03);transform-origin:bottom left}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_from_left{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}}@keyframes slideInFromBottom{0%{opacity:.1;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}@keyframes slideInFromBottomDelay{0%{opacity:0;transform:translateY(100%)}97%{opacity:0;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}</style></head>
+
+    <body><div id="MathJax_Message" style="display: none;"></div>
+        
+            
+            
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/notification_toast.13781ce68c5c.css">
+<div class="notification-toast-container notification-top-center regular">
+    <div class="notification-errors">
+        <p id="notification-auth-error" class="error-item hidden no-margin">
+            <span class="fa fa-times less-margin-right"></span>Ensure that you are logged in and have the required permissions to access the test.
+        </p>
+        <p id="notification-server-error" class="error-item hidden no-margin">
+            <span class="fa fa-times less-margin-right"></span>A server error has occurred. Please refresh the page or try after some time.
+        </p>
+        <p id="notification-error" class="error-item hidden no-margin">
+            <span class="fa fa-times less-margin-right"></span>An error has occurred. Please refresh the page or try after some time.
+        </p>
+        <p id="notification-custom-error" class="error-item hidden no-margin"></p>
+        
+    </div>
+</div>
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/notification-toast.d8eeab161f6f.js.download" crossorigin="anonymous" defer=""></script>
+
+        
+        
+        
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBHB3B9"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+	 
+        
+
+        <!-- Placeholder for any alert message on the site -->
+        
+        <div id="alert-message-holder">
+            
+
+            <!-- put a dummy message box so that it can be used when cloning
+                 and adding more -->
+            
+        <div class="alert-message hidden">
+                <div class="message float-left"></div>
+                <div class="cross-holder float-left"><span class="small-cross sprites"></span></div>
+                <div class="clear"></div>
+            </div></div> <!-- end alert-message-holder -->
+
+        <!-- Placeholder for any error message on the site -->
+        
+        <div id="error-message-holder">
+            
+
+            <!-- put a dummy message box so that it can be used when cloning
+                 and adding more -->
+            <div class="error-message hidden">
+                <div class="message float-left"></div>
+                <div class="cross-holder float-left"><span class="small-cross sprites"></span></div>
+                <div class="clear"></div>
+            </div>
+        </div> <!-- end error-message-holder -->
+        
+        
+
+        
+    
+    
+        
+        <header class="header community-header">
+            <i class="fa fa-bars mobile-menu-btn"></i>
+            <nav class="navigation">
+                
+                <a href="https://www.hackerearth.com/" class="logo logo-h-terminal  no-underline float-left track-header-logo"></a>
+                
+
+                
+                <ul class="nav-bar no-padding float-left tablet-hide">
+                    <!-- practice page -->
+                    <li id="problems" class="nav-bar-menu "><a class="track-header-problems" href="https://www.hackerearth.com/practice/">PRACTICE</a></li>
+                    <!-- challenges page -->
+                    <li id="challenges" class="nav-bar-menu "><a class="track-header-challenges" href="https://www.hackerearth.com/challenges/">COMPETE</a></li>
+                    <!--Jobs-->
+                    <li id="jobs" class="nav-bar-menu "><a class="track-header-jobs" href="https://www.hackerearth.com/jobs/">JOBS</a></li>
+                    <!--Leaderboard page-->
+                    <li id="leaderboard" class="nav-bar-menu "><a class="track-header-leaderboard" href="https://www.hackerearth.com/leaderboard/contests/rated/">LEADERBOARD
+                    </a></li>
+                    <!--Community lead modal (launch on click)-->
+                    <li id="community-lead" class="nav-bar-menu"><a id="organize-hackathons-tab" class="track-header-organise-hack">ORGANIZE HACKATHONS
+                    </a></li>
+                </ul>
+                <ul class="nav-bar right-nav-bar no-padding float-right tablet-hide">
+                    
+                    
+                    <link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/search.e1ef7070302d.css">
+                    <li id="searchbar">
+                        <div id="search-icon-container" class="float-right">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input id="searchbar-input" class="float-left" type="text" value="" name="q" autocomplete="off" spellcheck="false" placeholder="Search developers, problems, etc" ajax1="/search/AJAX/search/" ajax2="/search/search-results/" wfd-id="id0">
+                        <div id="search-dropdown"></div>
+                    </li>
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <li class="nav-bar-menu login-menu-btn"><a target="login-modal" class="track-header-login show-modal">LOGIN</a></li>
+                    <li class="nav-bar-menu signup-menu-btn"><a target="login-modal" class="track-header-signup show-modal show-signup-in-modal">SIGN UP</a></li>
+                    
+
+                    <div class="clear"></div>
+                </ul> <!-- nav-bar -->
+                <div class="clear"></div>
+                
+            </nav> <!-- navigation -->
+
+            <i class="fa fa-filter challenge-filter-btn hidden"></i>
+
+        </header> <!-- header -->
+        
+    
+     <style>
+  #gdpr-modal {
+    position: absolute;
+    bottom: 0;
+  }
+</style>
+<div id="gdpr-modal" class="modal-window smaller-modal hidden">
+  
+
+<style>
+  #gdpr-modal-content {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #gdpr-modal-content .modal-header {
+    padding: 50px 55px 35px 55px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  #gdpr-modal-content .modal-footer {
+    padding: 25px 55px 90px;
+  }
+
+  #gdpr-modal-content .modal-content {
+    padding: 0 55px 5px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  #gdpr-modal-content .modal-footer .checkbox-row {
+    font-size: 16px;
+    display: inline-flex;
+  }
+
+  #gdpr-modal-content a {
+    color: #0099ff;
+  }
+  
+  #gdpr-modal-content .button.disabled {
+    background: #f5f6f6 !important;
+  }
+</style>
+
+<div id="gdpr-modal-content">
+  
+<div class="modal-header">HackerEarth’s Privacy Policy and Terms of Service</div>
+  <div class="modal-content">
+      We care about your data privacy. HackerEarth uses the information that you provide to contact you about relevant content, products, and services. <br> <br>
+
+      Our <a href="https://www.hackerearth.com/privacy/" target="_blank">Privacy Policy</a> and <a href="https://www.hackerearth.com/terms-of-service/" target="_blank">Terms of Service</a> will help you understand that you are in control of your data at HackerEarth.
+  </div>
+  <div class="modal-footer">
+    <div class="margin-bottom-15 regular checkbox-row">
+      <input type="checkbox" name="gdpr-tnc" wfd-id="id1">
+      I have read and I agree.
+    </div>
+    <div class="">
+      <input type="submit" name="submit" value="Proceed" class="button btn-blue fontawesome btn-largest disabled large" id="gdpr-submit" wfd-id="id2">
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+    
+
+    
+    
+    <div class="top-banner">
+        <p class="banner-text login-banner dark">
+        
+         Signup and get free access to 100+ Tutorials and Practice Problems <a class="button btn-orange-bright inline-block medium-margin-left show-modal show-signup-in-modal" target="login-modal">Start Now</a>
+        
+        </p>
+    </div>
+    
+    
+
+    
+
+    <div id="comment-share-modal" class="modal-window small-modal">
+        <div class="modal-header">
+            Comment permalink
+        </div>
+        <div class="modal-content">
+            <div class="comment-share-wrapper align-center">
+                <textarea class="comment-share-text" type="textbox" rows="4" readonly="readonly" onclick="this.select();"></textarea>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+    
+
+    <!-- This is the center page which has a fixed width of 1100px -->
+    
+<div class="responsive-page denim-gray-texture">
+    <div class="responsive-container">
+        <div class="page-data">
+            <div class="left medium-margin">
+                <div class="notes-header content weight-600 large" id="notes-left-container">
+                    <a href="https://www.hackerearth.com/practice/notes/"><i class="fa fa-long-arrow-left"></i> Notes</a>
+                    
+            </div> <!--heading-2 -->
+            <div class="clear"></div>
+
+            
+
+
+
+
+<div class="note-container">
+    <div class="note-title-container content">
+        
+        
+        <div class="notes-vote regular align-center light">
+            <span class="polls">
+                <a href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/#" class="anon-polls-up light show-modal inline-block show-signup-in-modal" target="login-modal"><i class="fa fa-caret-up fa-lg fa-3x"></i></a>
+                <br>
+                <span class="polls-count only-positive inline-block dark">364 </span>
+            </span>
+        </div> <!-- end of notes-vote -->
+        
+        
+
+        
+
+        <div class="notes-item standard-margin-left">
+            <div class="notes-title">
+             Disjoint Set Union (Union Find)
+            </div>
+            <div class="notes-description">
+                    
+                    <div class="less-margin tags-list">
+                    
+                        
+                        
+                        <div class="note-tags dark smaller float-left medium-margin-right"> Code Monk</div>
+                        
+                        
+                        
+                        <div class="note-tags dark smaller float-left medium-margin-right"> Disjoint-sets</div>
+                        
+                        
+                        
+                        <div class="note-tags dark smaller float-left medium-margin-right"> Union Find</div>
+                        
+                        
+                    
+                        </div> <!-- tags-list -->
+                    
+                    
+                    <div class="clear"></div>
+
+            </div> <!-- notes-description -->
+        </div><!-- notes-tem -->
+    </div> <!-- note-title-container -->
+
+    <hr class="hr-dashed">
+
+    <div class="regular darker note-body content">
+        <p>The efficiency of an algorithm sometimes depends on using an efficient data structure. A good choice of data structure can reduce the execution time of an algorithm and Union-Find is a data structure that falls in that category. </p>
+<p>Let’s say, you have a set of N elements which are partitioned into further subsets, and you have to keep track of connectivity of each element in a particular subset or connectivity of subsets with each other. To do this operation efficiently, you can use Union-Find Data Structure.</p>
+<p>Let’s say there are 5 people A, B, C, D E. A is a friend of B, B is a friend of C and D is a friend of E. As we can see:</p>
+<p>1) A, B and C are connected to each other. <br>
+2) D and E are connected to each other.</p>
+<p>So we can use Union Find Data Structure to check whether one friend is connected to another in a direct or indirect way or not. We can also determine the two different disconnected subsets. Here 2 different subsets are {A, B, C} and {D, E}.</p>
+<p>You have to perform two operations here : </p>
+<p>Union (A, B) - connect two elements A and B.
+Find (A, B)   - find, is there any path connecting two elements A and B</p>
+<p><strong>Example:</strong> 
+You have a set of elements S = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}. Here you have 10 elements (N = 10 ).We can use  an array <strong>Arr</strong> to manage  the connectivity of elements. Arr[ ] indexed by elements of set, having size of N (as N elements in set) and can be used to manage the above operations.</p>
+<p><strong>Assumption:</strong> A and B objects are connected only if Arr[ A ] = Arr [ B ].</p>
+<p>Now how we will implement above operations :</p>
+<p>Find (A, B) - check if Arr[ A ] is equal to Arr[ B ] or not. 
+Union (A, B) - Connect A to B and merge the components having A and B by changing all the elements ,whose value is equal to Arr[ A ], to Arr[ B ].</p>
+<p>Initially there are 10 subsets and each subset has single element in it.
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/039a333.jpg">
+When each subset contains only single element, the array Arr is:
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/1539ad6.jpg"></p>
+<p>Let’s perform some Operations:
+1) Union(2, 1)
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/28e2d55.jpg">
+Arr will be:
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/32f6a91.jpg">
+2) Union(4, 3)<br>
+3) Union(8, 4)<br>
+4) Union(9, 3)<br>
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/4c11a99.jpg">
+Arr will be:
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/6a7bc9a.jpg"></p>
+<p>5) Union(6, 5)
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/66d9b5d.jpg"></p>
+<p>Arr will be:
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/7439d01.jpg"></p>
+<p>After performing some operations of Union(A ,B), you can see that now there are 5 subsets. 
+First has elements {3, 4, 8, 9}, second has {1, 2}, third has {5, 6}, fourth has {0} and fifth has {7}. All these subsets are said to be Connected Components. </p>
+<p>One can also relate these elements with nodes of a graph. The elements in one subset can be considered as the nodes of  the graph which are connected to each other directly or indirectly, therefore each subset can be considered as <strong>connected component.</strong> </p>
+<p>From this, we can infer that Union-Find data structure is useful in Graphs for performing various operations like connecting nodes, finding connected components etc.  </p>
+<p>Let’s perform some Find(A, B) operations.
+1) Find (0, 7) - as 0 and 7 are disconnected ,this will gives false result.                    <br>
+2) Find (8, 9) -though 8 and 9 are not connected directly ,but there exist a path connecting 8 and 9, so it will give us true result.  </p>
+<p>When we see above operations in terms of components, then :  </p>
+<p>Union(A, B) - Replace components containing two objects A and B  with their union. <br>
+Find(A, B) - check if two objects A and B are in same component or not.  </p>
+<p>So if we perform operation Union(5, 2) on above components, then it will be :<br>
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/a7f5551.jpg"></p>
+<p>Now the Arr will be: 
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/8538800.jpg"></p>
+<p><strong>Implementation:</strong> </p>
+<p>Initially there are N subsets containing single element in each subset, so to initialize array we will use <strong>initialize ( ) function.</strong> </p>
+<pre class="prettyprint prettyprinted" style=""><code><span class="kwd">void</span><span class="pln"> initialize</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">],</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> N</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">N</span><span class="pun">;</span><span class="pln">i</span><span class="pun">++)</span><span class="pln">
+    </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> i </span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="com">//returns true,if A and B are connected, else it will return false. </span><span class="pln">
+ </span><span class="kwd">bool</span><span class="pln"> find</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">],</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> A</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> B</span><span class="pun">)</span><span class="pln">                           
+</span><span class="pun">{</span><span class="pln">
+</span><span class="kwd">if</span><span class="pun">(</span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> A </span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> B </span><span class="pun">])</span><span class="pln">
+</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">else</span><span class="pln">
+</span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">   
+</span><span class="pun">}</span><span class="pln">
+</span><span class="com">//change all entries from Arr[ A ] to Arr[ B ].</span><span class="pln">
+</span><span class="kwd">void</span><span class="pln"> </span><span class="kwd">union</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">],</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> N</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> A</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> TEMP </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> A </span><span class="pun">];</span><span class="pln">
+</span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> N</span><span class="pun">;</span><span class="pln">i</span><span class="pun">++)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> TEMP</span><span class="pun">)</span><span class="pln">
+    </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> B </span><span class="pun">];</span><span class="pln"> 
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>As loop in Union function iterates through all the N elements for connecting two elements. So performing this operation on N objects will take <strong>O(N<sup>2</sup>)</strong> time, which is quite inefficient.</p>
+<p><strong>Let’s try another approach:</strong></p>
+<p><strong>Idea:</strong> Arr[ A ] is a parent of A.</p>
+<p>We can consider a <strong>root element</strong> of each subset, which is a only special element in that subset having itself as  the parent. Let’s say R is a root element, then Arr[ R ] = R.</p>
+<p>To make it more clear,let’s take a subset S = {0, 1, 2, 3, 4, 5}</p>
+<p>Initially each element is the root of itself in all subsets, as Arr[ i ] = i, where i is element in the set, therefore root(i) = i.</p>
+<p><img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/fd8e878.jpg"></p>
+<p>Performing Union(1, 0) will connect 1 to 0 and will set root(0) as the parent of root(1). As root(1) = 1, and root(0) = 0, therefore value of Arr[ 1 ] will be changed from 1 to 0. It will make 0 as a root of subset containing elements {0, 1}.</p>
+<p><img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/1ddeb33.jpg">
+Now performing Union(0, 2), will indirectly connect 0 to 2, by setting root(2) as the parent of root(0). As root(0) is 0 and root(2) is 2, therefore it will change value Arr[ 0 ] from 0 to 2. Now  2 will be the root of subset containing elements {2, 0, 1}.
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/201a115.jpg"></p>
+<p>Similarly Union(3, 4) will indirectly connect 3 to 4, by setting root(4) as the parent of root(3). As root(3) is 3 and root(4) is 4, therefore it will change value of Arr[ 3 ] from 3 to 4. It will make 4 as a root of subset containing elements {3, 4}.<br>
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/4e3e47b.jpg"></p>
+<p>Performing Union(1, 4 ) will indirectly connect 1  to 4, by setting root(4) as the parent of root(1). As root(4) is 4 and root(1) is 2, therefore it will change value of Arr[ 2 ] from 2 to 4. It makes 4 as root of set containing elements {0, 1, 2, 3, 4}.
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/62016dc.jpg"></p>
+<p>After each step you can observe the change in array Arr also.<br>
+After performing required Union(A, B) operations, we can easily perform the Find(A, B) operation to check whether A and B are connected or not. It can be checked by calculating  roots of both A and B. If roots of A and B are same, that means both A and B are in same subset and are connected.</p>
+<p>Now how to calculate root of a element ?<br>
+As we know that Arr[ i ] is the parent of i (where i is the element of set),then the root of i is 
+<strong>Arr[ Arr[ Arr[ …...Arr[ i ]...... ] ] ]</strong> until Arr[ i ] is not equal to i. Simply we can run a loop until we get a element which is a parent of itself.  </p>
+<p><strong>Note:</strong> This can be only done when there is no cycle in the elements of subset, otherwise loop will run infinitely.</p>
+<p>Find(1, 4) -  1 and 4  have same root as 4, therefore it means they are connected and this operation will give true as a result.</p>
+<p>Find(3, 5) - 3 and 5 do not have same root, as root(3) is 4 and root(5) is 5. It means they are not connected and it will give false as a result. </p>
+<p><strong>Implementation:</strong></p>
+<p>As initially all the elements are parent of itself,which can be done using initialize function discussed above.</p>
+<pre class="prettyprint prettyprinted" style=""><code><span class="com">//finding root of an element.</span><span class="pln">
+</span><span class="kwd">int</span><span class="pln"> root</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">],</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pun">(</span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">           </span><span class="com">//chase parent of current element until it reaches root.</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+     i </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">];</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">/*modified union function where we connect the elements by changing the root of one of the element */</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> </span><span class="kwd">union</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">]</span><span class="pln"> </span><span class="pun">,</span><span class="kwd">int</span><span class="pln"> A </span><span class="pun">,</span><span class="kwd">int</span><span class="pln"> B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> root_A </span><span class="pun">=</span><span class="pln"> root</span><span class="pun">(</span><span class="typ">Arr</span><span class="pun">,</span><span class="pln"> A</span><span class="pun">);</span><span class="pln">       
+    </span><span class="kwd">int</span><span class="pln"> root_B </span><span class="pun">=</span><span class="pln"> root</span><span class="pun">(</span><span class="typ">Arr</span><span class="pun">,</span><span class="pln"> B</span><span class="pun">);</span><span class="pln">  
+    </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> root_A </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> root_B </span><span class="pun">;</span><span class="pln">       </span><span class="com">//setting parent of root(A) as root(B).</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">bool</span><span class="pln"> find</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> A</span><span class="pun">,</span><span class="kwd">int</span><span class="pln"> B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> root</span><span class="pun">(</span><span class="pln">A</span><span class="pun">)==</span><span class="pln">root</span><span class="pun">(</span><span class="pln">B</span><span class="pun">)</span><span class="pln"> </span><span class="pun">)</span><span class="pln">       </span><span class="com">//if A and B have same root,means they are connected.</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>Now as you can see, in worst case, this idea will also take linear time in connecting 2 elements and even in finding that if two elements are connected or not, it will take linear time.<br>
+Another disadvantage is that while connecting two elements, we do not check which subset  has more element than other and sometimes it creates a big problem as in worst case we have to perform approximately linear time operations.   </p>
+<p>We can avoid this, by keeping the track of size of each subset and then while connecting two elements, we can connect the root of subset having smaller number of elements to the root of subset having larger number of elements.   </p>
+<p><strong>Example:</strong> </p>
+<p>Here if we want to connect 1 and 5, then we will connect the root of Subset A (subset which contains 1) will be connected to root of Subset B (contains 5), this is because Subset A contains less number of elements than of Subset B.
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/a1f5858.jpg"></p>
+<p>It will balance the tree formed by the above operations. We call this operation as <strong>weighted_union operation</strong> .</p>
+<p><strong>Implementation:</strong></p>
+<p>Initially the size of each subset will be one as each subset will have only one element and we can initialize it in the initialize function discussed above:</p>
+<p>size[ ] array will keep track of size of each subset.</p>
+<pre class="prettyprint prettyprinted" style=""><code><span class="com">//modified initialize function:</span><span class="pln">
+</span><span class="kwd">void</span><span class="pln"> initialize</span><span class="pun">(</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">],</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> N</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">i</span><span class="pun">&lt;</span><span class="pln">N</span><span class="pun">;</span><span class="pln">i</span><span class="pun">++)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+</span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> i </span><span class="pun">;</span><span class="pln">
+size</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p><strong>root()</strong> and <strong>find()</strong> function will be same as above .</p>
+<p>Union function will be modified as we will connect two subsets according to the number of elements in subset.</p>
+<p>//modified union function </p>
+<pre class="prettyprint prettyprinted" style=""><code><span class="kwd">void</span><span class="pln"> weighted</span><span class="pun">-</span><span class="kwd">union</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">],</span><span class="kwd">int</span><span class="pln"> size</span><span class="pun">[</span><span class="pln"> </span><span class="pun">],</span><span class="kwd">int</span><span class="pln"> A</span><span class="pun">,</span><span class="kwd">int</span><span class="pln"> B</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> root_A </span><span class="pun">=</span><span class="pln"> root</span><span class="pun">(</span><span class="pln">A</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">int</span><span class="pln"> root_B </span><span class="pun">=</span><span class="pln"> root</span><span class="pun">(</span><span class="pln">B</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">size</span><span class="pun">[</span><span class="pln">root_A</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> size</span><span class="pun">[</span><span class="pln">root_B </span><span class="pun">])</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+</span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> root_A </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln">root_B</span><span class="pun">];</span><span class="pln">
+size</span><span class="pun">[</span><span class="pln">root_B</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> size</span><span class="pun">[</span><span class="pln">root_A</span><span class="pun">];</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+    </span><span class="kwd">else</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+</span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> root_B </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln">root_A</span><span class="pun">];</span><span class="pln">
+size</span><span class="pun">[</span><span class="pln">root_A</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+=</span><span class="pln"> size</span><span class="pun">[</span><span class="pln">root_B</span><span class="pun">];</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">}</span></code></pre>
+<p><strong>Example:</strong></p>
+<p>You have a set S = {0, 1, 2, 3, 4, 5}
+Initially all the subsets have a single element and each element is a root of itself.
+Initially size[ ] array will be : 
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/cace27d.jpg"></p>
+<p>Perform Union(0, 1). Here we can connect any root of any element with root of other one as both the element’s subsets have same size and then we will update the respective size.<br>
+If we connect 1 to 0 and make 0 as a root and then size of 0 will change from 1 to 2. <br>
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/d95f145.jpg"></p>
+<p>While performing Union(1, 2), we will connect root(2) with root(1) as subset of 2 has less number of elements than number of elements in subset of 1.<br>
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/e8364d0.jpg"></p>
+<p>Similarly in Union(3, 2), it will connect root(3) to root(2) as subset of 3 has less number of element than number of elements in subset of 2.<br>
+<img alt="enter image description here" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/ff4f029.jpg">
+Maintaining a <strong>balance tree</strong>, will reduce complexity of union and find function from <strong>N</strong> to <strong>log<sub>2</sub>N.</strong></p>
+<p>Can we improve more ?</p>
+<p><strong>Idea:</strong> <strong>Union with path compression :</strong>  While computing the root of A, set each i to point to its grandparent (thereby halving the path length), where i is the node which comes in between path, while computing root of A.</p>
+<pre class="prettyprint prettyprinted" style=""><code><span class="com">// modified root function.</span><span class="pln">
+
+</span><span class="kwd">int</span><span class="pln"> root </span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="pun">]</span><span class="pln"> </span><span class="pun">,</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">while</span><span class="pun">(</span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">!=</span><span class="pln"> i</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span><span class="pln"> </span><span class="pun">]</span><span class="pln"> </span><span class="pun">;</span><span class="pln"> 
+i </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Arr</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">];</span><span class="pln"> 
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">return</span><span class="pln"> i</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>When we use Weighted-union with path compression it takes <strong>log * N</strong> for each union find operation,where <strong>N</strong> is the number of elements in the set.</p>
+<p><strong>log *N</strong> is the iterative function which computes the number of times you have to take log of N till the value of N doesn’t reaches to 1. </p>
+<p>log*N is much better than log N, as its value reaches at most up to 5 in the real world.</p>
+<p><strong>Applications:</strong> </p>
+<p>1) As explained above, Union-Find is used to determine the connected components in a graph. We can determine whether 2 nodes are in the same connected component or not in the graph. We can also determine that  by adding an edge between 2 nodes whether it leads to cycle in the graph  or not.<br>
+We learned that we can reduce its complexity to a very optimum level, so in case of very large and dense graph, we can use this data structure.   </p>
+<p>2) It is used to determine the cycles in the graph. In the <strong>Kruskal’s Algorithm</strong>, Union Find Data Structure is used as a subroutine to find the cycles in the graph, which helps in finding the minimum spanning tree.(Spanning tree is a subgraph in a graph which connects all the vertices and spanning tree with minimum sum of weights of all edges in it is called minimum spanning tree).   </p>
+<p><strong>Practice Problems:</strong><br>
+1) <a href="https://www.hackerearth.com/problem/algorithm/containers-of-choclates-1/">Panda and Combination</a></p>
+<p>2) <a href="https://www.hackerearth.com/code-monk-graph-theory-i/algorithm/monks-birthday-treat/">Monk's birthday treat</a></p>
+<div style="text-align: center;">
+<a href="https://www.hackerearth.com/code-monk-disjoint-set-union/problems/" style=""> Solve Problems</a>
+</div>
+    </div> <!-- end note-body -->
+
+    
+    <div class="social-share medium-margin content">
+        <!-- fb, twitter, g+ buttons -->
+        <!-- the urls are messed up because they were changed post launch -->
+        <div class="fb-like float-left medium-margin-right fb_iframe_widget" data-href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="lucida grande" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;font=lucida%20grande&amp;href=https%3A%2F%2Fwww.hackerearth.com%2Fpractice%2Fnotes%2Fdisjoint-set-union-union-find%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=100"><span style="vertical-align: bottom; width: 90px; height: 28px;"><iframe name="f28299d6a537cf8" width="100px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/like.html" style="border: none; visibility: visible; width: 90px; height: 28px;" class=""></iframe></span></div>
+        <div class="float-left medium-margin-right"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 73px; height: 20px;" title="Twitter Tweet Button" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/tweet_button.2b2d73daf636805223fb11d48f3e94f7.en.html" data-url="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/"></iframe></div>
+        <div class="float-left"><div id="___plusone_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I0_1676445651535" name="I0_1676445651535" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/fastbutton.html" data-gapiattached="true"></iframe></div><g:plusone href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/" size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone></div>
+        <!-- end of social buttons -->
+        <div class="clear"></div>
+    </div> <!-- social-share -->
+    
+
+    
+    <div id="comments-320-568" class="pagelet-inview comments standard-margin" ajax="/comment-action/load-comments/568/320/with-voting/with-sort/" target="comments-320-568"></div>
+    
+</div> <!-- end notes-container -->
+
+        </div><!-- left -->
+
+        <div class="right medium-margin">
+            <div class="right-box">
+                <div class="title"><i class="fa fa-magic less-margin-bottom"></i> Author</div>
+                <hr class="hr-dashed">
+                        
+                <div class="content">
+                    <div class="notes-user-info ">
+                        <a href="https://www.hackerearth.com/@prat33k" class="profile-pic inline-block medium-margin-right v-align-top">
+                            <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/137f61e700x500xfeatured01.jpg.pagespeed.ic.b8f3fw1bcm.jpg" alt="prat33k" width="80" height="80" onerror="if(typeof handle_avatar_error==&#39;function&#39;){handle_avatar_error(this);}">
+                        </a>
+                        <div class="inline-block user-info light small">
+                            <a href="https://www.hackerearth.com/@prat33k" class="inline-block large dark weight-600 hover-link">Prateek Garg</a>
+                            
+                            <div class="user-job-info ellipsis" title="SDE-1 at Flipkart"><i class="fa fa-briefcase small"></i> SDE-1 at Flipkart</div>
+                            
+                            
+                            <div><i class="fa fa-map-marker small"></i> BENGALURU</div>
+                            
+                            <div><a href="https://www.hackerearth.com/practice/notes/u/prat33k/" class="light weight-600"><i class="fa fa-file-text-o small"></i> 7 notes</a></div>
+                        </div> <!-- user-info -->
+                    </div> <!-- notes-user-info -->
+                </div> <!-- content -->
+            </div> <!-- right-box -->
+
+            <div class="right-box" id="f97069c"><div class="title">Trending Notes</div>
+<hr class="hr-dashed">
+<div class="content">
+    
+    <div class="less-margin-2">
+        <a href="https://www.hackerearth.com/practice/notes/divyanshu12/python-diaries-chapter-3/"> Python Diaries Chapter 3 Map | Filter |  For-else | List Comprehension</a>
+        <div class="small">written by Divyanshu Bansal</div>
+    </div>
+    
+    <div class="less-margin-2">
+        <a href="https://www.hackerearth.com/practice/notes/askpk123/bokeh-interactive-visualization-library-use-graph-with-django-template/"> Bokeh | Interactive Visualization Library | Use Graph with Django Template</a>
+        <div class="small">written by Prateek Kumar</div>
+    </div>
+    
+    <div class="less-margin-2">
+        <a href="https://www.hackerearth.com/practice/notes/askpk123/bokeh-interactive-visualization-library-graph-plotting/"> Bokeh | Interactive Visualization Library | Graph Plotting</a>
+        <div class="small">written by Prateek Kumar</div>
+    </div>
+    
+    <div class="less-margin-2">
+        <a href="https://www.hackerearth.com/practice/notes/divyanshu12/python-diaries-chapter-2/"> Python Diaries chapter 2</a>
+        <div class="small">written by Divyanshu Bansal</div>
+    </div>
+    
+    <div class="less-margin-2">
+        <a href="https://www.hackerearth.com/practice/notes/divyanshu12/python-diaries-chapter-1/">  Python Diaries chapter 1</a>
+        <div class="small">written by Divyanshu Bansal</div>
+    </div>
+    
+    <a href="https://www.hackerearth.com/practice/notes/" class="small float-right">more ... </a>
+    <div class="clear"></div>
+</div> <!-- content -->
+</div>
+
+        </div> <!-- right -->
+        <div class="clear"></div>
+
+    </div> <!-- responsive-container -->
+</div> <!-- responsive-page -->
+
+
+    <!-- include modal window for login/signup -->
+    
+        
+
+<div id="login-modal" class="modal-window smaller-modal hidden challenges-signup">
+    <div class="modal-header">
+        <div class="login-form bold heading">Log in</div>
+        <div class="signup-form-div hidden bold heading">Sign up</div>
+        <div class="password-reset hidden bold heading">Reset Password</div>
+    </div>
+    <div class="modal-content">
+
+        <div class="login-form">
+            
+                
+
+
+<div class="modal-social-login align-center">
+    
+        <div class="social-auth-row">
+            
+                <a url="/zeus/facebook/login/?display=popup&amp;next=%2Fsocial-login-complete%2F%3Forigin_protocol%3Dhttps%26origin_host%3Dwww.hackerearth.com%26redirect%3D/practice/notes/disjoint-set-union-union-find/%3Fupdate=facebook%26purpose=login%26source=practice" title="Facebook" class="button btn-facebook btn-medium show-popup inline-block margin-top-8 less-margin-right less-margin-bottom" minimal="true">
+            
+                <i class="fa fa-facebook"></i>
+                <span class="regular less-margin-left">
+                    Log in with Facebook
+                </span>
+            </a>
+
+            
+                <a url="/zeus/github/login/?next=%2Fsocial-login-complete%2F%3Forigin_protocol%3Dhttps%26origin_host%3Dwww.hackerearth.com%26redirect%3D/practice/notes/disjoint-set-union-union-find/%3Fupdate=github%26purpose=login%26source=practice" title="GitHub" class="button btn-github btn-medium show-popup inline-block margin-top-8 less-margin-right" minimal="true">
+            
+                <i class="fa fa-github"></i>
+                <span class="regular less-margin-left">
+                    Log in with GitHub
+                </span>
+            </a>
+        </div>
+        
+            <a url="/zeus/google/login/?next=%2Fsocial-login-complete%2F%3Forigin_protocol%3Dhttps%26origin_host%3Dwww.hackerearth.com%26redirect%3D/practice/notes/disjoint-set-union-union-find/%3Fupdate=google%26purpose=login%26source=practice" title="Google" class="button btn-google button-medium show-popup margin-top-8 less-margin-right sign-up-btn-modified" minimal="true">
+        
+        <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/google_logo.png" alt="Google" style="vertical-align: middle">
+        <span class="regular roboto-font-family">
+            Sign in with Google
+        </span>
+        </a>
+    
+    <div class="clear"></div>
+</div>
+<div class="align-center medium-margin">
+    <span class="large light">or</span>
+</div>
+
+            
+            <form id="modal-login-form" name="login-form" method="POST" class="ajax-form medium-margin" ajax="/AJAX/login/">
+                
+
+
+
+
+    
+
+        
+
+        
+        <div class="wrapper small-wrapper">
+            
+            <input type="text" name="login" placeholder="Username or Email" required="" id="id_login" wfd-id="id3">
+        </div>
+        <div class="wrapper small-wrapper">
+            <input type="password" name="password" placeholder="Password" required="" id="id_password" wfd-id="id4">
+        </div>
+        
+    
+    <input type="hidden" name="next" value="/practice/notes/disjoint-set-union-union-find/" wfd-id="id5">
+     <div>
+         <a href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/#" class="link-3 show-hide-many login-signup-link" show="password-reset" hide="login-form">Forgot Password?</a>
+        <div class="clear"></div>
+    </div>
+    <div class="login-footer standard-margin">
+        <div>
+            <input type="submit" name="submit" clicked="Logging In.." value="Log in" class="button login-btn weight-600 large" wfd-id="id6">
+        </div>
+        
+        <div class="align-center dark regular dont-have-account">
+            Don't have an account? <a href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/#" class="login-signup-link show-hide-many regular bold" show="signup-form-div" hide="login-form"> Sign up</a>
+        </div>
+    </div>
+    
+    
+
+
+
+            </form>
+        </div>
+
+        <div class="signup-form-div hidden">
+            
+                
+
+
+<div class="modal-social-signup align-center">
+    
+        <div class="social-auth-row">
+            
+                <a id="social-login-button-fb" url="/zeus/facebook/login/?display=popup&amp;next=%2Fsocial-login-complete%2F%3Forigin_protocol%3Dhttps%26origin_host%3Dwww.hackerearth.com%26redirect%3D/practice/notes/disjoint-set-union-union-find/%3Fupdate=facebook%26purpose=signup%26source=practice" title="Facebook" class="button btn-facebook btn-medium show-popup inline-block margin-top-8 less-margin-right hidden" minimal="true" style="display: none;">
+            
+                <i class="fa fa-facebook"></i>
+                <span class="regular weight-600 less-margin-left">
+                    Facebook
+                </span>
+            </a>
+            <a class="button btn-facebook btn-medium inline-block margin-top-8 less-margin-right less-margin-bottom social-login-button social-login-button-fb show-modal" target="gdpr-modal">
+                <i class="fa fa-facebook"></i>
+                <span class="regular less-margin-left">
+                    Sign up with Facebook
+                </span>
+            </a>
+
+            
+                <a id="social-login-button-github" url="/zeus/github/login/?next=%2Fsocial-login-complete%2F%3Forigin_protocol%3Dhttps%26origin_host%3Dwww.hackerearth.com%26redirect%3D/practice/notes/disjoint-set-union-union-find/%3Fupdate=github%26purpose=signup%26source=practice" title="GitHub" class="button btn-github btn-medium inline-block margin-top-8 less-margin-right show-popup hidden" minimal="true" style="display: none;">
+            
+                <i class="fa fa-github"></i>
+                <span class="regular weight-600 less-margin-left">
+                    GitHub
+                </span>
+            </a>
+            <a class="button btn-github btn-medium inline-block margin-top-8 less-margin-right social-login-button social-login-button-github show-modal" target="gdpr-modal">
+                <i class="fa fa-github"></i>
+                <span class="regular less-margin-left">
+                    Sign up with GitHub
+                </span>
+            </a>
+        </div>
+
+        
+            <a id="social-login-button-g" url="/zeus/google/login/?next=%2Fsocial-login-complete%2F%3Forigin_protocol%3Dhttps%26origin_host%3Dwww.hackerearth.com%26redirect%3D/practice/notes/disjoint-set-union-union-find/%3Fupdate=google%26purpose=signup%26source=practice" title="Google" class="button btn-google btn-medium inline-block margin-top-8 less-margin-right show-popup hidden" minimal="true" style="display: none;">
+        
+            <i class="fa fa-google-plus"></i>
+            <span class="regular weight-600 less-margin-left">
+                Google
+            </span>
+        </a>
+        <a class="button btn-google button-medium less-margin-right social-login-button social-login-button-g show-modal sign-up-btn-modified" target="gdpr-modal">
+            <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/google_logo.png" alt="Google" style="vertical-align: middle">
+            <span class="regular roboto-font-family">
+                Sign up with Google
+            </span>
+        </a>
+    
+    <div class="clear"></div>
+</div>
+<div class="align-center medium-margin">
+    <span class="large light">or</span>
+</div>
+
+            
+            
+            <form id="modal-signup-form" name="signup-form" method="POST" class="ajax-form medium-margin" ajax="/AJAX/hackerearth/signup/?source=practice&amp;next=/practice/notes/disjoint-set-union-union-find/">
+            
+                
+
+
+
+    
+        
+
+        
+        <div class="wrapper small-wrapper float-left">
+            <input type="text" name="first_name" placeholder="First Name" maxlength="30" required="" id="id_first_name" wfd-id="id7">
+        </div>
+
+        <div class="wrapper small-wrapper float-right">
+            <input type="text" name="last_name" placeholder="Last Name" maxlength="30" id="id_last_name" wfd-id="id8">
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="wrapper small-wrapper">
+            <input type="text" name="email" placeholder="Email" maxlength="75" required="" id="id_email" wfd-id="id9">
+        </div>
+        <div class="wrapper small-wrapper password-wrapper">
+            <input type="password" name="password" placeholder="Password" required="" id="id_password" wfd-id="id10">
+            
+
+<div class="password-tooltip hidden">
+    <div class="tooltip-heading align-center">Password requirements</div>
+    <ul>
+        <li id="js-alphabet"><span>An alphabet</span></li>
+        <li id="js-number"><span>A number</span></li>
+        <li id="js-special"><span>A special character</span></li>
+        <li id="js-length"><span>Minimum 8 characters</span></li>
+    </ul>
+</div>
+        </div>
+        <div class="wrapper small-wrapper signup-captcha">
+            <input type="hidden" name="g-recaptcha-response" id="id_recaptcha" wfd-id="id11">
+This site is protected by reCAPTCHA and the Google             <a href="https://policies.google.com/privacy">Privacy Policy</a>             and <a href="https://policies.google.com/terms">            Terms of Service</a> apply.
+        </div>
+
+    
+    <div class="signup-footer medium-margin">
+        <button id="signup-start-now" class="button login-btn weight-600 large disabled recaptcha-v3 " target="gdpr-modal" recaptcha-site-key="6LeyqcIZAAAAAOcy_5WJORJsuu9zmbZZxIRp4-em" data-action="signup" country-code="IN" target-form="modal-signup-form">Sign up</button>
+        <div class="align-center regular dont-have-account">
+            Have an account? <a href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/#" class="show-hide-many regular login-signup-link bold" show="login-form" hide="signup-form-div"> Log in</a>
+        </div>
+    </div>
+
+    <style>
+  #gdpr-modal {
+    position: absolute;
+    bottom: 0;
+  }
+</style>
+<div id="gdpr-modal" class="modal-window smaller-modal hidden">
+  
+
+<style>
+  #gdpr-modal-content {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #gdpr-modal-content .modal-header {
+    padding: 50px 55px 35px 55px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  #gdpr-modal-content .modal-footer {
+    padding: 25px 55px 90px;
+  }
+
+  #gdpr-modal-content .modal-content {
+    padding: 0 55px 5px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  #gdpr-modal-content .modal-footer .checkbox-row {
+    font-size: 16px;
+    display: inline-flex;
+  }
+
+  #gdpr-modal-content a {
+    color: #0099ff;
+  }
+  
+  #gdpr-modal-content .button.disabled {
+    background: #f5f6f6 !important;
+  }
+</style>
+
+<div id="gdpr-modal-content">
+  
+<div class="modal-header">HackerEarth’s Privacy Policy and Terms of Service</div>
+  <div class="modal-content">
+      We care about your data privacy. HackerEarth uses the information that you provide to contact you about relevant content, products, and services. <br> <br>
+
+      Our <a href="https://www.hackerearth.com/privacy/" target="_blank">Privacy Policy</a> and <a href="https://www.hackerearth.com/terms-of-service/" target="_blank">Terms of Service</a> will help you understand that you are in control of your data at HackerEarth.
+  </div>
+  <div class="modal-footer">
+    <div class="margin-bottom-15 regular checkbox-row">
+      <input type="checkbox" name="gdpr-tnc" wfd-id="id12">
+      I have read and I agree.
+    </div>
+    <div class="">
+      <input type="submit" name="submit" value="Proceed" class="button btn-blue fontawesome btn-largest disabled large" id="gdpr-submit" wfd-id="id13">
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/password-requirements.99680283a61f.js.download" crossorigin="anonymous" defer=""></script>
+<script type="text/javascript">
+    window.onload = showPasswordTooltip($('.password-wrapper #id_password'), false);
+    showPasswordTooltip($('#password-error #id_password'), true);
+</script>
+
+
+            </form>
+        </div>
+
+        <div class="password-reset hidden">
+            <form name="password-reset" method="POST" class="ajax-form" ajax="/AJAX/password/reset/?next=/practice/notes/disjoint-set-union-union-find/">
+                
+
+
+
+
+    
+    <p class="regular"> A password reset link will be sent to the following email id</p>
+    
+    <div class="wrapper">
+        
+        <input type="text" name="email" size="30" placeholder="Email" required="" id="id_email" wfd-id="id14">
+    </div>
+    
+    <div class="reset-footer medium-margin">
+        <input id="reset-password" type="submit" name="submit" clicked="Sending.." value="Send Password Reset Link" class="button login-btn weight-600" wfd-id="id15">
+        <button id="login-link" class="login-link show-hide-many link-btn button-medium pointer bold" show="login-form" hide="password-reset">Back to login page</button>
+    </div>
+
+<script>
+    $('#reset-password').click(function(){
+        $('#login-link').addClass('hidden');
+    })
+</script>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="gdpr-modal-content hidden">
+        
+
+<style>
+  #gdpr-modal-content {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  #gdpr-modal-content .modal-header {
+    padding: 50px 55px 35px 55px;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  #gdpr-modal-content .modal-footer {
+    padding: 25px 55px 90px;
+  }
+
+  #gdpr-modal-content .modal-content {
+    padding: 0 55px 5px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  #gdpr-modal-content .modal-footer .checkbox-row {
+    font-size: 16px;
+    display: inline-flex;
+  }
+
+  #gdpr-modal-content a {
+    color: #0099ff;
+  }
+  
+  #gdpr-modal-content .button.disabled {
+    background: #f5f6f6 !important;
+  }
+</style>
+
+<div id="gdpr-modal-content">
+  
+<div class="modal-header">HackerEarth’s Privacy Policy and Terms of Service</div>
+  <div class="modal-content">
+      We care about your data privacy. HackerEarth uses the information that you provide to contact you about relevant content, products, and services. <br> <br>
+
+      Our <a href="https://www.hackerearth.com/privacy/" target="_blank">Privacy Policy</a> and <a href="https://www.hackerearth.com/terms-of-service/" target="_blank">Terms of Service</a> will help you understand that you are in control of your data at HackerEarth.
+  </div>
+  <div class="modal-footer">
+    <div class="margin-bottom-15 regular checkbox-row">
+      <input type="checkbox" name="gdpr-tnc" wfd-id="id16">
+      I have read and I agree.
+    </div>
+    <div class="">
+      <input type="submit" name="submit" value="Proceed" class="button btn-blue fontawesome btn-largest disabled large" id="gdpr-submit" wfd-id="id17">
+    </div>
+  </div>
+</div>
+
+    </div>
+</div>
+
+    
+
+        <!-- include community lead registration modal-->
+     <style>
+    .cl-modal-dimmer {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 90;
+        background: rgba(51, 51, 51, 0.7);
+    }
+
+    .cl-modal-dimmer .container {
+        margin-left: auto;
+        margin-right: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .cl-modal-dimmer .row {
+        justify-content: center;
+    }
+
+    .row.vertical-center {
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -10px;
+        margin-left: -10px;
+    }
+
+    .cl-modal-dimmer .cl-modal-wrapper {
+        position: relative;
+    }
+
+    .col-sm-8,
+    .col-md-8,
+    .col-lg-8,
+    .col-xl-8 {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .cl-modal-dimmer .cl-modal {
+        position: relative;
+        background-color: #fff;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .cl-modal .close-icon-wrap.in {
+        font-size: 10px;
+        top: 12px;
+        right: 12px;
+    }
+
+
+    @media only screen and (min-width: 1200px) {
+        .cl-modal-dimmer.is-xl-compact {
+            background: rgba(51, 51, 51, 0.7);
+        }
+
+        .cl-modal-dimmer.is-xl-compact .container {
+            width: 1140px;
+        }
+
+        .container {
+            width: 1140px;
+            max-width: 100%;
+        }
+
+        .cl-modal-dimmer.is-xl-compact .cl-modal-wrapper,
+        .cl-modal-dimmer.is-xl-compact .cl-modal {
+            position: relative;
+        }
+
+        .col-xl-8 {
+            -moz-flex: 0 0 33.3%;
+            -webkit-flex: 0 0 33.3%;
+            -ms-flex: 0 0 33.3%;
+            flex: 0 0 33.3%;
+            max-width: 33.3%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .cl-modal-dimmer.is-xl-compact .cl-modal-wrapper,
+        .cl-modal-dimmer.is-xl-compact .cl-modal {
+            position: relative;
+        }
+
+        .cl-modal-dimmer.is-xl-compact .in {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 16px;
+            right: 16px;
+            font-size: 12px;
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+        .cl-modal-dimmer.is-lg-compact {
+            background: rgba(51, 51, 51, 0.7);
+        }
+
+        .container {
+            max-width: 100%;
+        }
+
+        .cl-modal-dimmer.is-lg-compact .cl-modal {
+            position: relative;
+        }
+
+        .col-lg-8 {
+            -moz-flex: 0 0 33.3%;
+            -webkit-flex: 0 0 33.3%;
+            -ms-flex: 0 0 33.3%;
+            flex: 0 0 33.3%;
+            max-width: 33.3%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .cl-modal-dimmer.is-lg-compact .cl-modal-wrapper,
+        .cl-modal-dimmer.is-lg-compact .cl-modal {
+            position: relative;
+        }
+
+        .cl-modal-dimmer.is-lg-compact .in {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 16px;
+            right: 16px;
+            font-size: 12px;
+        }
+
+    }
+
+    @media only screen and (min-width: 768px) {
+        .cl-modal-dimmer.is-md-compact {
+            background: rgba(51, 51, 51, 0.7);
+        }
+
+        .container {
+            max-width: 100%;
+        }
+
+        .cl-modal-dimmer.is-md-compact .cl-modal-wrapper,
+        .cl-modal-dimmer.is-md-compact .cl-modal {
+            position: relative;
+        }
+
+        .col-md-8 {
+            -moz-flex: 0 0 33.3%;
+            -webkit-flex: 0 0 33.3%;
+            -ms-flex: 0 0 33.3%;
+            flex: 0 0 33.3%;
+            max-width: 33.3%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .cl-modal-dimmer.is-md-compact .cl-modal-wrapper,
+        .cl-modal-dimmer.is-md-compact .cl-modal {
+            position: relative;
+        }
+
+        .cl-modal-dimmer.is-md-compact .in {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 16px;
+            right: 16px;
+            font-size: 12px;
+        }
+    }
+
+    @media only screen and (min-width: 576px) {
+        .cl-modal-dimmer.is-sm-compact {
+            background: rgba(51, 51, 51, 0.7);
+        }
+
+        .cl-modal {
+            width: 360px;
+        }
+
+        .cl-modal-dimmer.is-sm-compact .cl-modal-wrapper,
+        .cl-modal-dimmer.is-sm-compact .cl-modal {
+            position: relative;
+        }
+
+        .col-sm-8 {
+            -moz-flex: 0 0 33.3%;
+            -webkit-flex: 0 0 33.3%;
+            -ms-flex: 0 0 33.3%;
+            flex: 0 0 33.3%;
+            max-width: 33.3%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .cl-modal-dimmer.is-sm-compact .cl-modal-wrapper,
+        .cl-modal-dimmer.is-sm-compact .cl-modal {
+            position: relative;
+        }
+
+        .cl-modal-dimmer.is-sm-compact .in {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 16px;
+            right: 16px;
+            font-size: 12px;
+        }
+    }
+
+    .cl-modal-dimmer .close-icon-wrap.in {
+        color: #46535e;
+        z-index: 1;
+    }
+
+    .cl-modal-dimmer .close-icon-wrap {
+        text-align: center;
+        font-size: 12px;
+        background: none;
+        position: -webkit-sticky;
+        position: sticky;
+        float: right;
+        top: 16px;
+        right: 16px;
+        cursor: pointer;
+        line-height: 0;
+        opacity: 0.9;
+        color: #666;
+    }
+
+    button {
+        background: none;
+        color: inherit;
+        border: none;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content {
+        padding: 28px 12px 12px;
+        text-align: center;
+    }
+
+    .lm-modal {
+        font-family: proxima-nova, Open Sans, Helvetica, Arial, sans-serif !important;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content {
+        padding: 28px 12px 12px;
+        text-align: center;
+    }
+
+    .icon {
+        margin-bottom: 20px;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content {
+        text-align: center;
+        font-size: 15px;
+        font-weight: 400;
+        padding: 36px 12px 20px;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content .lm-lead-capture-content {
+        margin-bottom: 20px;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content .submit-btn {
+        font-size: 14px;
+        line-height: 19px;
+        padding: 8px 15px;
+        background: #116de3;
+        border-radius: 4px;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content .disabled {
+        background-color: #666 !important;
+        color: white !important;
+        cursor: not-allowed !important;
+    }
+
+    .cl-modal .error {
+        color: #d41f00;
+        padding-left: 10px;
+        text-align: left;
+    }
+
+    input[type="email"] {
+        outline: none;
+        border-radius: 6px;
+        border: 2px solid #d8dde6;
+        font-style: normal;
+        width: 80%;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 10px 16px;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content .main-text {
+        font-size: 15px;
+        color: #333;
+        line-height: 22px;
+        margin-top: 15px;
+        -webkit-font-smoothing: antialiased;
+        font-weight: 600;
+        word-spacing: normal;
+    }
+
+    .cl-modal .cl-modal-content.lm-modal-content .sub-text {
+        font-size: 13px;
+        color: #666;
+        word-spacing: normal;
+    }
+</style>
+
+
+<div id="community-lead-modal" style="display:none" class="hidden modal-window cl-modal-dimmer is-sm-compact is-md-compact is-lg-compact is-xl-compact lm-modal">
+    <div class="container is-sm-compact is-md-compact is-lg-compact is-xl-compact">
+        <div class="row vertical-center">
+            <div class="cl-modal-wrapper col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <div class="cl-modal" role="dialog" aria-modal="true"><button type="button" class="close-icon-wrap btn-plain in" onclick="closeModal();" id="close-btn">
+                        <div class="vertical-align-middle inline-block"><i class="icon ui-close" style="font-size: inherit;"></i></div>
+                    </button>
+
+                    <!-- Post success message view start -->
+                    <div id="success-div" class="hidden cl-modal-content lm-modal-content">
+                        <br><br>
+                        <div class="icon">
+                            <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21.0814 5.09821C21.3285 5.69584 21.8028 6.17088 22.4001 6.41889L24.4943 7.28637C25.0919 7.53394 25.5668 8.00879 25.8143 8.60647C26.0619 9.20415 26.0619 9.87569 25.8143 10.4734L24.9475 12.5662C24.6998 13.1641 24.6995 13.8363 24.9483 14.434L25.8136 16.5262C25.9363 16.8222 25.9995 17.1395 25.9996 17.4599C25.9996 17.7804 25.9365 18.0977 25.8139 18.3938C25.6913 18.6898 25.5115 18.9588 25.2849 19.1854C25.0583 19.412 24.7892 19.5916 24.4931 19.7142L22.4004 20.581C21.8028 20.8281 21.3278 21.3025 21.0798 21.8997L20.2123 23.994C19.9648 24.5917 19.4899 25.0666 18.8923 25.3141C18.2946 25.5617 17.6231 25.5617 17.0255 25.3141L14.9327 24.4473C14.3351 24.2003 13.6638 24.2008 13.0665 24.4487L10.9723 25.3149C10.3749 25.5619 9.70401 25.5617 9.10684 25.3143C8.50967 25.067 8.0351 24.5927 7.78737 23.9956L6.91966 21.9007C6.67256 21.3031 6.19825 20.828 5.60102 20.58L3.5068 19.7125C2.9094 19.4651 2.43471 18.9905 2.18706 18.3932C1.93941 17.7959 1.93907 17.1246 2.18612 16.5271L3.05296 14.4343C3.2999 13.8366 3.2994 13.1653 3.05155 12.5679L2.18597 10.4721C2.06324 10.1761 2.00005 9.85881 2 9.53836C1.99995 9.2179 2.06304 8.90058 2.18567 8.60452C2.3083 8.30846 2.48806 8.03946 2.71468 7.8129C2.9413 7.58634 3.21035 7.40666 3.50644 7.28412L5.59916 6.41726C6.19624 6.17037 6.67098 5.69664 6.91916 5.10007L7.78662 3.00577C8.03417 2.40809 8.50901 1.93324 9.10667 1.68567C9.70432 1.43811 10.3758 1.43811 10.9735 1.68567L13.0662 2.55254C13.6639 2.7995 14.3352 2.79899 14.9325 2.55114L17.0276 1.68702C17.6251 1.43959 18.2965 1.43964 18.8941 1.68716C19.4916 1.93468 19.9664 2.40939 20.214 3.00692L21.0817 5.10184L21.0814 5.09821Z" fill="#0F8F10"></path>
+                                <path d="M10.4 13.5L12.8 15.9L18.2 10.5M21.0814 5.09821C21.3285 5.69584 21.8028 6.17088 22.4001 6.41889L24.4943 7.28637C25.0919 7.53394 25.5668 8.00879 25.8143 8.60647C26.0619 9.20415 26.0619 9.87569 25.8143 10.4734L24.9475 12.5662C24.6998 13.1641 24.6995 13.8363 24.9483 14.434L25.8136 16.5262C25.9363 16.8222 25.9995 17.1395 25.9996 17.4599C25.9996 17.7804 25.9365 18.0977 25.8139 18.3938C25.6913 18.6898 25.5115 18.9588 25.2849 19.1854C25.0583 19.412 24.7892 19.5916 24.4931 19.7142L22.4004 20.581C21.8028 20.8281 21.3278 21.3025 21.0798 21.8997L20.2123 23.994C19.9648 24.5917 19.4899 25.0666 18.8923 25.3141C18.2946 25.5617 17.6231 25.5617 17.0255 25.3141L14.9327 24.4473C14.3351 24.2003 13.6638 24.2008 13.0665 24.4487L10.9723 25.3149C10.3749 25.5619 9.70401 25.5617 9.10684 25.3143C8.50967 25.067 8.0351 24.5927 7.78737 23.9956L6.91966 21.9007C6.67256 21.3031 6.19825 20.828 5.60102 20.58L3.5068 19.7125C2.9094 19.4651 2.43471 18.9905 2.18706 18.3932C1.93941 17.7959 1.93907 17.1246 2.18612 16.5271L3.05296 14.4343C3.2999 13.8366 3.2994 13.1653 3.05155 12.5679L2.18597 10.4721C2.06324 10.1761 2.00005 9.85881 2 9.53836C1.99995 9.2179 2.06304 8.90058 2.18567 8.60452C2.3083 8.30846 2.48806 8.03946 2.71468 7.8129C2.9413 7.58634 3.21035 7.40666 3.50644 7.28412L5.59916 6.41726C6.19624 6.17037 6.67098 5.69664 6.91916 5.10007L7.78662 3.00577C8.03417 2.40809 8.50901 1.93324 9.10667 1.68567C9.70432 1.43811 10.3758 1.43811 10.9735 1.68567L13.0662 2.55254C13.6639 2.7995 14.3352 2.79899 14.9325 2.55114L17.0276 1.68702C17.6251 1.43959 18.2965 1.43964 18.8941 1.68716C19.4916 1.93468 19.9664 2.40939 20.214 3.00692L21.0817 5.10184L21.0814 5.09821Z" stroke="#0F8F10" stroke-width="2.88" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M10.3999 13.5L12.7999 15.9L18.1999 10.5" stroke="white" stroke-width="2.88" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+
+                        </div>
+                        <div classname="margin-bottom-32 lm-lead-capture-content align-center">
+                            <div class="main-text">
+                                Thank you for showing interest in sourcing from Hackerearth's community.
+                            </div>
+                            <br>
+                            <div class="sub-text">
+                                A member of our team will be in touch with you
+                                soon.
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <!-- Post success message view end -->
+
+                    <!-- Register view start -->
+                    <div id="register-div" class="hidden cl-modal-content lm-modal-content">
+                        <div class="icon">
+                            <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.12" d="M22 27.5L16.5 22C17.4756 19.469 18.704 17.0428 20.1667 14.7584C22.3028 11.3429 25.2773 8.53064 28.8072 6.58922C32.337 4.64779 36.3049 3.64173 40.3333 3.66671C40.3333 8.65338 38.9033 17.4167 29.3333 23.8334C27.0176 25.2977 24.5609 26.5261 22 27.5Z" fill="#8D6CD4"></path>
+                                <path d="M22 27.5L16.5 22M22 27.5C24.5609 26.5261 27.0177 25.2977 29.3334 23.8334M22 27.5V36.6667C22 36.6667 27.555 35.6584 29.3334 33C31.3134 30.03 29.3334 23.8334 29.3334 23.8334M16.5 22C17.4756 19.469 18.7041 17.0428 20.1667 14.7584C22.3029 11.3429 25.2773 8.53064 28.8072 6.58921C32.3371 4.64779 36.3049 3.64173 40.3334 3.66671C40.3334 8.65338 38.9034 17.4167 29.3334 23.8334M16.5 22H7.33337C7.33337 22 8.34171 16.445 11 14.6667C13.97 12.6867 20.1667 14.6667 20.1667 14.6667M8.25004 30.25C5.50004 32.56 4.58337 39.4167 4.58337 39.4167C4.58337 39.4167 11.44 38.5 13.75 35.75C15.0517 34.21 15.0334 31.845 13.585 30.415C12.8724 29.7349 11.9337 29.3419 10.9491 29.3114C9.9645 29.281 9.00331 29.6152 8.25004 30.25Z" stroke="#8D6CD4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+
+                        </div>
+                        <div class="margin-bottom-32 lm-lead-capture-content align-center">
+
+                            <div class="main-text">
+                                Unlock the potential of the HackerEarth community by sourcing top talents and innovative
+                                ideas.
+                            </div>
+                            <br>
+                            <div class="sub-text">
+                                Host your next Hackathon with us.
+                                Interested?
+                            </div>
+                        </div>
+
+                        <div>
+                            
+                            <input id="lead-email" type="email" placeholder="Enter your email..." classname="email-input" required="" wfd-id="id18">
+                            
+                            <div>
+                                <button onclick="submitForm(event)" id="submit-btn" type="submit" class="submit-btn">
+                                     Submit 
+                                </button>
+                            </div>
+                        </div>
+                        <div class="error" id="error-div"></div>
+                    </div>
+                    <!-- Register view  end-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const successDiv = document.getElementById("success-div")
+    const registerDiv = document.getElementById("register-div")
+    const errorDiv = document.getElementById("error-div")
+    const submitBtn = document.getElementById("submit-btn")
+    let localData = JSON.parse(localStorage.getItem("lmSubmission"))
+
+    document.getElementById("community-lead").addEventListener("click", function () {
+        document.getElementById("community-lead-modal").style.display = "block"
+        checkLocalStorage()
+    })
+
+    let username = ''
+
+    function checkLocalStorage() {
+        localData = JSON.parse(localStorage.getItem("lmSubmission"))
+        if (!username) {
+            username = null
+        }
+        let isSubmitted = false;
+        if (localData && localData.isSubmitted && localData.username === username) {
+            successDiv.style.display = "block"
+            registerDiv.style.display = "none"
+        } else {
+            successDiv.style.display = "none"
+            registerDiv.style.display = "block"
+        }
+
+    }
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === name + '=') {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    function submitForm(e) {
+        e.preventDefault()
+        let email
+        if (username) {
+            email = ''
+        } else {
+            email = document.getElementById("lead-email")?.value
+        }
+        submitBtn.classList.add("disabled")
+        const token = getCookie('csrftoken')
+        fetch(`${window.location.origin}/challengesapp/api/community-lead/?source=hiring`, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type': 'application/json',
+                'X-CSRFToken': token,
+                csrftoken: token,
+                csrfmiddlewaretoken: token,
+            },
+            credentials: 'include',
+            xsrfCookieName: 'csrftoken',
+            xsrfHeaderName: 'X-CSRFToken',
+            withCredentials: true,
+            method: 'POST',
+            body: JSON.stringify({ email })
+        }).then((resp) => resp.json()).then((json) => {
+            submitBtn.classList.remove("disabled")
+            if (json.success) {
+                localStorage.setItem(
+                    'lmSubmission',
+                    JSON.stringify({ isSubmitted: true, username }),
+                );
+                window.dispatchEvent(new Event('storage'))
+                registerDiv.remove()
+                successDiv.style.display = "block"
+            } else {
+                errorDiv.innerHTML = json.error ?? 'Something went wrong. Please try again'
+            }
+        }).catch(() => {
+            submitBtn.classList.remove("disabled")
+            errorDiv.innerHTML = 'Something went wrong. Please try again'
+        })
+    }
+    function closeModal() {
+        document.getElementById("community-lead-modal").style.display = "none"
+    }
+
+</script>
+
+
+    <!-- override this block where we do not want the footer -->
+    
+    
+        
+                
+
+
+
+
+
+<footer class="marketing-footer footer-large">
+    <div class="fixed-container">
+        <div class="primary-footer">
+            <div class="standard-margin-bottom contact-wrapper">
+                <div class="standard-margin-bottom">
+                    <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/he-footer-logo.svg">
+                </div>
+                <ul class="no-style">
+                    <li>+1-650-461-4192</li>
+                    <li>
+                        <a href="mailto:contact@hackerearth.com" target="_blank">
+                            contact@hackerearth.com
+                        </a>
+                    </li>
+                </ul>
+                <ul class="social-links-container no-style">
+                    <li>
+                        <a href="https://www.facebook.com/HackerEarth/" target="_blank">
+                            <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/facebook-logo.svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/HackerEarth?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank">
+                            <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/twitter-logo.svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/hackerearth/?originalSubdomain=in" target="_blank">
+                            <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/linkedin-logo.svg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCYU6nvKyRYnE5kiG9JXkXpA" target="_blank">
+                            <img src="./Disjoint Set Union (Union Find) _ HackerEarth_files/youtube-logo.svg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="standard-margin-bottom">
+                <h3 class="footer-heading">For Developers</h3>
+                <ul class="no-style">
+                    <li>
+                        <a href="https://www.hackerearth.com/challenges/hackathon/" target="_blank">
+                            Hackathons
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/challenges" target="_blank">
+                            Challenges
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/jobs/" target="_blank">
+                            Jobs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/practice/" target="_blank">
+                            Practice
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/campus-ambassador-program/" target="_blank">
+                            Campus Ambassadors
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="standard-margin-bottom">
+                <h3 class="footer-heading">For Businesses</h3>
+                <ul class="no-style">
+                    <li>
+                        <a href="https://www.hackerearth.com/community-hackathons/" target="_blank">
+                            Hackathons
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/recruit/" target="_blank">
+                            Assessments
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/recruit/facecode/" target="_blank">
+                            FaceCode
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.hackerearth.com/recruit/learning-and-development/" target="_blank">
+                            Learning and Development
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="standard-margin-bottom">
+                <h3 class="footer-heading">Knowledge</h3>
+                <ul class="no-style">
+                    <li>
+                        <a href="https://www.hackerearth.com/practice/" target="_blank">
+                            Practice
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/practice/interviews/" target="_blank">
+                            Interview Prep
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/practice/codemonk/" target="_blank">
+                            Codemonk
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://engineering.hackerearth.com/" target="_blank">
+                            Engineering Blog
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="standard-margin-bottom">
+                <h3 class="footer-heading">Company</h3>
+                <ul class="no-style">
+                    <li>
+                        <a href="https://www.hackerearth.com/team/" target="_blank">
+                            About us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/companies/hackerearth/jobs/" target="_blank">
+                            Careers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/press/" target="_blank">
+                            Press
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://help.hackerearth.com/hc/en-us" target="_blank">
+                            Support
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/reach-us/" target="_blank">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hackerearth.com/privacy/" target="_blank">
+                            Privacy Policy
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ul class="secondary-footer no-style">
+        <li>
+            
+            
+                © 2023 HackerEarth All rights reserved
+            
+        </li>
+        <li>
+            <a href="https://www.hackerearth.com/terms-of-service/" target="_blank">
+                Terms of Service
+            </a>
+        </li>
+        <li>
+            <a href="https://www.hackerearth.com/privacy/" target="_blank">
+                Privacy Policy
+            </a>
+        </li>
+    </ul>
+</footer>
+
+        
+    
+    
+
+    <div class="expand-box" id="recruiter-box" style="display: none;">
+        <div class="down-arrow"></div>
+        <ul class="no-margin">
+            
+            
+            
+            <a href="https://www.hackerearth.com/logout/?next=/practice/notes/disjoint-set-union-union-find/"><li>Logout</li></a>
+        </ul>
+    </div>
+
+    
+
+    <!-- Include notifications box -->
+    
+
+
+
+<div class="expand-box" id="notifications-box" style="display: none;">
+    <div class="down-arrow"></div>
+    <div class="notifications-title-container">
+        <div class="float-left weight-600">Notifications</div>
+        <div class="float-right">
+            <a href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/#" ajax="https://www.hackerearth.com/notifications/AJAX/mark-all-read/" class="notif-mark-all-read link smaller clicky-ajax">Mark All as Read</a>
+        </div>
+        <div class="clear"></div>
+    </div> <!-- notifications-title-container -->
+
+    <div class="notifications-container nice-scrollbar" id="notifications-container" style="overflow: hidden; outline: none;" tabindex="0">
+    </div> <!-- notifications-container -->
+
+    <div class="smaller caps weight-600 align-center less-margin-2 less-margin-2-bottom">
+        <a class="link" href="https://www.hackerearth.com/notifications/">View All Notifications</a>
+    </div>
+<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 7px; z-index: 10; background: rgb(238, 238, 238); cursor: default; position: absolute; top: 0.8px; left: -7px; height: 0px; opacity: 1; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 7px; height: 0px; background-color: rgb(204, 204, 204); border: none; background-clip: padding-box; border-radius: 0px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 7px; z-index: 10; background: rgb(238, 238, 238); top: -6.2px; left: 0px; position: absolute; opacity: 1; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 7px; width: 0px; background-color: rgb(204, 204, 204); border: none; background-clip: padding-box; border-radius: 0px;"></div></div></div> <!-- notifications-box -->
+
+
+    <!-- Load notification icon with unread count -->
+    <div id="header-notif-icon-trigger" class="load-pagelet hidden" target="header-notif-icon" ajax="/notifications/pagelets/header-notif-icon-count/" show-loader="false"></div>
+
+    
+
+    
+
+    
+    
+
+        
+        
+
+        <!-- Store any json returned for bigpipe -->
+        <div id="bigpipe-json" class="hidden">
+            {"f97069c": "/users/pagelets/trending_card/?sensual=True"}
+        </div>
+
+        <!-- Store any html returned for feedback popup -->
+        <div id="user-feedback-popup" class="hidden"></div>
+
+        
+            <div id="common-notification">
+            </div>
+        
+
+        
+        
+
+        
+        <div id="external-link-modal" class="modal-window very-large-modal">
+            <div class="modal-content large dark align-left">
+                <div id="external-link-content-wrapper">
+                    <pre></pre>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- All the scripts go here -->
+        <script>
+            
+            var CURRENT_PATH = "https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/";
+            var HISTORY = '';
+            var DEFAULT_REAL_NUMBER_PRECISION = 2;
+            var DECIMAL_PRECISION_ERROR_TEXT = "Only {decimal_limit} decimal places allowed";
+            var SOMETHING_WENT_WRONG_ERROR_TEXT = "Something went wrong. Please try again later.";
+
+            // Make code constants available globally in JS
+            var MAP_LANG_TO_NAME = {"BASH": "Bash", "BEFUNGE": "Befunge", "C": "C", "CLOJURE": "Clojure", "CPP11": "C++11", "CPP": "C++", "CPP14": "C++14", "CPP17": "C++17", "CSHARP": "C#", "CSS": "CSS", "D": "D", "ERLANG": "Erlang", "FSHARP": "F#", "GO": "Go", "GROOVY": "Groovy", "HASKELL": "Haskell", "HTML": "HTML", "JAVA": "Java", "JAVA8": "Java 8", "JAVA14": "Java 14", "JAVASCRIPT": "JavaScript(Rhino)", "JAVASCRIPT_NODE": "JavaScript(Node.js)", "JAVASCRIPT_UI": "JavaScript", "JULIA": "Julia", "LISP": "Lisp", "LISP_SBCL": "Lisp (SBCL)", "LUA": "Lua", "LOLCODE": "LOLCODE", "MSSQL": "MSSQL", "MYSQL": "MySQL", "OBJECTIVEC": "Objective-C", "OCAML": "OCaml", "OCTAVE": "Octave", "PASCAL": "Pascal", "PERL": "Perl", "PHP": "PHP", "POSTGRESQL": "PostgreSQL", "PYTHON3": "Python 3", "PYTHON3_8": "Python 3.8", "PYTHON": "Python", "R": "R(RScript)", "RACKET": "Racket", "RUBY": "Ruby", "RUST": "Rust", "SCALA": "Scala", "SCALA_2118": "Scala 2.11.8", "SWIFT_4_1": "Swift-4.1", "SWIFT": "Swift", "TEXTFILE": "Text", "Text": "Text", "TYPESCRIPT": "TypeScript", "vp": "N/A", "VB": "Visual Basic", "WHENEVER": "Whenever", "ORACLE_DB": "Oracle_Db", "KOTLIN": "Kotlin"};
+            var MAP_NAME_TO_LANG = {"Bash": "BASH", "Befunge": "BEFUNGE", "C": "C", "Clojure": "CLOJURE", "C++11": "CPP11", "C++": "CPP", "C++14": "CPP14", "C++17": "CPP17", "C#": "CSHARP", "CSS": "CSS", "D": "D", "Erlang": "ERLANG", "F#": "FSHARP", "Go": "GO", "Groovy": "GROOVY", "Haskell": "HASKELL", "HTML": "HTML", "Java": "JAVA", "Java 8": "JAVA8", "Java 14": "JAVA14", "JavaScript(Rhino)": "JAVASCRIPT", "JavaScript(Node.js)": "JAVASCRIPT_NODE", "JavaScript": "JAVASCRIPT_UI", "Julia": "JULIA", "Lisp": "LISP", "Lisp (SBCL)": "LISP_SBCL", "Lua": "LUA", "LOLCODE": "LOLCODE", "MSSQL": "MSSQL", "MySQL": "MYSQL", "Objective-C": "OBJECTIVEC", "OCaml": "OCAML", "Octave": "OCTAVE", "Pascal": "PASCAL", "Perl": "PERL", "PHP": "PHP", "PostgreSQL": "POSTGRESQL", "Python 3": "PYTHON3", "Python 3.8": "PYTHON3_8", "Python": "PYTHON", "R(RScript)": "R", "Racket": "RACKET", "Ruby": "RUBY", "Rust": "RUST", "Scala": "SCALA", "Scala 2.11.8": "SCALA_2118", "Swift-4.1": "SWIFT_4_1", "Swift": "SWIFT", "Text": "Text", "TypeScript": "TYPESCRIPT", "N/A": "vp", "Visual Basic": "VB", "Whenever": "WHENEVER", "Oracle_Db": "ORACLE_DB", "Kotlin": "KOTLIN"};
+        </script>
+
+        
+
+        <!-- alljs: static_media/js/jquery-1.7.min.patched.js static_media/js/jquery.color.js static_media/js/jquery.elastic.js static_media/js/ajaxSend.js  static_media/js/jquery.inview.js  static_media/js/tooltip/jquery.tipTip.modified.js  static_media/offline/offline.min.js  static_media/js/watermark.min.js  static_media/history.js?v=0.1/scripts/bundled/html4html5/jquery.history.js  static_media/js/jquery.nicescroll.js  static_media/simplemodal/simplemodal.js static_media/js/jquery.sticky.js static_media/js/pusher.min.js static_media/js/ifvisible.min.js static_media/feeds/feeds.js static_media/base/progress_bar.js -->
+        
+
+
+<script>
+    UPLOADING_TEXT = "Uploading";
+    UPLOADED_TEXT = "Uploaded";
+    SAVING_TEXT = "Saving..";
+    UPLOAD_SUCCESS_MESSAGE = "File saved successfully.";
+    UPLOAD_ERROR_MESSAGE = "An error occured while saving, please try again in sometime.";
+</script>
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/alljs.61076a3094cf.js.download" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/base1.0.1.0b5d8268a89d.js.download" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/bigpipe.c6f19f153efc.js.download" crossorigin="anonymous"></script>
+        
+
+
+<script type="text/javascript">
+var CONFIRM_COMMENT_DELETE = "Are you sure, you want to delete comment?";
+var COMMENT_NOT_DELETED = "Comment could not be deleted!";
+var CONFORM_COMMENT_MARK_SPAM = "Are you sure, you want to mark this comment as spam?";
+var COMMENT_NOT_MARKED_SPAM = "Comment could not be marked as spam!";
+var ENTER_15_CHARS = "Enter at least 15 characters";
+var JUST_X_MORE = "Just {count} more to go";
+</script>
+        <script>
+            var MAP_MARKER_SIGNUP_IMAGE = 'https://static-fastly.hackerearth.com/static/metrics/map-marker.png';
+            var MAP_MARKER_LOGIN_IMAGE = 'https://static-fastly.hackerearth.com/static/metrics/map-marker-login.png';
+            var AJAX_URL = '';
+        </script>
+        
+<script>
+    // firestore credentials
+    var firebaseConfig = {
+        apiKey:'AIzaSyD7oH2r4iyvysFx47-IVwrzdwIuw7Ici90',
+        authDomain:'he-production.firebaseapp.com',
+        databaseURL:'https://he-production.firebaseio.com',
+        projectId:'he-production',
+        storageBucket:'he-production.appspot.com',
+        messagingSenderId:'100736274227',
+        appId:'1:100736274227:web:fdd60d6929555af4d3b846'
+    };
+    window.firebaseConfig = firebaseConfig;
+</script>
+
+    <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/firebase-app.a75f50850a09.js.download" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/firebase-firestore.ac7f12977426.js.download" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/firestore_realtime.551dabc1780c.js.download" crossorigin="anonymous"></script>
+
+
+        <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/history.9f9bce34e5c7.js.download" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/commentUtils.dadb11872038.js.download" crossorigin="anonymous"></script>
+
+
+        
+        <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/offline.min.7ce195ae7071.js.download" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" async="" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/MathJax.js.download"></script>
+
+
+<script type="text/x-mathjax-config;executed=true">
+    var options = {
+      messageStyle: "none",
+      jax: ["input/TeX", "output/SVG", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [['$$','$$'], ['\\(', '\\)']],
+        displayMath: [['$$$', '$$$'], ['\\[', '\\]']],
+        preview: "none"
+      },
+      SVG: {
+        useGlobalCache: false
+      }
+    };
+
+    // modify the options only in case of assessments, since for proxima-nova mathjax renders very small
+    // text in chrome
+    if (window.isProximaNova) {
+      options = {
+        messageStyle: "none",
+        jax: ["input/TeX", "output/SVG", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [['$$','$$'], ['\\(', '\\)']],
+          displayMath: [['$$$', '$$$'], ['\\[', '\\]']],
+          preview: "none"
+        },
+        SVG: {
+          useGlobalCache: false,
+          scale: MathJax.Hub.Browser.isChrome ? 175 : 100,
+          minScaleAdjust: 100
+        },
+        "HTML-CSS": {
+          minScaleAdjust: 100
+        },
+        "CommonHTML": {
+          minScaleAdjust: 100
+        }
+      }
+    }
+
+    MathJax.Hub.Config(options);
+</script>
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/mathjax.4249b2f93e54.js.download" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    window.addEventListener("load", function() {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    });
+</script>
+
+        <script>
+            Offline.options = {
+                interceptRequests: false,
+                requests: false,
+            };
+        </script>
+
+        
+
+        
+
+
+<script>
+
+$(document).ready(function (){
+    $('#header-notif-icon-trigger').click();
+
+    
+
+    
+    
+
+    
+
+    // show kone ge widget if not visited
+    
+
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    var m_links = {};
+    var m_elements = {
+        '#modal-login-form input[type=submit]': 'Modal Email Login',
+        '#modal-signup-form input[type=submit]': 'Modal Email Signup',
+        '.modal-social-login .btn-facebook': 'Modal Facebook Login',
+        '.modal-social-login .btn-google': 'Modal Google Login',
+        '.modal-social-signup .btn-facebook': 'Modal Facebook Signup',
+        '.modal-social-signup .btn-google': 'Modal Google Signup',
+        '.top-banner .login-banner a': 'Signup after banner click',
+    };
+    
+    for (var key in m_elements) {
+        $(key).live('click', {'key': key }, function(e) {
+            var key = e.data.key;
+            mixpanel.track('Click', {'name': m_elements[key]});
+        });
+    }
+    for (var key in m_links) {
+        mixpanel.track_links(key, 'Click', {'name': m_links[key]});
+    }
+});
+</script>
+
+
+
+
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/search.1.0.f3e89277dbfc.js.download" crossorigin="anonymous" defer=""></script>
+
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/gdpr-modal.e3306212a68a.js.download" crossorigin="anonymous"></script>
+
+
+
+        <script>
+            // Used in search
+            var is_user_logged_in = false;
+        </script>
+
+        
+        <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/detect_timezone.12f6ba68823f.js.download" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/mapped_tz.97a5c55af78d.js.download" crossorigin="anonymous"></script>
+        <script>
+
+            function setTimezoneCookie(detected_user_tz) {
+                /* Sets the detected user timezone as a cookie in the browser.
+                   If someone changes it or removes it, a sanity check is
+                   performed and the cookie is reset.
+
+                   This cookie is set for ready availability of user timezone
+                   in the backend.
+                */
+
+                const USER_TIMEZONE_COOKIE = 'user_tz';
+                // Try to get the existing user timezone cookie stored
+                // in the browser.
+                user_tz = readCookie(USER_TIMEZONE_COOKIE);
+
+                // Flag to determine whether a new cookie has to be created.
+                create_cookie = false;
+
+                if(user_tz) {
+                    if(user_tz !== detected_user_tz) {
+                        // If someone has changed the cookie in some way, we
+                        // set a new cookie.
+                        eraseCookie(USER_TIMEZONE_COOKIE);
+                        create_cookie = true;
+                    }
+                } else {
+                    create_cookie = true;
+                }
+
+                // Create a new cookie if create_cookie flag is set.
+                createCookie(USER_TIMEZONE_COOKIE, detected_user_tz, 1);
+
+            }
+            $(document).ready(function(){
+                var timezone = '';
+                if (Intl && Intl.DateTimeFormat){
+                    timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                    // Map timezone name to a name that is familiar to our backend
+                    if (mapped_tz[timezone]) {
+                        timezone = mapped_tz[timezone] 
+                    }
+                }
+                if (!timezone) {
+                    timezone = jstz.determine_timezone();
+                    timezone = timezone.name();
+                }
+                if (!timezone) {
+                    // could not detect timezone, setting it to GMT timezone
+                    timezone = 'Africa/Abidjan'
+                }
+                // Set as a cookie in browser for easy access in backend.
+                setTimezoneCookie(timezone);
+
+                // Set as a js variable for easy access across frontend.
+                USER_TIMEZONE = timezone
+
+                
+
+                
+
+                
+                
+                
+                
+                
+
+                
+
+                
+                    $.ajax({
+                        type: "POST",
+                        url:"/users/AJAX/set-timezone/",
+                        data: {
+                        'timezone': timezone,
+                        },
+                    });
+                
+            });
+        </script>
+        
+
+        
+
+        <script type="text/javascript">
+            
+            $(document).ready(function(){
+                //mixpanel delegate links custom method
+                mixpanel.delegate_links = function (parent, selector, event_name, properties) {
+                    properties = properties || {};
+                    parent = parent || document.body;
+                    parent = $(parent);
+                    parent.on('click', selector, function (event) {
+                        var new_tab = event.which === 2 || event.metaKey || event.target.target === '_blank' || this.target === '_blank';
+                        properties.url = event.target.href || this.href;
+                        function callback() {
+                            if (new_tab) {
+                                return;
+                            }
+                            window.location = properties.url;
+                        }
+                        if (!new_tab) {
+                            event.preventDefault();
+                            setTimeout(callback, 300);
+                        }
+                        mixpanel.track(event_name, properties, callback);
+                    });
+                };
+            });
+            
+        </script>
+
+        
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/prettifyall.b06a7696b7e1.js.download" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/votes.f0aeda457196.js.download" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/tagging_autocomplete.1ca12f5fa94f.js.download" crossorigin="anonymous"></script>
+
+<script>
+    $("#notes-title-bar").sticky({
+        bottomSpacing: 600,
+    });
+    $("#notes-title-bar").width($("#notes-left-container").width()+ 'px');
+</script>
+
+<script>
+$(document).ready(function() {
+    styleCode();
+});
+</script>
+
+
+        
+        <!-- mixpanel analytics start -->
+        <script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);mixpanel.init("4c30b8635363027dfb780d5a61785112");
+        </script>
+        <!-- mixpanel analytics end -->
+        <script type="text/javascript">
+            
+                
+                    mixpanel.unregister("username");
+                    mixpanel.unregister("email");
+                    mixpanel.unregister("date_of_joining");
+                    mixpanel.unregister("user_bucket");
+                    mixpanel.unregister("company");
+                    mixpanel.unregister("is_recruiter");
+                    mixpanel.register({
+                        "url_path": "/practice/notes/disjoint-set-union-union-find/"
+                    });
+                
+            
+        </script>
+        
+
+        
+        
+        <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+        <script>
+            <!-- facebook button -->
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            <!-- twitter button -->
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+            <!-- google+ button -->
+            (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+        
+        
+
+        
+            
+
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/cookiebar.ffe531fab344.css">
+
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/cookiebar.70181766db90.js.download" crossorigin="anonymous"></script>
+
+
+        
+
+        
+            
+        
+
+        
+            <!-- Hackerearth Hubspot Chat Widget -->
+
+
+
+
+<link rel="stylesheet" href="./Disjoint Set Union (Union Find) _ HackerEarth_files/hubspot-chat-widget.3d8752b3cf0b.css">
+
+<script type="text/javascript" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/hubspot-chat.ec74f08d1daa.js.download" crossorigin="anonymous" defer=""></script>
+
+<div class="support-widget-wrapper">
+    <div class="ripple-loader">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <div class="support-section">
+        <div id="hs-launch-button" class="customer-support-icon">
+            <p>?</p>
+        </div>
+    </div>
+</div>
+        
+    
+
+</div><div id="tiptip_holder" style="max-width:200px;"><div id="tiptip_arrow"><div id="tiptip_arrow_inner"></div></div><div id="tiptip_content"></div></div><div class="offline-ui offline-ui-up"><div class="offline-ui-content"></div><a href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/" class="offline-ui-retry"></a></div><div class="offline-ui offline-ui-up"><div class="offline-ui-content"></div><a href="https://www.hackerearth.com/practice/notes/disjoint-set-union-union-find/" class="offline-ui-retry"></a></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/anchor.html" width="256" height="60" role="presentation" name="a-b2pikzx27ln" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/saved_resource(2).html"></iframe></div><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/widget_iframe.2b2d73daf636805223fb11d48f3e94f7.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe name="oauth2relay622909355" id="oauth2relay622909355" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Disjoint Set Union (Union Find) _ HackerEarth_files/saved_resource(3).html"></iframe></body></html>
