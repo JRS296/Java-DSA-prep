@@ -1,5 +1,6 @@
 Link: https://www.geeksforgeeks.org/pattern-searching-using-suffix-tree/
 Link: https://www.baeldung.com/java-pattern-matching-suffix-tree
+https://www.hackerearth.com/practice/notes/trie-suffix-tree-suffix-array/
 
 Following are some famous problems where Suffix Trees provide optimal time complexity solution. 
 1) Pattern Searching 
