@@ -18,6 +18,10 @@ List of Topics Covered:
 
 2 - Searching Algorithms
 
+README Resources:
+
+https://stackabuse.com/how-to-create-a-loading-animation-in-react-from-scratch/
+
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
