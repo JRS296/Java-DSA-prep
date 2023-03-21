@@ -1,3 +1,5 @@
+Number of Subarrays = N*(N+1)/2
+
 1) How to Solve SLIDING WINDOW problems:
 Link: https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1135/discuss/2133524/JavaC++-A-reall-Detailed-Explanation
 
