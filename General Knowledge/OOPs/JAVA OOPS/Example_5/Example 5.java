@@ -1,3 +1,5 @@
+//Singleton class - class with only 1 obkect i.e. Private Constructor
+
 class Singleton { //Class which has only 1 object
 
     private Singleton () { //To prevent more than one instance being created - made private

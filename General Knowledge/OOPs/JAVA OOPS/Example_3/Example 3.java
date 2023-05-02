@@ -1,3 +1,4 @@
+//To demonstrate use of static keyword
 
 class Human {
     int age;

@@ -1,4 +1,6 @@
 import Example1.Student.name; //Access to variables
+//To demonstrate use of import keyword
+
 import Example1.Student; //import entire classes
 import Example1.test;//Can import functions as well
 

@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
-        "2 - Searching Algorithms",
+        "6 - Linked Lists",
         "3 - Sorting Algorithms",
+        "2 - Searching Algorithms",
         "1 - Arrays",
-        "6 - Linked Lists"
+        "General Knowledge/OOPs/JAVA OOPS"
     ]
 }

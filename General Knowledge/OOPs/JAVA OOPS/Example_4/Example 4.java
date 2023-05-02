@@ -1,4 +1,4 @@
-
+//To demonstrate use of static keyword within context of nested classes
 
 class OuterClass {
 
