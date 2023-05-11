@@ -1,0 +1,37 @@
+1. Fibonacci Numbers 
+    - Climbing stairs - 
+    - House Robber - 
+    - Fibonacci Numbers - 
+    - Maximum Alternating numbers - 
+
+2. 0/1 Knapsack 
+    - Generic - 
+    - Parition Equal Subset Problem - 
+    - Target Sum - 
+
+3. Unbounded Knapsack
+    - Coin Change -
+    - Coin Change 2 -
+    - Min Cost for Tickets - 
+
+4. Longest Common Subsequence
+    - Longest Common Subsequence -
+    - Longest Increasing Subsequence -
+    - Edit Distance -
+    Distinct Subsequence -
+
+5. Palindromes
+    - Longest Palindormic Substring -
+    - Palindormic Substrings - 
+    - Longest Palindormic Subsequence - 
+
+6. DFS + memoization 
+    - Longest Increasing Path in a Matrix
+    - Path Sum III
+
+7. Backtracking + memoization
+    - Regex/Wildcard
+    - Partition to K Equal Sum Subsets
+
+8. State Machine
+    - Best Time to Buy & Sell Stock variations
