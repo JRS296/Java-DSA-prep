@@ -53,7 +53,6 @@ class Solution3 { //Bottom Up
       arr[0] = 0;
       arr[1] = 1;
 
-      int ans = 0;
       for(int i=2; i<N+1; i++)
       {
           arr[i] = arr[i-1] + arr[i-2];

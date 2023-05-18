@@ -1,0 +1,104 @@
+1. Sorting HashMaps:
+- By Key:
+    - Uses java.util.TreeMap, it will sort the Map by keys automatically.
+Map<String, String> treeMap = new TreeMap<String, String>(unsortMap);
+
+    - Using a custom comparator:
+Map<Integer, String> treeMap = new TreeMap<Integer, String>(
+                new Comparator<Integer>() {
+                    @Override
+                    public int compare(Integer o1, Integer o2) {
+                        return o2.compareTo(o1);
+                    }
+                });
+
+	    /* For Java 8, try this lambda
+		Map<Integer, String> treeMap = new TreeMap<>(
+		                (Comparator<Integer>) (o1, o2) -> o2.compareTo(o1)
+		        );
+		*/
+        treeMap.putAll(unsortMap); 
+    
+- Sort By Value:
+    - Via Comparator
+
+    Map<String, Integer> sortedMap = sortByValue(unsortMap);
+
+private static Map<String, Integer> sortByValue(Map<String, Integer> unsortMap) {
+
+        // 1. Convert Map to List of Map
+        List<Map.Entry<String, Integer>> list =
+                new LinkedList<Map.Entry<String, Integer>>(unsortMap.entrySet());
+
+        // 2. Sort list with Collections.sort(), provide a custom Comparator
+        //    Try switch the o1 o2 position for a different order
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+            public int compare(Map.Entry<String, Integer> o1,
+                               Map.Entry<String, Integer> o2) {
+                return (o1.getValue()).compareTo(o2.getValue());
+            }
+        });
+
+        // 3. Loop the sorted list and put it into a new insertion order Map LinkedHashMap
+        Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+        for (Map.Entry<String, Integer> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        /*
+        //classic iterator example
+        for (Iterator<Map.Entry<String, Integer>> it = list.iterator(); it.hasNext(); ) {
+            Map.Entry<String, Integer> entry = it.next();
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }*/
+
+
+        return sortedMap;
+    }
+
+    - Via Entry Set (VVVVV)
+
+List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(frequencyMap.entrySet());
+// Sort the list based on the frequency in descending order
+entryList.sort((a, b) -> b.getValue() - a.getValue());
+
+--------------------------------------------------------------------------------------------------------------------
+
+Other important functions related to HashMaps
+
+// Count the frequency of each element
+for (int num : nums) {
+    frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+}
+        
+List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(frequencyMap.entrySet());
+// Sort the list based on the frequency in descending order
+entryList.sort((a, b) -> b.getValue() - a.getValue());
+
+WAYS TO ACCESS MAP ELEMENTS:
+
+1. ForEACH
+map.forEach((k,v) -> {
+        System.out.println("key: " + k + ", value: " + v)
+});
+
+2. Map.entrySet()
+// iterate over and get keys and values
+for (Map.Entry<Integer, String> entry : map.entrySet()) {
+    Integer k = entry.getKey();
+    String v = entry.getValue();
+    System.out.println("key: " + k + ", value: " + v);
+}
+
+3. map.keySet() method if you want to retrieve Keys only
+Set<Integer> keys = map.keySet();
+for (Integer k : keys) {
+    System.out.println("key: " + k);
+}
+
+4. map.values()
+Collection<String> values = map.values();
+for (String v : values) {
+    System.out.println("value: " + v);
+}
+
