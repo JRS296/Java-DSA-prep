@@ -1,0 +1,2 @@
+Indegree and outdegree
+For a vertex, the number of head ends adjacent to a vertex is called the indegree of the vertex and the number of tail ends adjacent to a vertex is its outdegree (called branching factor in trees). (See figure saved in folder)

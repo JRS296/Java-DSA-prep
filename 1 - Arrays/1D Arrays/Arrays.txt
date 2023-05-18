@@ -22,6 +22,9 @@ for (int i = 0; i < al.size(); i++)
 
 Initialize Array with 0's: Integer[] arr = Collections.nCopies(3, 42).toArray(new Integer[0]);
 
+int[] array = new int[] {1, 2, 3, 4, 5};
+int[] subArray = Arrays.copyOfRange(array, 0, 2); //Does it in O(n) time
+
 Some Array Functions (From java.util.Arrays; class):
 asList() - Returns a fixed-size list backed by the specified Arrays
 binarySearch() - Searches for the specified element in the array with the help of the Binary Search Algorithm

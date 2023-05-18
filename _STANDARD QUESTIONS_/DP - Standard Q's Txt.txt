@@ -2,7 +2,6 @@
     - Climbing stairs - (DONE) - https://leetcode.com/problems/climbing-stairs/?envType=study-plan-v2&id=dynamic-programming
     - House Robber - (DONE) -https://leetcode.com/problems/house-robber/?envType=study-plan-v2&id=dynamic-programming
     - Fibonacci Numbers - (DONE) -https://leetcode.com/problems/fibonacci-number/?envType=study-plan-v2&id=dynamic-programming
-    - Maximum Alternating numbers - 
 
 2. 0/1 Knapsack 
     - Generic - 
@@ -18,7 +17,8 @@
     - Longest Common Subsequence -
     - Longest Increasing Subsequence -
     - Edit Distance -
-    Distinct Subsequence -
+    - Distinct Subsequence -
+    - Maximum Alternating numbers - 
 
 5. Palindromes
     - Longest Palindormic Substring -
