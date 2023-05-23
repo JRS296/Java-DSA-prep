@@ -6,6 +6,11 @@ Arrays.sort(arr) - sorts array using quick sort
 Print Array as String:
 System.out.println(Arrays.toString(_array_name_)); 
 
+Get Max and MIN:
+
+int maxVal = Arrays.stream(piles).max().getAsInt();
+int minVal = Arrays.stream(piles).min().getAsInt();
+
 Array to ArrayList: List<String> al = new ArrayList<String>(Arrays.asList(geeks));
 (or)
 Collections.addAll(_ArrayList_name_ , _array_name_)
