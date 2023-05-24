@@ -1,9 +1,11 @@
 {
     "java.project.sourcePaths": [
-        "6 - Linked Lists",
-        "3 - Sorting Algorithms",
-        "2 - Searching Algorithms",
         "1 - Arrays",
-        "General Knowledge/OOPs/JAVA OOPS"
-    ]
+        "14 - Dynamic Programming",
+        "2 - Searching Algorithms",
+        "3 - Sorting Algorithms",
+        "6 - Linked Lists",
+        "General Knowledge"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }

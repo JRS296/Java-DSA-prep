@@ -1,4 +1,4 @@
-package Example_11;
+
 
 class Test<T> {
     // An object of type T is declared

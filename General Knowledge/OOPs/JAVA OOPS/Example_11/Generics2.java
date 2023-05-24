@@ -1,4 +1,4 @@
-package Example_11;
+
 
 // Java program to show multiple
 // type parameters in Java Generics
