@@ -5,7 +5,9 @@
         "2 - Searching Algorithms",
         "3 - Sorting Algorithms",
         "6 - Linked Lists",
-        "General Knowledge"
+        "General Knowledge",
+        "5 - Queues",
+        "5 - Queues\\Priority Queue"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }

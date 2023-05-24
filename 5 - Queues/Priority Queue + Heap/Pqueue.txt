@@ -1,0 +1,15 @@
+Key Differences
+The priority queue is working on the queue and the heap is working on the tree data structure.
+The priority queue is stored array value in a simple form while the heap is stored array value in a sorted form.
+The heap provides multiple functions and operations than the priority queue. The priority queue provides queue-related functions.
+The heap implements abstract data types such as priority queue but priority queue does not implement heap.
+The priority queue is simpler than the heap data structure. the heap is complicated because of the parent node rule.
+Conclusion
+The priority queue data structure and heap data structure create, operate, and organizes the array data.
+The priority queue and heap works on the highest and lowest priority of the array value.
+The priority queue and heap maintains large scale, complicated data of the application easily.
+
+PriorityQueue<String> queue=new PriorityQueue<String>(len); //Min
+PriorityQueue<Integer> pq =new PriorityQueue<>((x, y) -> Integer.compare(y, x)); //Max
+(or)
+PriorityQueue<Integer> queue = new PriorityQueue<>(10, Collections.reverseOrder()); //Max

@@ -1,0 +1,26 @@
+Heap is a semi ordered tree, generally Binary
+
+Max Heap - Each parents key is greater than children
+Min Heap - Each parents key is smaller than children
+
+HEAP IS IMPLEMENTED VIA PriorityQueue CLASS IN JAVA
+
+Heap Perations:
+
+1) Insert - Always insert an element in the highest, then the leftmost position available.
+This is to enable us to use arrays to depict heaps. We then call function "heapify", to bring 
+tree back to state that it satisfies property.
+
+2) Removal - We take element out of tree, and then replace it with lowest, then right-most, element
+of the tree. Often, we will be removing top most element in PriorityQueue. Then we call Heapify function
+
+Key Differences
+The priority queue is working on the queue and the heap is working on the tree data structure.
+The priority queue is stored array value in a simple form while the heap is stored array value in a sorted form.
+The heap provides multiple functions and operations than the priority queue. The priority queue provides queue-related functions.
+The heap implements abstract data types such as priority queue but priority queue does not implement heap.
+The priority queue is simpler than the heap data structure. the heap is complicated because of the parent node rule.
+Conclusion
+The priority queue data structure and heap data structure create, operate, and organizes the array data.
+The priority queue and heap works on the highest and lowest priority of the array value.
+The priority queue and heap maintains large scale, complicated data of the application easily.
