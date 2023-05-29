@@ -13,3 +13,9 @@ PriorityQueue<String> queue=new PriorityQueue<String>(len); //Min
 PriorityQueue<Integer> pq =new PriorityQueue<>((x, y) -> Integer.compare(y, x)); //Max
 (or)
 PriorityQueue<Integer> queue = new PriorityQueue<>(10, Collections.reverseOrder()); //Max
+
+
+TIME COMPLEXITIES:
+- Creation of priority queue takes O(n) time
+- insertion and deletion in a priority queue takes O(logn) time
+- Traversing the priority queue to get the answer and deleting the top most element is taking O(nlogn) time

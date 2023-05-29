@@ -2,6 +2,9 @@
 This structure might apply to many other backtracking questions, but here I am just going to demonstrate Subsets, Permutations, and Combination Sum.
  */
 
+ //TC - The time complexity of Backtracking For example, if the function calls itself two times, then its time complexity is O(2 ^ N), and if it calls
+ // three times, then O(3 ^ N) and so on. Hence the time complexity of backtracking can be defined as O(K ^ N), where 'K' is the number of times the function calls itself.
+
 //Subsets - https://leetcode.com/problems/subsets/
 class Solution_Subsets {
     List<List<Integer>> ans = new ArrayList<List<Integer>>();
