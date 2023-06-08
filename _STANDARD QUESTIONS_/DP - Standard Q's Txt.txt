@@ -5,12 +5,12 @@
 
 2. 0/1 Knapsack 
     - Generic - 
-    - Parition Equal Subset Problem - 
-    - Target Sum - 
+    - Parition Equal Subset Problem - https://leetcode.com/problems/partition-equal-subset-sum/
+    - Target Sum - https://leetcode.com/problems/target-sum/description/
 
 3. Unbounded Knapsack
-    - Coin Change -
-    - Coin Change 2 -
+    - Coin Change - https://leetcode.com/problems/coin-change/
+    - Coin Change 2 - https://leetcode.com/problems/coin-change-ii/
     - Min Cost for Tickets - 
 
 4. Longest Common Subsequence

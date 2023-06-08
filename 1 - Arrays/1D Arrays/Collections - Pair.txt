@@ -1,0 +1,13 @@
+Pair p1 = new Pair(3, 4);
+Pair p2 = new Pair<Integer, Integer>(3, 4);
+Pair p3 = new Pair(4, 4);
+ 
+System.out.println(p1.equals(p2) + “ ” + p2.equals(p3));
+
+String toString(): This method will return the String representation of the Pair.
+K getKey(): It returns the key for the pair.
+V getValue(): It returns a value for the pair.
+int hashCode(): Generate a hash code for the Pair.
+setAt1()
+setAt2()
+

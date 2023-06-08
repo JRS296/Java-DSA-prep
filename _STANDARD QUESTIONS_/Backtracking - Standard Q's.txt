@@ -1,0 +1,13 @@
+- Subsets 1 & 2 -
+    - 
+    - 
+- Permutations 1 & 2 -
+    -
+    -
+- Combination Sum 1 & 2 - 
+    - 
+    - https://leetcode.com/problems/combination-sum-ii/description/
+
+- Sudoku Solver - https://leetcode.com/problems/sudoku-solver/description/
+- N Queens - 
+- Word Search - https://leetcode.com/problems/word-search/description/

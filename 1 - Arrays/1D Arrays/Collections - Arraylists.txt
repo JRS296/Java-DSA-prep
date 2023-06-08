@@ -56,3 +56,26 @@ push(E item) - The method pushes (insert) an element onto the top of the stack.
 pop() - The method removes an element from the top of the stack and returns the same element as the value of that function.
 peek() - The method looks at the top element of the stack without removing it.
 search(Object o) - The method searches the specified object and returns the position of the object.
+
+Creating array of arraylists:
+
+ArrayList<Integer>[] al = new ArrayList[n];
+  
+        // initializing
+        for (int i = 0; i < n; i++) {
+            al[i] = new ArrayList<Integer>();
+        }
+  
+        // We can add any number of columns to each
+        // rows as per our wish
+        al[0].add(1);
+        al[0].add(2);
+        al[1].add(5);
+        al[2].add(10);
+        al[2].add(20);
+        al[2].add(30);
+        al[3].add(56);
+        al[4].add(34);
+        al[4].add(67);
+        al[4].add(89);
+        al[4].add(12);

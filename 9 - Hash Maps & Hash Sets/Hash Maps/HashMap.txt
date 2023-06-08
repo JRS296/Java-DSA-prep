@@ -102,3 +102,11 @@ for (String v : values) {
     System.out.println("value: " + v);
 }
 
+STORING ARRAY in HashMap
+
+HashMap<String, int[]> map = new HashMap<String, int[]>();
+map.put("Something", coeficientUzura);
+prices.put("milk", new Integer[] {1, 3, 2});
+
+Remember: int array[] = { 1, 2, 3, 4, 5 };
+          int[] copy = Arrays.copyOf(array, 5);

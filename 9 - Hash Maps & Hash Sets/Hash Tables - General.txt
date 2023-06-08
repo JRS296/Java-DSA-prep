@@ -18,6 +18,7 @@ key value is allowed. The hashing mechanism is used to insert the objects
 into a HashSet.
  - Very USeful for getting Unique elements of array, etc.
  - Does not have a get method, as it use set interface.
+https://stackoverflow.com/questions/12014641/java-retrieving-an-element-from-a-hashset#:~:text=There%20is%20no%20get%20for,object%20you%20would%20get%20back.
 Eg: HashSet angularDevepolers = new HashSet();
     angularDevepolers.add("Navdeep");
 
