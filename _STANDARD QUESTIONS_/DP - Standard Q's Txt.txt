@@ -38,4 +38,7 @@
 
 Material:
  - https://leetcode.com/problems/house-robber/solutions/156523/from-good-to-great-how-to-approach-most-of-dp-problems/
- - 
+
+Standard Algorithms:
+ - Bellman Ford - 
+ - Dijkstra - 

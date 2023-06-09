@@ -9,7 +9,8 @@
         "5 - Queues",
         "5 - Queues\\Priority Queue",
         "7 - Trees\\ImportantQuestions",
-        "8 - Graphs\\Important Algorithms"
+        "8 - Graphs\\Important Algorithms",
+        "8 - Graphs\\Graph Traversal"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }

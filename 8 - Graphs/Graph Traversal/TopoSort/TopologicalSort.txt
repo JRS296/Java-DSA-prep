@@ -1,0 +1,13 @@
+TOPOLOGICAL SORT in Graphs
+
+Links:
+- https://www.youtube.com/watch?v=5lZ0iJMrUMk
+
+
+- Only works on DAG - Directed Acyclic Graphs
+- Provides a linear ordering of vertices such that if there is an edge between 
+u & v, u will appear before v in the final linear order that topo sort will
+produce.
+ - Perfrom DFS at each node while checking if visited or not. Place in Stack. 
+Finally, pop stack to get topological ordering of graph.
+ - Every DAG will have atleast 1 Topo ordering

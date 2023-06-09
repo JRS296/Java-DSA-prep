@@ -1,0 +1,7 @@
+Standard Algorithms
+ - Path Finding Algorithms:
+    - Bellman Ford
+    - Dijkstra 
+ - MST:
+    - Prim's MST - 
+    - Kruskal's MST -
