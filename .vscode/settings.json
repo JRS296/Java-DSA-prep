@@ -7,7 +7,9 @@
         "6 - Linked Lists",
         "General Knowledge",
         "5 - Queues",
-        "5 - Queues\\Priority Queue"
+        "5 - Queues\\Priority Queue",
+        "7 - Trees\\ImportantQuestions",
+        "8 - Graphs\\Important Algorithms"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }

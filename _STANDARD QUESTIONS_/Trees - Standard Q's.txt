@@ -1,0 +1,18 @@
+General Trees
+ - 
+ -
+ -
+ -
+
+Binary Trees
+ - Find maximum (or minimum) in Binary Tree - 
+ -
+ -
+ -
+
+
+Binary Search Trees
+ -
+ -
+ -
+ -
