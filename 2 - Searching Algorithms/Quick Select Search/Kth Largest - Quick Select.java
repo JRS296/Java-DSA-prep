@@ -1,5 +1,6 @@
 class Solution {
     //quickselect: the average of time:o(n), it depends on the pivot we choose.
+    //Very Similar to QuickSort - especiallu partition algo
 //space:o(logn)
 public int findKthLargest(int[] nums, int k) {
         return quickselect(nums, 0, nums.length - 1, k);

@@ -1,6 +1,11 @@
 //File Code: 3.5 - Searching Algorithms - Quick Sort
 
 //Code: Quick sort in Java
+
+//Key Word: PIVOT - Correct position of final sorted array, items to left are smaller, to right are bigger
+
+//How to choose Pivot? Median of 3 rule, or rightmost element
+
 import java.util.Arrays;
 class QuickSort {
 
