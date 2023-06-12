@@ -1,0 +1,24 @@
+Leetcode:
+ - Reverse Linked List (LC)/(ALE) - 
+ - Merge Two Sorted Lists (LC) - 
+ - Reorder List (LC) - 
+ - Remove Nth Node From End of List (LC) - 
+ - Copy List With Random Pointer (LC) - 
+ - Add Two Numbers (LC) - 
+ - Linked List Cycle / FindLoop (LC)/(ALE) - 	
+ - Find The Duplicate Number (LC) - 
+ - LRU Cache (LC) - 
+ - Merge K Sorted Lists (LC) - 	
+ - Reverse Nodes In K Group (LC) - 
+
+(✔️) - Remove Duplicates from LinkedList (ALE) - https://www.algoexpert.io/questions/remove-duplicates-from-linked-list
+(✔️) - Middle Node (ALE) - https://www.algoexpert.io/questions/middle-node
+ - Linked List Construction (ALE) - 
+ - Sum of LinkedLists (ALE) - 
+ - Mergeing LinkedLists (ALE) -
+ - Merge LinkedLists (ALE) -
+ - Shift Linked List (ALE) - 
+ - Rearrange LinkedList (ALE) - 
+ - LinkedList Palindrome (ALE) - 
+ - Zip LinkedList (ALE) - 
+ - Node Swap (ALE) - 

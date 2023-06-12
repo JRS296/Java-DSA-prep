@@ -1,21 +1,51 @@
-General Trees
- - 
- -
- -
- -
+NC - Leetcode
+(✔️)(PR) - Invert Binary Tree - https://leetcode.com/problems/invert-binary-tree/
+(✔️)(PR) - Maximum Depth of Binary Tree - https://leetcode.com/problems/maximum-depth-of-binary-tree/submissions/899009147/
+(✔️)(PR)  - Diameter of Binary Tree	- https://leetcode.com/problems/diameter-of-binary-tree/description/
+(✔️)(PR) - Balanced Binary Tree - https://leetcode.com/problems/balanced-binary-tree/
+(✔️)(PR) - Same Tree	- https://leetcode.com/problems/same-tree/
+(✔️)(PR) - Subtree of Another Tree - https://leetcode.com/problems/subtree-of-another-tree/description/
+ - Lowest Common Ancestor of a Binary Search Tree	
+ - Binary Tree Level Order Traversal	
+ - Binary Tree Right Side View	
+ - Count Good Nodes In Binary Tree	
+ - Validate Binary Search Tree	
+ - Kth Smallest Element In a Bst	
+ - Construct Binary Tree From Preorder And Inorder Traversal	
+ - Binary Tree Maximum Path Sum	
+ - Serialize And Deserialize Binary Tree
 
-Binary Trees
- - Find maximum (or minimum) in Binary Tree - 
- - 
- -
- -
+BST's (AlgoExpert)
+ - Find Closest Value in BST
+ - BST Construction
+ - Validate BST
+ - BST Traversal
+ - Min Height BST
+ - Find K Largest Value in BST
+ - Reconstruct BST
+ - Same BST
+ - Validate 3 Nodes
+ - Repair BST
+ - Right Smaller Than
 
-
-Binary Search Trees
- -
- -
- -
- -
+Binary Trees (AlgoExpert)
+ - Branch Sums 
+ - Node Depths 
+ - Evaluate Expression Trees
+ - Invert Binary Tree - 
+ - Binary Tree Diamenter
+ - Find Successor 
+ - Height Balanced Binary Tree
+ - Merge Binary Tree
+ - Symmetrical Tree
+ - Split Binary Tree
+ - Max Path Sum in Binary Tree
+ - Find Nodes Distance K 
+ - Iterative In-Order
+ - Flatten Binary Trees
+ - Right Sibling Tree
+ - All kinds of Node Depths
+ - Compare Leaf Traversal
 
 Tree Traversals 
  - DFS: 
@@ -23,4 +53,11 @@ Tree Traversals
     - Postorder
     - Preorder 
  - BFS:
-    - Level Order 
+    - Level Order
+
+Tries (Leetcode + AlgoExpert) - See both ways to implement tries
+(✔️) - Suffix Trie Construction (ALE) - https://www.algoexpert.io/questions/suffix-trie-construction
+(✔️) - Multi String Search (ALE) - https://www.algoexpert.io/questions/multi-string-search
+(✔️) - Implement Trie Prefix Tree (LC) - https://leetcode.com/problems/implement-trie-prefix-tree/
+(✔️) - Design Add And Search Words Data Structure (LC) - https://leetcode.com/problems/design-add-and-search-words-data-structure/
+ - Word Search II (LC) -

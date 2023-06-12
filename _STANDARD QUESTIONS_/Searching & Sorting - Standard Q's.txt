@@ -1,0 +1,34 @@
+SEARCHING (Algos)
+(✔️)(PR) - Binary Search
+(✔️)(PR) - QuickSelect Sort
+
+Q's (AlgoExpert)
+(✔️) - Binary Search - https://www.algoexpert.io/questions/binary-search
+(✔️) - Find 3 Largest Numbers - https://www.algoexpert.io/questions/find-three-largest-numbers
+- Search in Sorted Matrix
+- Shifted Binary Search
+- Search for range
+- QuickSelect
+- Index Equals Value - 
+
+SORTING (Algos)
+(✔️)(PR) - Bubble Sort 
+(✔️)(PR) - Insertion Sort 
+(✔️)(PR) - Selection Sort 
+- Three Numbers Sort 
+- Quick Sort 
+- Heap Sort 
+- Radix Sort 
+- Merge Sort 
+- Count Inversions
+
+Q's (AlgoExpert)
+(✔️) - Bubble Sort - https://www.algoexpert.io/questions/bubble-sort
+(✔️) - Insertion Sort - https://www.algoexpert.io/questions/insertion-sort
+(✔️) - Selection Sort - https://www.algoexpert.io/questions/selection-sort
+- Three Numbers Sort - 
+- Quick Sort - 
+- Heap Sort - 
+- Radix Sort - 
+- Merge Sort - 
+- Count Inversions -
