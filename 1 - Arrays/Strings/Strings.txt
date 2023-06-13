@@ -40,4 +40,30 @@ toUpperCase() - Converts a string to upper case letters - String
 trim() - Removes whitespace from both ends of a string - String
 valueOf() - Returns the string representation of the specified value - String
 
-6)
+public boolean containsSpecialCharacter(String s) {
+    return (s == null) ? false : s.matches("[^A-Za-z0-9 ]");
+}
+
+6) Character functions
+
+isAlphabetic() or isLetter() - char is letter or not
+isDigit() - char is digit or not
+isWhitespace() - char is whitespace or not
+isUpperCase() - char is upper case
+isLowerCase() - char is lower case
+toUpperCase() - char to upper case
+toLowerCase() - char to upper case
+toString() - char to String
+int compare​(char x, char y) - char compare
+toTitleCase​(char ch) - char to title case
+valueOf() - value of char
+
+Escape Sequence	Description
+\t	Insert a tab in the text at this point.
+\b	Insert a backspace in the text at this point.
+\n	Insert a newline in the text at this point.
+\r	Insert a carriage return in the text at this point.
+\f	Insert a formfeed in the text at this point.
+\’	Insert a single quote character in the text at this point.
+\”	Insert a double quote character in the text at this point.
+\\	Insert a backslash character in the text at this point.

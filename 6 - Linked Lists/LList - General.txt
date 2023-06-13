@@ -20,3 +20,25 @@ Conclusions:
 2) If you need to access an element by index often, an array might be a better choice 
 than a linked list.
 
+-----------------------------------------------------------------------------------------
+
+Other General Functions (Specific to LinkedList class):
+
+offer()
+ - offerFirst();
+ - offerLast();
+
+peek()
+ - peekfirst() 
+ - peeklast() 
+
+poll()
+ - pollFirst()
+ - pollLast()
+
+get()
+ - getFirst()
+ - getLast()
+
+indexOf()
+lastIndexOf()

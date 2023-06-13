@@ -34,6 +34,8 @@ class StringBuilder_exp {
 4) char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray(); //Simple Way to Create Char Array
    char[] number = "0123456789".toCharArray(); 
 
+Note: setLength(0) - way to clear String Builder, no clear() function 
+
 5) String Functions:
 charAt()	- Returns the character at the specified index (position) - char
 compareTo() - Compares two strings lexicographically - int
@@ -65,3 +67,4 @@ toUpperCase() - Converts a string to upper case letters - String
 trim() - Removes whitespace from both ends of a string - String
 valueOf() - Returns the string representation of the specified value - String
  */
+

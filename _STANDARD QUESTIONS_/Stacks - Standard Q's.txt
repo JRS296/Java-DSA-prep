@@ -9,7 +9,7 @@ ALE + leetcode
  - Sunset Views (ALE)
  - Best Digits (ALE)
  - Sort Stack (ALE)
- - Next Greater Element (ALE)
+(✔️) - Next Greater Element (ALE) - https://www.algoexpert.io/questions/next-greater-element
  - Colliding Asteroids (ALE)
  - Shorten Path (ALE)
  - Largest Rectangle Under SkyLine (ALE)

@@ -65,4 +65,41 @@ sort(originalArray, fromIndex, endIndex) - Sorts the specified range of array in
 spliterator(originalArray) - Returns a Spliterator covering all of the specified Arrays.
 spliterator(originalArray, fromIndex, endIndex) - Returns a Spliterator of the type of the array covering the specified range of the specified arrays.
 stream(originalArray) - Returns a sequential stream with the specified array as its source.
-toString(originalArray) - It returns a string representation of the contents of this array. The string representation consists of a list of the array’s elements, enclosed in square brackets (“[]”). Adjacent elements are separated by the characters a comma followed by a space. Elements are converted to strings as by String.valueOf() function.
+toString(originalArray) - It returns a string representation of the contents of this array. 
+The string representation consists of a list of the array’s elements, enclosed in square 
+brackets (“[]”). Adjacent elements are separated by the characters a comma followed by a 
+space. Elements are converted to strings as by String.valueOf() function.
+
+--------------------------------------------------------------------------------------------------
+
+Array Copying:
+Remember: int array[] = { 1, 2, 3, 4, 5 };
+          int[] copy = Arrays.copyOf(array, 5);
+
+// Input array a[]
+        int a[] = { 1, 8, 3 };
+  
+        // Copying elements of a[] to b[]
+        int b[] = a.clone();
+
+        // Create an array b[] of same size as a[]
+        int b[] = new int[a.length];
+        // Copying elements of a[] to b[]
+        for (int i = 0; i < a.length; i++)
+            b[i] = a[i];
+
+        int b[] = new int[a.length];
+        // Doesn't copy elements of a[] to b[],
+        // only makes b refer to same location
+        b = a;
+
+        // Copying elements of a[] to b[]
+        System.arraycopy(a, 0, b, 0, 3);
+
+        // Create an array b[] of same size as a[]
+        // Copy elements of a[] to b[]
+        int b[] = Arrays.copyOf(a, 3);
+
+        // Creating an array b[] and
+        // copying elements of a[] to b[]
+        int b[] = Arrays.copyOfRange(a, 2, 6);

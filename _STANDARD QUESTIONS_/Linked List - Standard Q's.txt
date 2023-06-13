@@ -1,8 +1,8 @@
 Leetcode:
- - Reverse Linked List (LC)/(ALE) - 
+(✔️)(PR) - Reverse Linked List (LC)/(ALE) - https://leetcode.com/problems/reverse-linked-list/ - https://www.algoexpert.io/questions/reverse-linked-list
  - Merge Two Sorted Lists (LC) - 
  - Reorder List (LC) - 
- - Remove Nth Node From End of List (LC) - 
+(✔️) - Remove Nth Node From End of List (LC)/(ALE) - https://leetcode.com/problems/remove-nth-node-from-end-of-list/ - https://www.algoexpert.io/questions/remove-kth-node-from-end
  - Copy List With Random Pointer (LC) - 
  - Add Two Numbers (LC) - 
  - Linked List Cycle / FindLoop (LC)/(ALE) - 	
@@ -13,7 +13,7 @@ Leetcode:
 
 (✔️) - Remove Duplicates from LinkedList (ALE) - https://www.algoexpert.io/questions/remove-duplicates-from-linked-list
 (✔️) - Middle Node (ALE) - https://www.algoexpert.io/questions/middle-node
- - Linked List Construction (ALE) - 
+(PR) - Linked List Construction (ALE) - 
  - Sum of LinkedLists (ALE) - 
  - Mergeing LinkedLists (ALE) -
  - Merge LinkedLists (ALE) -

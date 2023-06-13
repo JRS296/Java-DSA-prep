@@ -55,3 +55,26 @@ Types of Queues:
  LinkedList are not thread-safe. PriorityBlockingQueue is one alternative implementation if thread-safe implementation is needed.
 
 Application: BFS
+
+-----------------------------------------------------------------------------------------
+
+Other General Functions (Specific to LinkedList class):
+
+offer()
+ - offerFirst();
+ - offerLast();
+
+peek()
+ - peekfirst() 
+ - peeklast() 
+
+poll()
+ - pollFirst()
+ - pollLast()
+
+get()
+ - getFirst()
+ - getLast()
+
+indexOf()
+lastIndexOf()
