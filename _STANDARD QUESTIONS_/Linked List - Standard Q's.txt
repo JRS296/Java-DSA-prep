@@ -13,7 +13,7 @@ Leetcode:
 
 (✔️) - Remove Duplicates from LinkedList (ALE) - https://www.algoexpert.io/questions/remove-duplicates-from-linked-list
 (✔️) - Middle Node (ALE) - https://www.algoexpert.io/questions/middle-node
-(PR) - Linked List Construction (ALE) - 
+(✔️)(PR) - Linked List Construction (ALE) - https://www.algoexpert.io/questions/linked-list-construction
  - Sum of LinkedLists (ALE) - 
  - Mergeing LinkedLists (ALE) -
  - Merge LinkedLists (ALE) -

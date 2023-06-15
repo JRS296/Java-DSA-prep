@@ -15,7 +15,7 @@ SORTING (Algos)
 (✔️)(PR) - Bubble Sort 
 (✔️)(PR) - Insertion Sort 
 (✔️)(PR) - Selection Sort 
-- Three Numbers Sort 
+(✔️)(PR)- Three Numbers Sort 
 (✔️)(PR) - Quick Sort 
 - Heap Sort 
 - Radix Sort 
@@ -26,7 +26,7 @@ Q's (AlgoExpert)
 (✔️) - Bubble Sort - https://www.algoexpert.io/questions/bubble-sort
 (✔️) - Insertion Sort - https://www.algoexpert.io/questions/insertion-sort
 (✔️) - Selection Sort - https://www.algoexpert.io/questions/selection-sort
-- Three Numbers Sort - 
+(✔️) - Three Numbers Sort - https://www.algoexpert.io/questions/three-number-sort
 (✔️) - Quick Sort - https://www.algoexpert.io/questions/quick-sort
 - Heap Sort - 
 - Radix Sort - 

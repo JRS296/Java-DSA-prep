@@ -1,16 +1,16 @@
 1. Fibonacci Numbers 
-    - Climbing stairs - (DONE) - https://leetcode.com/problems/climbing-stairs/?envType=study-plan-v2&id=dynamic-programming
-    - House Robber - (DONE) -https://leetcode.com/problems/house-robber/?envType=study-plan-v2&id=dynamic-programming
-    - Fibonacci Numbers - (DONE) -https://leetcode.com/problems/fibonacci-number/?envType=study-plan-v2&id=dynamic-programming
+(✔️) - Climbing stairs - https://leetcode.com/problems/climbing-stairs/?envType=study-plan-v2&id=dynamic-programming
+(✔️)(PR) - House Robber - https://leetcode.com/problems/house-robber/?envType=study-plan-v2&id=dynamic-programming
+(✔️)(PR) - Fibonacci Numbers - (DONE) -https://leetcode.com/problems/fibonacci-number/?envType=study-plan-v2&id=dynamic-programming
 
 2. 0/1 Knapsack 
     - Generic - 
-    - Parition Equal Subset Problem - https://leetcode.com/problems/partition-equal-subset-sum/
-    - Target Sum - https://leetcode.com/problems/target-sum/description/
+(✔️)(PR) - Parition Equal Subset Problem - https://leetcode.com/problems/partition-equal-subset-sum/
+(✔️)(PR) - Target Sum - https://leetcode.com/problems/target-sum/description/
 
 3. Unbounded Knapsack
-    - Coin Change - https://leetcode.com/problems/coin-change/
-    - Coin Change 2 - https://leetcode.com/problems/coin-change-ii/
+(✔️)(PR) - Coin Change - https://leetcode.com/problems/coin-change/
+(✔️)(PR) - Coin Change 2 - https://leetcode.com/problems/coin-change-ii/
     - Min Cost for Tickets - 
 
 4. Longest Common Subsequence

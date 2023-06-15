@@ -1,4 +1,4 @@
-public class DutchFlagAlgorithm {
+class DutchFlagAlgorithm {
     public int[] dutchFlagAlgorithm(int[] inputArray, int size) {
         int start = 0;
         int p = 0;
@@ -45,3 +45,29 @@ The start will denote the first index of the middle element i.e 0 over here. The
 
 The loop will run while the P is not equal to End. As the P traverses, if P encounters 2, it will swap it with start and increment the start. Similarly, if P encounters 1, it will swap it with end and decrement end. 
  */
+
+ //Sort based on order
+ class example2 {
+    public int[] threeNumberSort(int[] inputArray, int[] order) {
+        int i = -1;
+        int j = 0;
+        int k = inputArray.length;
+
+        while (j < k) {
+            if(inputArray[j] == order[0] && i!=j) {
+                i++;
+                swap(inputArray[i], inputArray[j]);
+            } else if (inputArray[j] == order[2] && k!= j) {
+                k--;
+                swap(inputArray[k], inputArray[j]);
+            } else j++;
+        }
+        return inputArray;
+    }
+
+    public void swap(int x, int y) {
+        int temp = x;
+        x = y;
+        y = temp;
+    }
+ }
