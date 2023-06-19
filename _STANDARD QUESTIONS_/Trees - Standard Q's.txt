@@ -5,8 +5,8 @@ NC - Leetcode
 (✔️)(PR) - Balanced Binary Tree - https://leetcode.com/problems/balanced-binary-tree/
 (✔️)(PR) - Same Tree	- https://leetcode.com/problems/same-tree/
 (✔️)(PR) - Subtree of Another Tree - https://leetcode.com/problems/subtree-of-another-tree/description/
- - Lowest Common Ancestor of a Binary Search Tree	
- - Binary Tree Level Order Traversal	
+(✔️)(PR) - Lowest Common Ancestor of a Binary Search Tree	
+(✔️) - Binary Tree Level Order Traversal	
  - Binary Tree Right Side View	
  - Count Good Nodes In Binary Tree	
  - Validate Binary Search Tree	
@@ -29,8 +29,8 @@ BST's (AlgoExpert)
  - Right Smaller Than
 
 Binary Trees (AlgoExpert)
- - Branch Sums 
- - Node Depths 
+(✔️) - Branch Sums - https://www.algoexpert.io/questions/branch-sums
+(✔️) - Node Depths - https://www.algoexpert.io/questions/node-depths
  - Evaluate Expression Trees
  - Invert Binary Tree - 
  - Binary Tree Diamenter
@@ -53,7 +53,7 @@ Tree Traversals
     - Postorder
     - Preorder 
  - BFS:
-    - Level Order
+   (✔️) - Level Order
 
 Tries (Leetcode + AlgoExpert) - See both ways to implement tries
 (✔️) - Suffix Trie Construction (ALE) - https://www.algoexpert.io/questions/suffix-trie-construction

@@ -25,8 +25,8 @@ class Solution2 {
 // Using Recursion
 class Solution {
     public List<Integer> inOrder(TreeNode root) {
-        List<Integer> pre = new LinkedList<Integer>();
-        preHelper(root, pre);
+            List<Integer> pre = new LinkedList<Integer>();
+            preHelper(root, pre);
         return pre;
     }
 

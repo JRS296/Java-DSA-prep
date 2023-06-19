@@ -5,7 +5,7 @@ Leetcode:
 (✔️) - Remove Nth Node From End of List (LC)/(ALE) - https://leetcode.com/problems/remove-nth-node-from-end-of-list/ - https://www.algoexpert.io/questions/remove-kth-node-from-end
  - Copy List With Random Pointer (LC) - 
  - Add Two Numbers (LC) - 
- - Linked List Cycle / FindLoop (LC)/(ALE) - 	
+(✔️) - Linked List Cycle / FindLoop (LC)/(ALE) -  - https://www.algoexpert.io/questions/find-loop
  - Find The Duplicate Number (LC) - 
  - LRU Cache (LC) - 
  - Merge K Sorted Lists (LC) - 	
