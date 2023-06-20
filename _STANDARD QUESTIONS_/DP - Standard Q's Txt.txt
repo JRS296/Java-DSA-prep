@@ -1,5 +1,6 @@
 1. Fibonacci Numbers 
 (✔️) - Climbing stairs - https://leetcode.com/problems/climbing-stairs/?envType=study-plan-v2&id=dynamic-programming
+(✔️)(PR) - Staircase Traversal - https://www.algoexpert.io/questions/staircase-traversal
 (✔️)(PR) - House Robber - https://leetcode.com/problems/house-robber/?envType=study-plan-v2&id=dynamic-programming
 (✔️)(PR) - Fibonacci Numbers - (DONE) -https://leetcode.com/problems/fibonacci-number/?envType=study-plan-v2&id=dynamic-programming
 
