@@ -1,0 +1,76 @@
+Deque deque_obj = new ArrayDeque ();
+Deque<String> numdeque = new ArrayDeque<> ();
+Deque<String> strDeque = new LinkedList<> ();
+
+add	boolean add(E e)	Adds given element e into the deque (at the tail) without violating capacity restrictions and returns true if success. Throws IllegalStateException if no space available in the deque.
+addFirst	void addFirst(E e)	Adds given element e to the front of the queue without violating capacity restrictions.
+addLast	void addLast(E e)	Adds element e to the last of the deque without violating capacity restrictions.
+contains	boolean contains(Object o)	Checks if the deque contains given element o. Returns true if yes.
+descendingIterator	Iterator < E > descendingIterator()	This method returns reverse order iterator for the deque.
+element	E element()	Returns the first element or head of the deque. Note that it does not delete the element.
+getFirst	E getFirst()	Retrieve the first element of the deque without removing it.
+getLast	E getLast()	Gets the last element of the deque without removing it.
+iterator	Iterator< E > iterator()	Returns a standard iterator over the elements of the deque.
+offer	boolean offer(E e)	Adds given element e to the deque (as a tail) without violating capacity restrictions. Returns true on success and false on failure.
+offerFirst	boolean offerFirst(E e)	Insert the given element e to the front of the deque without violating capacity restrictions.
+offerLast	boolean offerLast(E e)	Insert the given element e at the end of the deque without violating capacity restrictions.
+peek	E peek()	Returns head of the deque (first element) or null if a queue is empty. ** does not delete the head
+peekFirst	E peekFirst()	Returns the first element in the deque without deleting it. Returns null if the deque is empty.
+peekLast	E peekLast()	Retrieves the last element in the deque without removing it. Returns null if the deque is empty.
+poll	E poll()	Deletes and returns the head of the deque. Returns null if the deque is empty.
+pollFirst	E pollFirst()	Returns and removes the first element of the deque. Returns null if the deque is empty.
+pollLast	E pollLast()	Returns and removes the last element of the deque. Returns null if the deque is empty.
+pop	E pop()	Pop the element from the stack that is represented using deque.
+push	void push(E e)	Push given element e on to the stack represented using deque without violating the capacity restrictions. Returns true on success or IllegalStateException if no space is available on deque.
+remove	E remove()	Remove and return the head of the deque.
+remove	boolean remove(Object o)	Remove the first occurrence of the given element o from the deque.
+removeFirst	E removeFirst()	Remove and return the first element of the deque.
+removeFirstOccurrence	boolean removeFirstOccurrence(Object o)	Removes the first occurrence of the given element o from the deque.
+removeLast	E removeLast()	Retrieves and deletes the last element in the deque.
+removeLastOccurrence	boolean removeLastOccurrence(Object o)	Deletes the last occurrence of a given element o from the deque.
+size	int size()	Returns the size or number of elements in the deque.
+
+import java.util.*; 
+public class Main { 
+    public static void main(String[] args) { 
+        //Declare Deque object 
+        Deque<String> deque = new LinkedList<String>(); 
+        // add elements to the queue using various methods 
+        deque.add("One");           //add ()
+        deque.addFirst("Two");      //addFirst ()
+        deque.addLast("Three");     //addLast ()
+        deque.push("Four");         //push ()
+        deque.offer("Five");        //offer ()
+        deque.offerFirst("Six");    //offerFirst ()
+        deque.offerLast("Seven");   //offerLast ()
+        System.out.println("Initial Deque:");
+        System.out.print(deque + " "); 
+      
+       // Iterate using standard iterator
+        System.out.println("\n\nDeque contents using Standard Iterator:"); 
+        Iterator iterator = deque.iterator(); 
+        while (iterator.hasNext()) 
+            System.out.print(" " + iterator.next()); 
+        
+       // Iterate using Reverse order iterator 
+        Iterator reverse = deque.descendingIterator(); 
+        System.out.println("\n\nDeque contents using Reverse Iterator:"); 
+        while (reverse.hasNext()) 
+            System.out.print(" " + reverse.next()); 
+          
+        // Peek () method
+        System.out.println("\n\nDeque Peek:" + deque.peek()); 
+        System.out.println("\nDeque,After peek:" + deque); 
+        
+         // Pop () method 
+        System.out.println("\nDeque Pop:" + deque.pop()); 
+        System.out.println("\nDeque,After pop:" + deque); 
+   
+        // contains () method
+        System.out.println("\nDeque Contains Three: " +  deque.contains("Three")); 
+   
+        deque.removeFirst();        //removeFirst () 
+        deque.removeLast();         //removeLast ()
+        System.out.println("\nDeque, after removing "  + "first and last elements: " + deque); 
+   } 
+}
