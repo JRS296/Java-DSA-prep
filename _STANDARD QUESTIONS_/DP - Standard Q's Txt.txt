@@ -15,7 +15,7 @@
     - Min Cost for Tickets - 
 
 4. Longest Common Subsequence
-    - Longest Common Subsequence -
+(✔️)(PR) - Longest Common Subsequence - https://leetcode.com/problems/longest-common-subsequence/
     - Longest Increasing Subsequence -
     - Edit Distance -
     - Distinct Subsequence -

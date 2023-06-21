@@ -1,5 +1,7 @@
 Heap is a semi ordered tree, generally Binary
 
+Refer: https://leetcode.com/discuss/general-discussion/1127238/master-heap-by-solving-23-questions-in-4-patterns-category
+
 Max Heap - Each parents key is greater than children
 Min Heap - Each parents key is smaller than children
 
