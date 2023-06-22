@@ -96,4 +96,57 @@ class Solution2 { //Incorrect - just for backtracking reference
     }
 }
 
+//Solution for Numbers of LIS:
 
+class Solution3 {
+    public int findNumberOfLIS(int[] nums) {
+        int n = nums.length, res = 0, max_len = 0;
+        int[] len =  new int[n], cnt = new int[n];
+        for(int i = 0; i<n; i++){
+            len[i] = cnt[i] = 1;
+            for(int j = 0; j <i ; j++){
+                if(nums[i] > nums[j]){
+                    if(len[i] == len[j] + 1)cnt[i] += cnt[j];
+                    if(len[i] < len[j] + 1){
+                        len[i] = len[j] + 1;
+                        cnt[i] = cnt[j];
+                    }
+                }
+            }
+            
+            if(max_len == len[i])res += cnt[i];
+            if(max_len < len[i]){
+                max_len = len[i];
+                res = cnt[i];
+            }
+            // System.out.println(Arrays.toString(len));
+            // System.out.println(Arrays.toString(cnt) + " " + res);
+        }
+        return res;
+    }
+        // System.out.println(Arrays.toString(dp));
+}
+
+/*
+[1, 0, 0, 0, 0]
+[1, 0, 0, 0, 0] 1
+[1, 2, 0, 0, 0]
+[1, 1, 0, 0, 0] 1
+[1, 2, 3, 0, 0]
+[1, 1, 1, 0, 0] 1
+[1, 2, 3, 3, 0]
+[1, 1, 1, 1, 0] 2
+[1, 2, 3, 3, 4]
+[1, 1, 1, 1, 2] 2
+
+[1, 0, 0, 0, 0]
+[1, 0, 0, 0, 0] 1
+[1, 1, 0, 0, 0]
+[1, 1, 0, 0, 0] 2
+[1, 1, 1, 0, 0]
+[1, 1, 1, 0, 0] 3
+[1, 1, 1, 1, 0]
+[1, 1, 1, 1, 0] 4
+[1, 1, 1, 1, 1]
+[1, 1, 1, 1, 1] 5
+ */

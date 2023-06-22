@@ -16,15 +16,15 @@
 
 4. Longest Common Subsequence
 (✔️)(PR) - Longest Common Subsequence - https://leetcode.com/problems/longest-common-subsequence/
-    - Longest Increasing Subsequence -
+(✔️)(PR) - Longest Increasing Subsequence - https://leetcode.com/problems/number-of-longest-increasing-subsequence/description/
     - Edit Distance -
     - Distinct Subsequence -
     - Maximum Alternating numbers - 
 
 5. Palindromes
-    - Longest Palindormic Substring -
-    - Palindormic Substrings - 
-    - Longest Palindormic Subsequence - 
+(✔️)(PR) - Longest Palindormic Substring - https://leetcode.com/problems/longest-palindromic-substring/description/?envType=study-plan-v2&id=dynamic-programming
+(✔️)(PR) - Palindormic Substrings - https://leetcode.com/problems/palindromic-substrings/description/
+(✔️)(PR) - Longest Palindormic Subsequence - https://leetcode.com/problems/longest-palindromic-subsequence/description/
 
 6. DFS + memoization 
     - Longest Increasing Path in a Matrix
@@ -35,7 +35,10 @@
     - Partition to K Equal Sum Subsets
 
 8. State Machine
-    - Best Time to Buy & Sell Stock variations
+    - Best Time to Buy & Sell Stock 1 - 
+    - Best Time to Buy & Sell Stock 1 - 
+    - Best Time to Buy and Sell Stock with Cooldown - 
+    - Best Time to Buy and Sell Stock with Transaction Fee -
 
 Material:
  - https://leetcode.com/problems/house-robber/solutions/156523/from-good-to-great-how-to-approach-most-of-dp-problems/
