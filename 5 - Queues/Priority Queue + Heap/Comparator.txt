@@ -1,0 +1,4 @@
+Comparators - to handle way PriorityQueue arranges values
+
+PriorityQueue<CustomDemoClass> pq = new PriorityQueue<CustomDemoClass>((a,b) -> a.name.compareTo(b.name));
+PriorityQueue<CustomDemoClass> pq = new PriorityQueue<CustomDemoClass>((a,b) -> b.age - a.age);

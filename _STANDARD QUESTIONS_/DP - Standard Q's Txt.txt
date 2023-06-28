@@ -35,10 +35,10 @@
     - Partition to K Equal Sum Subsets
 
 8. State Machine
-    - Best Time to Buy & Sell Stock 1 - 
-    - Best Time to Buy & Sell Stock 1 - 
-    - Best Time to Buy and Sell Stock with Cooldown - 
-    - Best Time to Buy and Sell Stock with Transaction Fee -
+(✔️)(PR) - Best Time to Buy & Sell Stock 1 - https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+(✔️)(PR) - Best Time to Buy & Sell Stock 2 - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/ 
+(✔️)(PR) - Best Time to Buy and Sell Stock with Cooldown - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/
+(✔️)(PR) - Best Time to Buy and Sell Stock with Transaction Fee - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/description/
 
 Material:
  - https://leetcode.com/problems/house-robber/solutions/156523/from-good-to-great-how-to-approach-most-of-dp-problems/
