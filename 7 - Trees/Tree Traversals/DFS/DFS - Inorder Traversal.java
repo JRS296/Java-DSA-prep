@@ -30,7 +30,7 @@ class Solution {
         return pre;
     }
 
-    public void preHelper(TreeNode root, List<Integer> pre) {
+    public void inHelper(TreeNode root, List<Integer> pre) {
         if (root == null)
             return;
         preHelper(root.left, pre);
