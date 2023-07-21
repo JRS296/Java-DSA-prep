@@ -21,7 +21,6 @@ Step 2: Pick the smallest edge. Check if it forms a cycle with the spanning tree
 Step 3: Repeat step#2 until there are (V-1) edges in the spanning tree.
  */
 
-
 /*
 Advantages:
 Kruskal's algorithm is guaranteed to find the MST in a connected, weighted graph.
@@ -33,7 +32,6 @@ Prim’s algorithm relies on a priority queue, which can take up extra memory an
 The choice of starting node can affect the MST output, which may not be desirable in some applications.
  */
 
-
 // Java program for Kruskal's algorithm
 
 class KruskalsMST {
@@ -42,8 +40,7 @@ class KruskalsMST {
 	static class Edge {
 		int src, dest, weight;
 
-		public Edge(int src, int dest, int weight)
-		{
+		public Edge(int src, int dest, int weight) {
 			this.src = src;
 			this.dest = dest;
 			this.weight = weight;
@@ -54,27 +51,25 @@ class KruskalsMST {
 	static class Subset {
 		int parent, rank;
 
-		public Subset(int parent, int rank)
-		{
+		public Subset(int parent, int rank) {
 			this.parent = parent;
 			this.rank = rank;
 		}
 	}
 
 	// Starting point of program execution
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		int V = 4;
 		List<Edge> graphEdges = new ArrayList<Edge>(
-			List.of(new Edge(0, 1, 10), new Edge(0, 2, 6),
-					new Edge(0, 3, 5), new Edge(1, 3, 15),
-					new Edge(2, 3, 4)));
+				List.of(new Edge(0, 1, 10), new Edge(0, 2, 6),
+						new Edge(0, 3, 5), new Edge(1, 3, 15),
+						new Edge(2, 3, 4)));
 
 		// Sort the edges in non-decreasing order
 		// (increasing with repetition allowed)
 		graphEdges.sort(new Comparator<Edge>() {
-			@Override public int compare(Edge o1, Edge o2)
-			{
+			@Override
+			public int compare(Edge o1, Edge o2) {
 				return o1.weight - o2.weight;
 			}
 		});
@@ -83,8 +78,7 @@ class KruskalsMST {
 	}
 
 	// Function to find the MST
-	private static void kruskals(int V, List<Edge> edges)
-	{
+	private static void kruskals(int V, List<Edge> edges) {
 		int j = 0;
 		int noOfEdges = 0;
 
@@ -123,12 +117,12 @@ class KruskalsMST {
 		// Print the contents of result[] to display the
 		// built MST
 		System.out.println(
-			"Following are the edges of the constructed MST:");
+				"Following are the edges of the constructed MST:");
 		int minCost = 0;
 		for (int i = 0; i < noOfEdges; i++) {
 			System.out.println(results[i].src + " -- "
-							+ results[i].dest + " == "
-							+ results[i].weight);
+					+ results[i].dest + " == "
+					+ results[i].weight);
 			minCost += results[i].weight;
 		}
 		System.out.println("Total cost of MST: " + minCost);
@@ -136,42 +130,39 @@ class KruskalsMST {
 
 	// Function to unite two disjoint sets
 	private static void union(Subset[] subsets, int x,
-							int y)
-	{
+			int y) {
 		int rootX = findRoot(subsets, x);
 		int rootY = findRoot(subsets, y);
 
 		if (subsets[rootY].rank < subsets[rootX].rank) {
 			subsets[rootY].parent = rootX;
-		}
-		else if (subsets[rootX].rank
-				< subsets[rootY].rank) {
+		} else if (subsets[rootX].rank < subsets[rootY].rank) {
 			subsets[rootX].parent = rootY;
-		}
-		else {
+		} else {
 			subsets[rootY].parent = rootX;
 			subsets[rootX].rank++;
 		}
 	}
 
 	// Function to find parent of a set
-	private static int findRoot(Subset[] subsets, int i)
-	{
+	private static int findRoot(Subset[] subsets, int i) {
 		if (subsets[i].parent == i)
 			return subsets[i].parent;
 
-		subsets[i].parent
-			= findRoot(subsets, subsets[i].parent);
+		subsets[i].parent = findRoot(subsets, subsets[i].parent);
 		return subsets[i].parent;
 	}
 }
 
 /*
-Time Complexity: O(E * logE) or O(E * logV) 
-
-Sorting of edges takes O(E * logE) time. 
-After sorting, we iterate through all edges and apply the find-union algorithm. The find and union operations can take at most O(logV) time.
-So overall complexity is O(E * logE + E * logV) time. 
-The value of E can be at most O(V2), so O(logV) and O(logE) are the same. Therefore, the overall time complexity is O(E * logE) or O(E*logV)
-Auxiliary Space: O(V + E), where V is the number of vertices and E is the number of edges in the graph.
+ * Time Complexity: O(E * logE) or O(E * logV)
+ * 
+ * Sorting of edges takes O(E * logE) time.
+ * After sorting, we iterate through all edges and apply the find-union
+ * algorithm. The find and union operations can take at most O(logV) time.
+ * So overall complexity is O(E * logE + E * logV) time.
+ * The value of E can be at most O(V2), so O(logV) and O(logE) are the same.
+ * Therefore, the overall time complexity is O(E * logE) or O(E*logV)
+ * Auxiliary Space: O(V + E), where V is the number of vertices and E is the
+ * number of edges in the graph.
  */

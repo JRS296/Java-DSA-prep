@@ -21,7 +21,7 @@ class LRUCache {
     Map<Integer, ListNode> dic;
     ListNode head;
     ListNode tail;
-    
+
     public LRUCache(int capacity) {
         this.capacity = capacity;
         dic = new HashMap<>();
@@ -30,35 +30,35 @@ class LRUCache {
         head.next = tail;
         tail.prev = head;
     }
-    
+
     public int get(int key) {
         if (!dic.containsKey(key)) {
             return -1;
         }
-        
+
         ListNode node = dic.get(key);
         remove(node);
         add(node);
         return node.val;
     }
-    
+
     public void put(int key, int value) {
         if (dic.containsKey(key)) {
             ListNode oldNode = dic.get(key);
             remove(oldNode);
         }
-        
+
         ListNode node = new ListNode(key, value);
         dic.put(key, node);
         add(node);
-        
+
         if (dic.size() > capacity) {
             ListNode nodeToDelete = head.next;
             remove(nodeToDelete);
             dic.remove(nodeToDelete.key);
         }
     }
-    
+
     public void add(ListNode node) {
         ListNode previousEnd = tail.prev;
         previousEnd.next = node;
@@ -66,7 +66,7 @@ class LRUCache {
         node.next = tail;
         tail.prev = node;
     }
-    
+
     public void remove(ListNode node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
@@ -74,15 +74,15 @@ class LRUCache {
 }
 
 /**
-Runtime
-70 ms
-Beats
-49.60%
-Memory
-119.1 MB
-Beats
-51.32%
-
-TC - O(1)
-SC - O(n)
+ * Runtime
+ * 70 ms
+ * Beats
+ * 49.60%
+ * Memory
+ * 119.1 MB
+ * Beats
+ * 51.32%
+ * 
+ * TC - O(1)
+ * SC - O(n)
  */

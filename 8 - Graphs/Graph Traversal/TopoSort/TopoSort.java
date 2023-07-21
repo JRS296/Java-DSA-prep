@@ -5,26 +5,25 @@ import java.util.*;
 
 // This class represents a directed graph using adjacency
 // list representation
-class Graph
-{
+class Graph {
 	private int V; // No. of vertices
 	private LinkedList<Integer> adj[]; // Adjacency List
 
-	//Constructor
-	Graph(int v)
-	{
+	// Constructor
+	Graph(int v) {
 		V = v;
 		adj = new LinkedList[v];
-		for (int i=0; i<v; ++i)
+		for (int i = 0; i < v; ++i)
 			adj[i] = new LinkedList<>();
 	}
 
 	// Function to add an edge into the graph
-	void addEdge(int v,int w) { adj[v].add(w); }
+	void addEdge(int v, int w) {
+		adj[v].add(w);
+	}
 
 	// A recursive function used by topologicalSort
-	void topologicalSortUtil(int v, boolean visited[],Stack<Integer> stack)
-	{
+	void topologicalSortUtil(int v, boolean visited[], Stack<Integer> stack) {
 		// Mark the current node as visited.
 		visited[v] = true;
 		Integer i;
@@ -32,8 +31,7 @@ class Graph
 		// Recur for all the vertices adjacent to this
 		// vertex
 		Iterator<Integer> it = adj[v].iterator();
-		while (it.hasNext())
-		{
+		while (it.hasNext()) {
 			i = it.next();
 			if (!visited[i])
 				topologicalSortUtil(i, visited, stack);
@@ -45,8 +43,7 @@ class Graph
 
 	// The function to do Topological Sort. It uses
 	// recursive topologicalSortUtil()
-	void topologicalSort()
-	{
+	void topologicalSort() {
 		Stack<Integer> stack = new Stack<>();
 
 		// Mark all the vertices as not visited
@@ -62,13 +59,12 @@ class Graph
 				topologicalSortUtil(i, visited, stack);
 
 		// Print contents of stack
-		while (stack.empty()==false)
+		while (stack.empty() == false)
 			System.out.print(stack.pop() + " ");
 	}
 
 	// Driver method
-	public static void main(String args[])
-	{
+	public static void main(String args[]) {
 		// Create a graph given in the above diagram
 		Graph g = new Graph(6);
 		g.addEdge(5, 2);
@@ -79,9 +75,8 @@ class Graph
 		g.addEdge(3, 1);
 
 		System.out.println("Following is a Topological " +
-						"sort of the given graph");
+				"sort of the given graph");
 		g.topologicalSort();
 	}
 }
 // This code is contributed by Aakash Hasija
-

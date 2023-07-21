@@ -26,8 +26,7 @@ Step 1 - Prepare Pi/LPS (Prefix) Table
 // searching algorithm
 
 class KMP_String_Matching {
-	void KMPSearch(String pat, String txt)
-	{
+	void KMPSearch(String pat, String txt) {
 		int M = pat.length();
 		int N = txt.length();
 
@@ -48,7 +47,7 @@ class KMP_String_Matching {
 			}
 			if (j == M) {
 				System.out.println("Found pattern "
-								+ "at index " + (i - j));
+						+ "at index " + (i - j));
 				j = lps[j - 1];
 			}
 
@@ -65,8 +64,7 @@ class KMP_String_Matching {
 		}
 	}
 
-	void computeLPSArray(String pat, int M, int lps[])
-	{
+	void computeLPSArray(String pat, int M, int lps[]) {
 		// length of the previous longest prefix suffix
 		int len = 0;
 		int i = 1;
@@ -78,8 +76,7 @@ class KMP_String_Matching {
 				len++;
 				lps[i] = len;
 				i++;
-			}
-			else // (pat[i] != pat[len])
+			} else // (pat[i] != pat[len])
 			{
 				// This is tricky. Consider the example.
 				// AAACAAAA and i = 7. The idea is similar
@@ -89,8 +86,7 @@ class KMP_String_Matching {
 
 					// Also, note that we do not increment
 					// i here
-				}
-				else // if (len == 0)
+				} else // if (len == 0)
 				{
 					lps[i] = len;
 					i++;
@@ -100,8 +96,7 @@ class KMP_String_Matching {
 	}
 
 	// Driver code
-	public static void main(String args[])
-	{
+	public static void main(String args[]) {
 		String txt = "ABABDABACDABABCABAB";
 		String pat = "ABABCABAB";
 		new KMP_String_Matching().KMPSearch(pat, txt);

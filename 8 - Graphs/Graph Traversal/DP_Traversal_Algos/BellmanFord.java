@@ -20,9 +20,9 @@ Negative edge weights are found in various applications of graphs, hence the use
  cycle. In such a case, the Bellman–Ford algorithm can detect and report the negative cycle.
  */
 
- /*
+/*
 We have discussed Dijkstra’s algorithm for this problem. Dijkstra’s algorithm is a Greedy algorithm and the time complexity is O((V+E)LogV) (with the use of the Fibonacci heap). Dijkstra doesn’t work for Graphs with negative weights, Bellman-Ford works for such graphs. Bellman-Ford is also simpler than Dijkstra and suites well for distributed systems. But time complexity of Bellman-Ford is O(V * E), which is more than Dijkstra. 
-  */
+ */
 
 // A Java program for Bellman-Ford's single source shortest
 // path algorithm.
@@ -30,19 +30,21 @@ We have discussed Dijkstra’s algorithm for this problem. Dijkstra’s algorith
 // A class to represent a connected, directed and weighted
 // graph
 class Graph {
-	
+
 	// A class to represent a weighted edge in graph
 	class Edge {
 		int src, dest, weight;
-		Edge() { src = dest = weight = 0; }
+
+		Edge() {
+			src = dest = weight = 0;
+		}
 	};
 
 	int V, E;
 	Edge edge[];
 
 	// Creates a graph with V vertices and E edges
-	Graph(int v, int e)
-	{
+	Graph(int v, int e) {
 		V = v;
 		E = e;
 		edge = new Edge[e];
@@ -54,8 +56,7 @@ class Graph {
 	// src to all other vertices using Bellman-Ford
 	// algorithm. The function also detects negative weight
 	// cycle
-	void BellmanFord(Graph graph, int src)
-	{
+	void BellmanFord(Graph graph, int src) {
 		int V = graph.V, E = graph.E;
 		int dist[] = new int[V];
 
@@ -74,7 +75,7 @@ class Graph {
 				int v = graph.edge[j].dest;
 				int weight = graph.edge[j].weight;
 				if (dist[u] != Integer.MAX_VALUE
-					&& dist[u] + weight < dist[v])
+						&& dist[u] + weight < dist[v])
 					dist[v] = dist[u] + weight;
 			}
 		}
@@ -88,9 +89,9 @@ class Graph {
 			int v = graph.edge[j].dest;
 			int weight = graph.edge[j].weight;
 			if (dist[u] != Integer.MAX_VALUE
-				&& dist[u] + weight < dist[v]) {
+					&& dist[u] + weight < dist[v]) {
 				System.out.println(
-					"Graph contains negative weight cycle");
+						"Graph contains negative weight cycle");
 				return;
 			}
 		}
@@ -98,16 +99,14 @@ class Graph {
 	}
 
 	// A utility function used to print the solution
-	void printArr(int dist[], int V)
-	{
+	void printArr(int dist[], int V) {
 		System.out.println("Vertex Distance from Source");
 		for (int i = 0; i < V; ++i)
 			System.out.println(i + "\t\t" + dist[i]);
 	}
 
 	// Driver's code
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		int V = 5; // Number of vertices in graph
 		int E = 8; // Number of edges in graph
 
@@ -152,19 +151,25 @@ class Graph {
 		graph.edge[7].src = 4;
 		graph.edge[7].dest = 3;
 		graph.edge[7].weight = -3;
-		
+
 		// Function call
 		graph.BellmanFord(graph, 0);
 	}
 }
 
 /*
-Time Complexity:  O(V * E), where V is the number of vertices in the graph and E is the number of edges in the graph
-Auxiliary Space: O(E)
-
-Notes:
-
-Negative weights are found in various applications of graphs. For example, instead of paying the cost for a path, we may get some advantage if we follow the path.
-Bellman-Ford works better (better than Dijkstra’s) for distributed systems. Unlike Dijkstra’s where we need to find the minimum value of all vertices, in Bellman-Ford, edges are considered one by one.                                                                  
-Bellman-Ford does not work with an undirected graph with negative edges as it will be declared as a negative cycle.
+ * Time Complexity: O(V * E), where V is the number of vertices in the graph and
+ * E is the number of edges in the graph
+ * Auxiliary Space: O(E)
+ * 
+ * Notes:
+ * 
+ * Negative weights are found in various applications of graphs. For example,
+ * instead of paying the cost for a path, we may get some advantage if we follow
+ * the path.
+ * Bellman-Ford works better (better than Dijkstra’s) for distributed systems.
+ * Unlike Dijkstra’s where we need to find the minimum value of all vertices, in
+ * Bellman-Ford, edges are considered one by one.
+ * Bellman-Ford does not work with an undirected graph with negative edges as it
+ * will be declared as a negative cycle.
  */

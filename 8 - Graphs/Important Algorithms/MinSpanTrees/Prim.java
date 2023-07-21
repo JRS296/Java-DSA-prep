@@ -47,7 +47,6 @@ Prim’s algorithm relies on a priority queue, which can take up extra memory an
 The choice of starting node can affect the MST output, which may not be desirable in some applications.
  */
 
-
 // A Java program for Prim's Minimum Spanning Tree (MST)
 // algorithm. The program is for adjacency matrix
 // representation of the graph
@@ -65,8 +64,7 @@ class MST {
 	// A utility function to find the vertex with minimum
 	// key value, from the set of vertices not yet included
 	// in MST
-	int minKey(int key[], Boolean mstSet[])
-	{
+	int minKey(int key[], Boolean mstSet[]) {
 		// Initialize min value
 		int min = Integer.MAX_VALUE, min_index = -1;
 
@@ -81,18 +79,16 @@ class MST {
 
 	// A utility function to print the constructed MST
 	// stored in parent[]
-	void printMST(int parent[], int graph[][])
-	{
+	void printMST(int parent[], int graph[][]) {
 		System.out.println("Edge \tWeight");
 		for (int i = 1; i < V; i++)
 			System.out.println(parent[i] + " - " + i + "\t"
-							+ graph[i][parent[i]]);
+					+ graph[i][parent[i]]);
 	}
 
 	// Function to construct and print MST for a graph
 	// represented using adjacency matrix representation
-	void primMST(int graph[][])
-	{
+	void primMST(int graph[][]) {
 		// Array to store constructed MST
 		int parent[] = new int[V];
 
@@ -113,13 +109,13 @@ class MST {
 		// Make key 0 so that this vertex is
 		// picked as first vertex
 		key[0] = 0;
-	
+
 		// First node is always root of MST
 		parent[0] = -1;
 
 		// The MST will have V vertices
 		for (int count = 0; count < V - 1; count++) {
-			
+
 			// Pick the minimum key vertex from the set of
 			// vertices not yet included in MST
 			int u = minKey(key, mstSet);
@@ -139,7 +135,7 @@ class MST {
 				// the key only if graph[u][v] is smaller
 				// than key[v]
 				if (graph[u][v] != 0 && mstSet[v] == false
-					&& graph[u][v] < key[v]) {
+						&& graph[u][v] < key[v]) {
 					parent[v] = u;
 					key[v] = graph[u][v];
 				}
@@ -149,14 +145,13 @@ class MST {
 		printMST(parent, graph);
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		MST t = new MST();
 		int graph[][] = new int[][] { { 0, 2, 0, 6, 0 },
-									{ 2, 0, 3, 8, 5 },
-									{ 0, 3, 0, 0, 7 },
-									{ 6, 8, 0, 0, 9 },
-									{ 0, 5, 7, 9, 0 } };
+				{ 2, 0, 3, 8, 5 },
+				{ 0, 3, 0, 0, 7 },
+				{ 6, 8, 0, 0, 9 },
+				{ 0, 5, 7, 9, 0 } };
 
 		// Print the solution
 		t.primMST(graph);
@@ -168,76 +163,69 @@ class MST {
 // representation of the graph
 
 /*
-Time Complexity: O(E*log(E)) where E is the number of edges
-Auxiliary Space: O(V^2) where V is the number of vertex
+ * Time Complexity: O(E*log(E)) where E is the number of edges
+ * Auxiliary Space: O(V^2) where V is the number of vertex
  */
 
 // Class to form pair
-class Pair implements Comparable<Pair>
-{
+class Pair implements Comparable<Pair> {
 	int v;
 	int wt;
-	Pair(int v,int wt)
-	{
-		this.v=v;
-		this.wt=wt;
+
+	Pair(int v, int wt) {
+		this.v = v;
+		this.wt = wt;
 	}
-	public int compareTo(Pair that)
-	{
-		return this.wt-that.wt;
+
+	public int compareTo(Pair that) {
+		return this.wt - that.wt;
 	}
 }
 
 class GFG {
 
-// Function of spanning tree
-static int spanningTree(int V, int E, int edges[][])
-	{
-		ArrayList<ArrayList<Pair>> adj=new ArrayList<>();
-		for(int i=0;i<V;i++)
-		{
+	// Function of spanning tree
+	static int spanningTree(int V, int E, int edges[][]) {
+		ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
+		for (int i = 0; i < V; i++) {
 			adj.add(new ArrayList<Pair>());
 		}
-		for(int i=0;i<edges.length;i++)
-		{
-			int u=edges[i][0];
-			int v=edges[i][1];
-			int wt=edges[i][2];
-			adj.get(u).add(new Pair(v,wt));
-			adj.get(v).add(new Pair(u,wt));
+		for (int i = 0; i < edges.length; i++) {
+			int u = edges[i][0];
+			int v = edges[i][1];
+			int wt = edges[i][2];
+			adj.get(u).add(new Pair(v, wt));
+			adj.get(v).add(new Pair(u, wt));
 		}
 		PriorityQueue<Pair> pq = new PriorityQueue<Pair>();
-		pq.add(new Pair(0,0));
-		int[] vis=new int[V];
-		int s=0;
-		while(!pq.isEmpty())
-		{
-			Pair node=pq.poll();
-			int v=node.v;
-			int wt=node.wt;
-			if(vis[v]==1)
-			continue;
-			
-			s+=wt;
-			vis[v]=1;
-			for(Pair it:adj.get(v))
-			{
-				if(vis[it.v]==0)
-				{
-					pq.add(new Pair(it.v,it.wt));
+		pq.add(new Pair(0, 0));
+		int[] vis = new int[V];
+		int s = 0;
+		while (!pq.isEmpty()) {
+			Pair node = pq.poll();
+			int v = node.v;
+			int wt = node.wt;
+			if (vis[v] == 1)
+				continue;
+
+			s += wt;
+			vis[v] = 1;
+			for (Pair it : adj.get(v)) {
+				if (vis[it.v] == 0) {
+					pq.add(new Pair(it.v, it.wt));
 				}
 			}
 		}
 		return s;
 	}
-	
+
 	// Driver code
-	public static void main (String[] args) {
-		int graph[][] = new int[][] {{0,1,5},
-									{1,2,3},
-									{0,2,1}};
+	public static void main(String[] args) {
+		int graph[][] = new int[][] { { 0, 1, 5 },
+				{ 1, 2, 3 },
+				{ 0, 2, 1 } };
 
 		// Function call
-		System.out.println(spanningTree(3,3,graph));
+		System.out.println(spanningTree(3, 3, graph));
 	}
 }
