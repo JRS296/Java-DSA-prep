@@ -28,7 +28,7 @@
 
 6. DFS + memoization 
     - Longest Increasing Path in a Matrix
-    - Path Sum III
+    - Path Sum III 
 
 7. Backtracking + memoization
     - Regex/Wildcard
